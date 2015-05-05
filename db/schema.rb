@@ -11,7 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150426185151) do
+ActiveRecord::Schema.define(version: 20150505050145) do
+
+  create_table "goal_ranges", force: true do |t|
+    t.integer  "goal_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "goal_ranges", ["goal_id"], name: "index_goal_ranges_on_goal_id"
+
+  create_table "goal_types", force: true do |t|
+    t.string   "description"
+    t.string   "unit_measured"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "goals", force: true do |t|
+    t.integer  "goal_type_id"
+    t.integer  "target"
+    t.integer  "current"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "goals", ["goal_type_id"], name: "index_goals_on_goal_type_id"
+  add_index "goals", ["user_id"], name: "index_goals_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

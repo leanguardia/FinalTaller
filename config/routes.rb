@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :goal_ranges
+
+  resources :goals
+
+  # resources :goal_types
+
   root  'static_pages#home'
   devise_for :users
 
