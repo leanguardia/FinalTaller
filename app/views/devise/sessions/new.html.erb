@@ -1,18 +1,20 @@
+<h3><b>Login</b>  </h3><br>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="container">
+  <div class="container" >
     
-        <form role="form">
+        <form role="form" >
             <div class="col-lg-6">
                 <div class="well well-sm"><strong><span class="glyphicon glyphicon-asterisk"></span> Required Field</strong></div>  
+
                  <div class="form-group">
-                      <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                      <%= f.label :email %><br />
+                                      
+                      <%= f.label :email %>
+                      
                       <div class="input-group">
                         <%= f.email_field :email, autofocus: true, :class => 'form-control' %>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
-                      </div>
-                    
+                      </div>                    
                   </div>
 
                   <div class="form-group">
@@ -27,31 +29,24 @@
 
                   <% if devise_mapping.rememberable? -%>
                     <div class="form-group">                    
-                        <%= f.check_box :remember_me %>
-                        <div class="input-group">
-                          <%= f.label :remember_me %>                                             
-                        </div>                    
+                        <%= f.label :remember_me %>
+                        <%= f.check_box :remember_me %>                        
                     </div>
                   <% end -%>                
                 
-                <div class="actions" align="right">
-                  
-                
-                  <%= f.submit "Log in", :class => 'btn btn-success' %>
-                  
-                  <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-                    <%= link_to "Sign up", new_registration_path(resource_name) , :class => 'btn btn-primary'%><br />
-                  <% end -%>
+                <div class="actions" >
+                  <div align="right">
+                    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                      <%= link_to "Forgot your password?", new_password_path(resource_name), :class => 'btn btn-warning' %>
+                    <% end -%>
 
-                <div align="left">
-                  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-                    <%= link_to "Forgot your password?", new_password_path(resource_name), :class => 'btn btn-warning' %>
-                  <% end -%>
-                  </div>
-                   
-                </div>
-               
-                
+                    <%= f.submit "Log in", :class => 'btn btn-success' %>
+                  
+                    <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+                      <%= link_to "Sign up", new_registration_path(resource_name) , :class => 'btn btn-primary'%>
+                    <% end -%>
+                  </div>                
+                </div>                               
               </div>
         </form>
        <!-- <div class="col-lg-5 col-md-push-1">
