@@ -15,5 +15,7 @@
 /log/*.log
 /tmp
 
-#Ignore webstorm config
-/.idea
+#Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
+*.iml
+.idea
+.idea/
