@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :bands
+
+  resources :band_types
+
   resources :goal_ranges
 
   resources :goals

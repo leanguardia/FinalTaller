@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150509002916) do
+ActiveRecord::Schema.define(version: 20150510193117) do
+
+  create_table "band_types", force: true do |t|
+    t.string   "model"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bands", force: true do |t|
+    t.string   "color"
+    t.integer  "user_id"
+    t.integer  "Band_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bands", ["Band_type_id"], name: "index_bands_on_Band_type_id"
+  add_index "bands", ["user_id"], name: "index_bands_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
