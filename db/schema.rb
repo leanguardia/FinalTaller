@@ -12,6 +12,10 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
+
+
+
+
 ActiveRecord::Schema.define(version: 20150510193117) do
 
   create_table "band_types", force: true do |t|
