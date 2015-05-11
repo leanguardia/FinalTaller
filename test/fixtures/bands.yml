@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  color: MyString
+  user_id: 
+  Band_type_id: 
+
+two:
+  color: MyString
+  user_id: 
+  Band_type_id: 

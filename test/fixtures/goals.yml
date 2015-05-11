@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_date: 2015-05-09 10:51:04
+  end_date: 2015-05-09 10:51:04
+  target: 1.5
+  reached: 1.5
+  goal_type_id: 
+  user_id: 
+
+two:
+  start_date: 2015-05-09 10:51:04
+  end_date: 2015-05-09 10:51:04
+  target: 1.5
+  reached: 1.5
+  goal_type_id: 
+  user_id: 

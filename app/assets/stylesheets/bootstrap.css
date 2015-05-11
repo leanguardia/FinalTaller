@@ -6,9 +6,12 @@
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
-  font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
+        height:100%;
+   /* background:center no-repeat fixed url('https://.jpg');*/
+    background-size: cover;
+    color:#EBFAFA;
 }
 body {
   margin: 0;
@@ -188,7 +191,7 @@ td,
 th {
   padding: 0;
 }
-/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
+
 @media print {
   *,
   *:before,
@@ -273,14 +276,12 @@ th {
 .glyphicon {
   position: relative;
   top: 1px;
-  display: inline-block;
+  display: none;
   font-family: 'Glyphicons Halflings';
   font-style: normal;
   font-weight: normal;
   line-height: 1;
 
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 .glyphicon-asterisk:before {
   content: "\2a";
@@ -4253,6 +4254,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding-top: 10px;
   padding-bottom: 10px;
   line-height: 20px;
+  color:#CCE0EB;
 }
 @media (max-width: 767px) {
   .navbar-nav .open .dropdown-menu {
@@ -6191,8 +6193,6 @@ button.close {
   background-repeat: repeat-x;
 }
 .carousel-control.right {
-  right: 0;
-  left: auto;
   background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .0001) 0%, rgba(0, 0, 0, .5) 100%);
   background-image:      -o-linear-gradient(left, rgba(0, 0, 0, .0001) 0%, rgba(0, 0, 0, .5) 100%);
   background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .0001)), to(rgba(0, 0, 0, .5)));

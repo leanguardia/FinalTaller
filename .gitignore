@@ -15,5 +15,5 @@
 /log/*.log
 /tmp
 
-#Ignore webstorm config
-/.idea
+#rubymine config
+.idea/

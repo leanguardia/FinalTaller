@@ -1,0 +1,122 @@
+
+
+@media (min-width:768px) {
+    h1 {
+        font-size:68px;
+    }
+}
+
+a {
+    color:red;
+}
+
+a:hover {
+    color:green;
+}
+
+img.icon{
+	padding:0;
+	margin:0;
+	opacity: 0.5;
+	max-height: 50px;
+	max-width: 40px;
+	display:inline;
+}
+
+
+img.separator{
+	padding:0;
+	margin:0;
+	opacity: 0.5;
+	max-height: 100px;
+	text-align: center;
+}
+
+.btn,.well,.panel {
+    border-radius:0;
+}
+
+.btn-danger {
+    background-color:black;
+}
+
+.text-danger, a.text-danger {
+    color:red;
+}
+
+.btn-huge {
+    padding:17px 22px;
+    font-size:22px;
+}
+
+.lato {
+    font-family: 'Lato', sans-serif;
+}
+
+.bitter {
+    font-family: 'Bitter', serif;
+}
+
+.navbar-trans {  /*NavBar bg color*/
+  background-color:#33CCCC;
+  border-bottom: solid #0099CC 2px;
+}
+
+.navbar-trans .navbar-brand, .navbar-trans >.container-fluid .navbar-brand {
+    padding: 14px;
+    color:white; /*BINARYBAND*/
+    font-weight: bold;
+}
+
+.navbar-trans li>a:focus,.navbar-trans li.active {
+  background-color:#3385AD; /*boton activo*/
+  color:white; /*??*/
+}
+
+.navbar-trans li>a:hover {
+  background-color:#006699;
+  color:white; 
+  opacity:0.5;
+}
+
+.navbar-trans a{
+    color:#CCE0EB;
+   /* letter-spacing:1px;*/
+}
+
+.navbar-trans .form-control:focus {
+  border-color: #eee;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(100,100,100,0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(100,100,100,0.6);
+}
+
+
+@media (min-width:768px) {
+    .v-center {
+        height: 50%;
+        overflow: visible;
+        margin: auto;
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+    }
+}
+
+
+footer {
+  background-color:#3385AD;
+    color:white;
+    min-height:100px;
+    padding-top:20px;
+    padding-bottom:40px;
+}
+
+footer .nav>li>a {
+    padding: 3px;
+    color: #CCE0EB;
+}
+
+footer .nav>li>a:hover {
+   background-color:transparent;
+  color:white;
+}
