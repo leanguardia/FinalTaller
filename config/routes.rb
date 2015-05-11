@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :goals
+
+  resources :goal_types
+
   resources :goal_ranges
 
   resources :goals
