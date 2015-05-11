@@ -29,18 +29,23 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                   <ul class="nav navbar-nav navbar-rigth">
+
                     <% if current_user %>
                     <li><a href="/users/edit">Edit User &nbsp; <img class="icon" src="/Images/Icons/user.png"></a></li>
                     <li><a href="/show_users/show/<%=current_user.id%>">Show Profile</a></li>
                     <li>&nbsp;</li>
                     <% end %>
                     <% if !current_user %>
+
                     <li><a href="/users/sign_in">Sign in &nbsp;<img class="icon" src="/Images/Icons/login.png"></a></li>
+                  <%end%>
                     <li>&nbsp;</li>
-                    <% end %>
+
                     <% if current_user %>
                     <li><a href="/users/sign_out">Log out</a></li>
                     <% end %>
+
+
                   </ul>
                 </li>
             </ul>
@@ -85,36 +90,37 @@
                   <ul class="dropdown-menu">
                     <li><a href="/users/edit">Edit Profile</a></li>
                     <li><a href="/show_users/show/<%=current_user.id%>">Show Profile</a></li>
-                    <!--<li><a href="/users/sign_in">Register</a></li>-->
+                    <li><a href="/users/sign_in">Register</a></li>
                     <li><a href="/users/sign_out">Log out</a></li>
                   </ul>
                 </li>
               </ul>
-<<<<<<< HEAD
+
             </div>
-  </div>--> 
-=======
+  </div>
+
               <%else%>
                 <ul class="nav navbar-nav navbar-right">
                   <li><a href="/users/sign_in">Register</a></li>
                 </ul>
-              <%end%>
-            </div><!-- /.nav-collapse -->
-  </div><!-- /.navbar -->
->>>>>>> 22b6307401def9cd94480c11b731631efa70835a
+              <%end%>-->
+            <!--</div> /.nav-collapse -->
+  <!--</div> /.navbar -->
+
   
     
+  
+
+
+
+<div class="container">      
+  <br><br><br><br>
   <% if notice %>
     <p class="alert alert-success"><%= notice %></p>
   <% end %>
   <% if alert %>
     <p class="alert alert-danger"><%= alert %></p>
   <% end %>
-
-
-
-<div class="container">      
-  <br><br><br><br>
   <%= yield %>
 </div>
 
