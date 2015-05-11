@@ -7,13 +7,13 @@
 
 <p>
   <strong>User:</strong>
-  <%= @band.user %>
+  <%= current_user.name %>
 </p>
 
-<p>
-  <strong>Band type:</strong>
+<!--<p>
+  <strong>Model:</strong>
   <%= @band.Band_type %>
 </p>
-
+-->
 <%= link_to 'Edit', edit_band_path(@band) %> |
 <%= link_to 'Back', bands_path %>
