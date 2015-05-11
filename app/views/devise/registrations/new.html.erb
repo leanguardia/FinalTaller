@@ -6,6 +6,7 @@
     <form role="form" >
       <div class="col-lg-6">
         <div class="well well-sm"><strong><span class="glyphicon glyphicon-asterisk"></span> Required Field</strong></div>  
+        
         <div class="form-group">
           <%= f.label :name %>
           <div class="input-group">
@@ -25,7 +26,7 @@
         <div class="form-group">
           <%= f.label :sex %>
           <div class="input-group">
-            <%= f.select :sex, options_for_select([["Female", "Female"], ["Male", "Male"]], :class => 'form-control')%>
+            <%= f.select :sex, options_for_select([["Female", "Female"], ["Male", "Male"]]), :class => 'form-control'%>
               <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
           </div>
         </div>
