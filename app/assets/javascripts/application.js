@@ -14,3 +14,6 @@
 //= require jquery_ujs
 //= require_tree .
 //= require bootstrap.min
+//= //require lib/app.js
+//= //require lib/dashboard
+//= **require lib/dashboard2

@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
-  resources :bands
-
-  resources :band_types
-
-  resources :goal_ranges
 
   resources :goals
 
   # resources :goal_types
+
+  resources :bands
+
+  resources :band_types
 
   root  'static_pages#home'
   get 'show_users/show/:id' => 'show_users#show'
