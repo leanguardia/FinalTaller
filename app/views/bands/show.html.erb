@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @band.color %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @band.user %>
+</p>
+
+<p>
+  <strong>Band type:</strong>
+  <%= @band.Band_type %>
+</p>
+
+<%= link_to 'Edit', edit_band_path(@band) %> |
+<%= link_to 'Back', bands_path %>

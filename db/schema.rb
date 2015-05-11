@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150509145104) do
+
+ActiveRecord::Schema.define(version: 20150510193117) do
+
+  create_table "band_types", force: true do |t|
+    t.string   "model"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bands", force: true do |t|
+    t.string   "color"
+    t.integer  "user_id"
+    t.integer  "Band_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bands", ["Band_type_id"], name: "index_bands_on_Band_type_id"
+  add_index "bands", ["user_id"], name: "index_bands_on_user_id"
 
   create_table "goal_types", force: true do |t|
     t.string   "typename"
@@ -47,6 +65,14 @@ ActiveRecord::Schema.define(version: 20150509145104) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.string   "lastname"
+    t.string   "sex"
+    t.float    "weight"
+    t.float    "height"
+    t.date     "birthdate"
+    t.string   "rol"
+    t.boolean  "active"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

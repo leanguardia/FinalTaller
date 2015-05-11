@@ -1,23 +1,26 @@
-<h2>Forgot your password?</h2>
+<h3><b>Forgot your password?</b></h3><br>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
-<div class="panel panel-info">
-  <div class="panel-heading"><center><h3><b></b></h3></center></div>
-    <div align="center" class="panel-body">
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-
- </div>
-  
-  </div>
+ <div class="container" >
+    <form role="form" >
+      <div class="col-lg-6">
+        <div class="well well-sm"><strong><span class="glyphicon glyphicon-asterisk"></span> Required Field</strong></div>  
+        <div class="form-group">
+          <%= f.label :email %>
+          <div class="input-group">
+            <%= f.email_field :email, autofocus: true, :class => 'form-control' %>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+          </div>
+        </div>
+        <div class="actions" align="right">
+          <%= f.submit "Send me reset password instructions" , :class => 'btn btn-success' %>
+          <%- if controller_name != 'sessions' %>
+            <%= link_to "Log in", new_session_path(resource_name) , :class => 'btn btn-primary' %>
+          <% end -%>
+        </div>
+      </div>        
+    </form>
   </div>
 <% end %>
 
