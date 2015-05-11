@@ -1,46 +1,114 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h3><b>Edit <%= resource_name.to_s.humanize %></b></h3><br>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
-  <div class="panel panel-info">
-  <div class="panel-heading"><center><h3><b></b></h3></center></div>
-    <div align="center" class="panel-body">
+<div class="container" >    
+  <form role="form" >
+    <div class="col-lg-6">
+      <div class="well well-sm"><strong><span class="glyphicon glyphicon-asterisk"></span> Required Field</strong></div>  
+        <div class="form-group">
+        <%= f.label :name %>
+        <div class="input-group">
+          <%= f.text_field :name, autofocus: true, :class => 'form-control',:maxlength => 25, :placeholder=>'Name' %>
+          <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+        </div>
+      </div>
 
+      <div class="form-group">
+        <%= f.label :last_name %>
+        <div class="input-group">
+          <%= f.text_field :lastname, autofocus: true, :class => 'form-control',:maxlength => 25, :placeholder=>'Last name'%>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+      <div class="form-group">
+        <%= f.label :sex %>
+        <div class="input-group">
+          <%= f.select :sex, options_for_select([["Female", "Female"], ["Male", "Male"]], :class => 'form-control')%>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+        </div>
+      </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+      <div class="form-group">
+        <%= f.label :weight %>
+        <div class="input-group">
+          <%= f.text_field :weight, autofocus: true, :class => 'form-control',:maxlength => 6, :placeholder=>'Ej: 70.12' %>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+      <div class="form-group">
+        <%= f.label :height %>
+        <div class="input-group">
+          <%= f.text_field :height, autofocus: true, :class => 'form-control',:maxlength => 6, :placeholder=>'Ej: 1.70' %>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+      <div class="form-group">
+        <%= f.label :birthdate %>
+        <div class="input-group">
+          <%= f.date_select :birthdate,:order => [:day, :month, :year], :start_year => 1950%>
+          <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+      <%= f.hidden_field :rol, :value => "Client" %>
+      
+      <%= f.hidden_field :active, :value => true %>
+      
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-  </div>
-  </div>
-  </div>
+      <div class="form-group">
+        <%= f.label :email %>
+        <div class="input-group">
+          <%= f.email_field :email, autofocus: true, :class => 'form-control',:maxlength => 25 %>
+          <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+        </div>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="form-group">
+        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
+        <div class="input-group">
+          <%= f.password_field :password, autocomplete: "off", :class => 'form-control',:maxlength => 25 %>
+          <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password_confirmation %>
+        <div class="input-group">
+          <%= f.password_field :password_confirmation, autocomplete: "off", :class => 'form-control',:maxlength => 25 %>
+          <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
+        <div class="input-group">
+          <%= f.password_field :current_password, autocomplete: "off", :class => 'form-control',:maxlength => 25 %>
+          <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+        </div>
+      </div>
+
+      <div class="actions" align="right">
+        <%= link_to "Back", :back , :class => 'btn btn-default'%>
+        <%= f.submit "Update", :class => 'btn btn-warning'%>
+      </div>
+    </div>  
+  </form>
+</div>
 <% end %>
 
+
+<!--
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>-->
 
-<%= link_to "Back", :back %>
+
+

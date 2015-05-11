@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :bands
+
+  resources :band_types
+
   resources :goal_ranges
 
   resources :goals
@@ -6,8 +10,13 @@ Rails.application.routes.draw do
   # resources :goal_types
 
   root  'static_pages#home'
-  devise_for :users
+  get 'show_users/show/:id' => 'show_users#show'
+  devise_for :users, :controllers => { registrations: 'registrations' }
 
+  #devise_for :users
+
+  #resources :bands
+  get 'bands/show/:id' => 'bands#show'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
