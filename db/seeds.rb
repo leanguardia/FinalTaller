@@ -20,3 +20,4 @@
 	test_user.rol = 'Client'
 	test_user.active = true
 	test_user.save!
+
