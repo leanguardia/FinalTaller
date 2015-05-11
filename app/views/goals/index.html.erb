@@ -1,35 +1,35 @@
-<h1>Listing goals</h1>
+<h1>Goals</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Target</th>
-      <th>Reached</th>
-      <th>Goal type</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<br><br><br>
 
-  <tbody>
-    <% @goals.each do |goal| %>
-      <tr>
-        <td><%= goal.start_date %></td>
-        <td><%= goal.end_date %></td>
-        <td><%= goal.target %></td>
-        <td><%= goal.reached %></td>
-        <td><%= goal.goal_type %></td>
-        <td><%= goal.user %></td>
-        <td><%= link_to 'Show', goal %></td>
-        <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
-        <td><%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @goals.each do |goal| %>
+    <div style="float: left; width: 400px;" class="info-box" id="<%= goal.id %>goal">
+      <div class="info-box-content">
+        <span class="info-box-text"><%= goal.goal_type.typename %></span>
+        <span class="info-box-number"><%= goal.reached.to_s + " " + goal.goal_type.unit_measured + " reached so far" %></span>
+        <!--<div class="progress">-->
+          <!--<div class="progress-bar" style="width: 65%"></div>-->
+        <!--</div>-->
+        <span class="progress-description">
+          Goal target: <%= goal.target.to_s + " " + goal.goal_type.unit_measured %>
+        </span>
+        <span><%= link_to ' Show ', goal, class: "show-goal" %>&nbsp;</span>
+        <span><%= link_to ' Destroy ', goal, method: :delete, class: "show-goal" %></span>
+      </div><!-- info-box-content -->
+    </div><!-- info-box -->
+    <div class="col-xs-1"></div>
+<% end %>
 
-<br>
+<br><br><br><br><br><br><br><br><br><br><br><br>
 
 <%= link_to 'New Goal', new_goal_path %>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+      var colorArray = ["red", "blue", "black", "purple", "yellow"];
+//      $(".info-box").addClass("bg-"+colorArray[Math.floor(Math.random() * 6)]);
+      $(".info-box").each(function () {
+          $(this).addClass("bg-"+colorArray[Math.floor(Math.random() * 5)]);
+      });
+  });
+</script>

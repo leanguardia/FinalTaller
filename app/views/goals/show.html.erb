@@ -1,34 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @goal.start_date %>
-</p>
+<h3>
+  <strong><%= @goal.goal_type.typename %></strong>
+</h3>
 
-<p>
-  <strong>End date:</strong>
-  <%= @goal.end_date %>
-</p>
+<h4>
+  <strong>Goal started at:</strong>
+  <p><%= @goal.start_date %></p>
+</h4>
 
-<p>
+<h4>
+  <strong>Goal ends at:</strong>
+  <p><%= @goal.end_date %></p>
+</h4>
+
+<h4>
   <strong>Target:</strong>
-  <%= @goal.target %>
-</p>
+  <p><%= @goal.target.to_s + " " + @goal.goal_type.unit_measured %></p>
+</h4>
 
-<p>
-  <strong>Reached:</strong>
-  <%= @goal.reached %>
-</p>
-
-<p>
-  <strong>Goal type:</strong>
-  <%= @goal.goal_type %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @goal.user %>
-</p>
+<h4>
+  <strong>Reached so far:</strong>
+  <p><%= @goal.reached.to_s + " " + @goal.goal_type.unit_measured %></p>
+</h4>
 
 <%= link_to 'Edit', edit_goal_path(@goal) %> |
 <%= link_to 'Back', goals_path %>

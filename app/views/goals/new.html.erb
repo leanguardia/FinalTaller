@@ -3,19 +3,20 @@
 <%= form_for(@goal) do |f| %>
 
     <div class="field">
+      <%= f.label :goal_type_id %><br>
+      <%= f.select :goal_type_id, @type %>
+    </div>
+
+    <div class="field">
       <%= f.label :end_date %><br>
-      <%= f.datetime_select :end_date %>
+      <%= f.select :end_date, @times %>
     </div>
 
     <div class="field">
       <%= f.label :target %><br>
-      <%= f.text_field :target %>
+      <%= f.number_field :target %>
     </div>
 
-    <div class="field">
-      <%= f.label :goal_type_id %><br>
-      <%= f.text_field :goal_type_id %>
-    </div>
 
     <div class="actions">
       <%= f.submit %>

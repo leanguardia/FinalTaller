@@ -4,7 +4,7 @@ class GoalsController < ApplicationController
   respond_to :html
 
   def index
-    @goals = Goal.all
+    @goals = User.find(current_user.id).goals
     respond_with(@goals)
   end
 
@@ -18,6 +18,15 @@ class GoalsController < ApplicationController
     GoalType.all.each do |x|
       @type << [x.typename, x.id]
     end
+
+    @times = Array.new
+    @times << ["1 day", 1]
+    @times << ["1 week", 2]
+    @times << ["1 month", 3]
+    @times << ["3 months", 4]
+    @times << ["6 months", 5]
+    @times << ["1 year", 6]
+
     respond_with(@goal)
   end
 
