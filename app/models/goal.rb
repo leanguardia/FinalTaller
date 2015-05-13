@@ -5,8 +5,8 @@ class Goal < ActiveRecord::Base
   before_create :set_values
 
 
-  validates :target, presence: {:message => "Usted debe ingresar el target"} 
-  validates :target, length: {minimum: 2, maximum: 4, :message => "El target debe tener minimo numeros"}
+  # validates :target, presence: {:message => "Usted debe ingresar el target"}
+  # validates :target, length: {minimum: 2, maximum: 4, :message => "El target debe tener minimo numeros"}
  
 
   def set_values
