@@ -40,3 +40,4 @@ gem 'tzinfo-data'
 
 #Devise xD!!
 gem 'devise'
+gem 'realtime-validations'

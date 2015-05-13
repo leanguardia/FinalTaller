@@ -15,5 +15,6 @@
 //= require_tree .
 //= require bootstrap.min
 //= //require lib/app.js
+//= require realtime_validations
 //= //require lib/dashboard
 //= **require lib/dashboard2

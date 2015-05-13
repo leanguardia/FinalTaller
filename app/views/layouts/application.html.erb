@@ -17,6 +17,7 @@
            <a class="navbar-brand" href="/"> Binary-Band</a> &nbsp;
         </div>
         <div class="navbar-collapse collapse" id="navbar-collapsible">
+          <% if current_user %>
             <ul class="nav navbar-nav navbar-left"> 
                 <li><a href="#section1">Band</a></li>
                 <li><a href="#section2">Workouts</a></li>
@@ -26,6 +27,7 @@
                 <li><a href="#section6">More</a></li>
                 <li>&nbsp;</li>
             </ul>
+            <% end %>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                   <ul class="nav navbar-nav navbar-rigth">

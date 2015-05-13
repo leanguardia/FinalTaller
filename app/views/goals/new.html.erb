@@ -1,6 +1,6 @@
 <h1>New goal</h1>
 
-<%= form_for(@goal) do |f| %>
+<%= form_validated_for(@goal) do |f| %>
 
     <div class="field">
       <%= f.label :goal_type_id %><br>
@@ -11,16 +11,16 @@
       <%= f.label :end_date %><br>
       <%= f.select :end_date, @times %>
     </div>
-
-    <div class="field">
-      <%= f.label :target %><br>
-      <%= f.number_field :target %>
+    
+    <div class="col-lg-6">
+      <%= f.label :target %>
+      <%= f.number_field :target, :class => 'form-control' %> 
     </div>
-
-
+    <br><br><br><br>
     <div class="actions">
       <%= f.submit %>
     </div>
+
 <% end %>
 
 

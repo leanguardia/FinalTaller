@@ -3,7 +3,12 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable
+
+  validates :name, presence: {:message => "Usted debe ingresar su nombre completo"}
+  validates :name, format: {:multiline => true, with: /^[a-zA-Z ]+$/, message: "Solo letras permitidas" }
+  validates :name, length: {minimum: 10, maximum: 45, :message => "El nombre de usuario debe tener entre 10 y 45 caracteres"}  
+
 
   after_create :create_goals
   def create_goals

@@ -15,6 +15,7 @@
  *= require bootstrap.min
  *= require lib/_all-skins
  *= require lib/AdminLTE
+ *= require realtime_validations
  */
 
 a.show-goal {
