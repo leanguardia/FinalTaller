@@ -38,5 +38,5 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data'
 
-gem 'devise'
+gem "bcrypt-ruby", :require => "bcrypt"
 gem 'realtime-validations'
