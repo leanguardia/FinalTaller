@@ -1,13 +1,6 @@
 <h1>New goal</h1>
 
-<style>
-    .form-control{
-      max-width: 500px;
-        display: inline;
-    }
-</style>
-
-<%= form_validated_for(@goal) do |f| %>
+<%= form_for(@goal) do |f| %>
 
     <div class="field">
       <%= f.label :goal_type_id %><br>
@@ -18,10 +11,10 @@
       <%= f.label "Repeat every" %><br>
       <%= f.select :interval, @times, {}, {class: 'form-control'}%>
     </div>
-    
-    <div class="field">
-      <%= f.label :target %><br>
-      <%= f.number_field(:target, class: 'form-control') %>
+
+    <div class="col-lg-6">
+      <%= f.label :target %>
+      <%= f.number_field :target, :class => 'form-control' , :id=> "project_name"%>
     </div>
     <br><br><br><br>
     <div class="actions">
@@ -31,3 +24,27 @@
 <% end %>
 
 <%= link_to 'Back', goals_path %>
+
+
+<script type="text/javascript">
+   function validate_project(){
+            var check = 0;
+            if($("#project_name").val() == '' || ($("#project_name").val() == null)){
+                $("#project_name_error").show();
+                $("#project_name_error").html("<font color='red' size='1'>Please enter a project name</font>");
+                return false;
+            }
+            if ($("#project_name").val() != ''){
+                $.get( "validate/"+$("#project_name").val(), function( data ) {
+                    $("#project_name_error").show();
+                    $("#project_name_error").html("<font color='red' size='1'>Name Already Exist</font>");          
+                    check = 1;
+                    return false;
+                });
+                alert("1st alert")
+                return false;
+            }
+            alert("2nd alert")
+            return true;
+        }
+</script>

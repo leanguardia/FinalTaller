@@ -14,7 +14,7 @@
 	test_user.name = 'Usuario'	
 	test_user.lastname = 'De Prueba'
 	test_user.email = 'user@gmail.com'
-	test_user.password = 'usertest'
+	test_user.password = 'usertest'x	
 	test_user.sex = 'Male'
 	test_user.weight = '70.5'
 	test_user.height = '1.70'
