@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     user = User.authenticate(params[:login], params[:password])
     if user
       session[:user_id] = user.id
-      flash[:success] = "Logged on"
+      flash[:success] = "Logged on succesfully"
       #redirect_to_target_or_default root_url, :notice => "Sesion Iniciada Correctamente."
       redirect_to '/bands/new'
     else
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    flash[:danger] = "You just closed session"
+    flash[:danger] = "Your session has been closed"
     redirect_to root_url
   end
 end

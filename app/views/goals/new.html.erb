@@ -4,17 +4,17 @@
 
     <div class="field">
       <%= f.label :goal_type_id %><br>
-      <%= f.select(:goal_type_id, @types, {}, {class: 'form-control'})%>
+      <%= f.select(:goal_type_id, @types, {}, {class: 'form-control goal-form-control'})%>
     </div>
 
     <div class="field">
       <%= f.label "Repeat every" %><br>
-      <%= f.select :interval, @times, {}, {class: 'form-control'}%>
+      <%= f.select :interval, @times, {}, {class: 'form-control goal-form-control'}%>
     </div>
 
-    <div class="col-lg-6">
+    <div class="field">
       <%= f.label :target %>
-      <%= f.number_field :target, :class => 'form-control' , :id=> "project_name"%>
+      <%= f.number_field :target, :class => 'form-control goal-form-control' , :id=> "project_name"%>
     </div>
     <br><br><br><br>
     <div class="actions">

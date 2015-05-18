@@ -41,7 +41,6 @@ gem 'tzinfo-data'
 
 #added by the team
 gem 'devise'
-gem 'realtime-validations'
 gem 'adminlte-rails'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'realtime-validations'

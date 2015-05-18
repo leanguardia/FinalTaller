@@ -14,12 +14,12 @@
 	test_user.name = 'Usuario'	
 	test_user.lastname = 'De Prueba'
 	test_user.email = 'user@gmail.com'
-	test_user.password = 'usertest'x	
+	test_user.password = '12345678'
 	test_user.sex = 'Male'
 	test_user.weight = '70.5'
 	test_user.height = '1.70'
 	test_user.birthdate = '10/10/1991'
-	test_user.rol = 'Client'
+	test_user.role = 'Client'
 	test_user.active = true
 	test_user.save!
 
@@ -51,7 +51,7 @@
 # test_user.weight = '75.5'
 # test_user.height = '1.60'
 # test_user.birthdate = '10/10/1991'
-# test_user.rol = 'Client'
+# test_user.role = 'Client'
 # test_user.active = true
 # test_user.save!
 #
@@ -64,7 +64,7 @@
 # test_user.weight = '76.5'
 # test_user.height = '1.65'
 # test_user.birthdate = '11/10/1951'
-# test_user.rol = 'Client'
+# test_user.role = 'Client'
 # test_user.active = true
 # test_user.save!
 #
@@ -77,7 +77,7 @@
 # test_user.weight = '77.5'
 # test_user.height = '1.75'
 # test_user.birthdate = '11/10/1991'
-# test_user.rol = 'Client'
+# test_user.role = 'Client'
 # test_user.active = true
 # test_user.save!
 #
@@ -90,7 +90,7 @@
 # test_user.weight = '77.5'
 # test_user.height = '1.75'
 # test_user.birthdate = '11/10/1951'
-# test_user.rol = 'Client'
+# test_user.role = 'Client'
 # test_user.active = true
 # test_user.save!
 #
@@ -104,7 +104,7 @@
 # test_user.weight = '105.5'
 # test_user.height = '1.60'
 # test_user.birthdate = '10/10/1991'
-# test_user.rol = 'Client'
+# test_user.role = 'Client'
 # test_user.active = true
 # test_user.save!
 #
@@ -117,7 +117,7 @@
 # test_user.weight = '50.5'
 # test_user.height = '1.65'
 # test_user.birthdate = '11/10/1951'
-# test_user.rol = 'Client'
+# test_user.role = 'Client'
 # test_user.active = true
 # test_user.save!
 #
@@ -130,7 +130,7 @@
 # test_user.weight = '40.5'
 # test_user.height = '1.65'
 # test_user.birthdate = '11/10/1951'
-# test_user.rol = 'Client'
+# test_user.role = 'Client'
 # test_user.active = true
 # test_user.save!
 #
@@ -143,7 +143,7 @@
 # test_user.weight = '157.5'
 # test_user.height = '1.75'
 # test_user.birthdate = '11/10/1991'
-# test_user.rol = 'Client'
+# test_user.role = 'Client'
 # test_user.active = true
 # test_user.save!
 #
@@ -156,7 +156,7 @@
 # test_user.weight = '50.5'
 # test_user.height = '1.75'
 # test_user.birthdate = '11/10/1951'
-# test_user.rol = 'Client'
+# test_user.role = 'Client'
 # test_user.active = true
 # test_user.save!
 #
@@ -169,6 +169,6 @@
 # test_user.weight = '50.5'
 # test_user.height = '1.75'
 # test_user.birthdate = '11/10/1951'
-# test_user.rol = 'Client'
+# test_user.role = 'Client'
 # test_user.active = true
 # test_user.save!

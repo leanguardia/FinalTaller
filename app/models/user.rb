@@ -8,26 +8,26 @@ class User < ActiveRecord::Base
  
   validates :name, presence: {:message => "You must enter a name"}
   validates :name, format: {:multiline => true, with: /^[a-zA-Z ]+$/, message: "Only  characters" }
-  validates :name, length: {minimum: 5, maximum: 25, :message => "Name must be at least 5 characters"}
+  validates :name, length: {minimum: 2, maximum: 25, :message => "Name must have at least 2 characters"}
   
   validates :lastname, presence: {:message => "You must enter a lastname"}
   validates :lastname, format: {:multiline => true, with: /^[a-zA-Z ]+$/, message: "Only  characters" }
-  validates :lastname, length: {minimum: 5, maximum: 25, :message => "LastName must be at least 5 characters"}
+  validates :lastname, length: {minimum: 2, maximum: 25, :message => "Last Name must have at least 2 characters"}
 
   validates :weight, presence: {:message => "You must enter a weight"}
   validates :weight, numericality: {greater_than: 0, message: "Only  numbers" }
-  validates :weight, length: {minimum: 4, maximum: 7, :message => "Weight must be at least 4 numbers"}
+  validates :weight, length: {minimum: 2, maximum: 7, :message => "Weight must have at least 2 numbers"}
 
   validates :height, presence: {:message => "You must enter a height"}
   validates :height, numericality: {greater_than: 0, message: "Only  numbers" }
-  validates :height, length: {minimum: 4, maximum: 7, :message => "Height must be at least 4 numbers"}
+  validates :height, length: {minimum: 3, maximum: 7, :message => "Height must have at least 3 numbers"}
 
   validates :email, presence: {:message => "You must enter a email"}
-  validates :email, format:{ :multiline => true, with: /EMAIL_REGEX_GOES_HERE/, message: "Invalid format"}
+  validates :email, format:{ :multiline => true, with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/, message: "Invalid mail format"}
 
   validates :password, presence: {:message => "You must enter a password"}
-  validates :password, length: {minimum: 6, :message => "Password must be at least 4 numbers"}
-  validates :password, confirmation: {:message => "Las contraseñas no coinciden"} 
+  validates :password, length: {minimum: 6, :message => "Password must have at least 6 characters"}
+  validates :password, confirmation: {:message => "Passwords don't match"}
 
 
   

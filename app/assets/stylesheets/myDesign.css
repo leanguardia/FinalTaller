@@ -136,3 +136,8 @@ a.show-goal {
 .goal-btn{
     min-width: 80px;
 }
+
+.goal-form-control{
+    max-width: 500px;
+    display: inline;
+}
