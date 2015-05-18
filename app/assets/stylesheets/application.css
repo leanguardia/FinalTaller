@@ -17,4 +17,7 @@
  *= require realtime_validations
  *= require bootstrap.min
  *= require myDesign
- */
+ *= require font-awesome
+ *= require ionicons
+ *= require admin-lte
+

@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+
+  
+  resources :users
+  resources :sessions
+
   resources :goals
 
   # resources :goal_types
@@ -9,8 +14,14 @@ Rails.application.routes.draw do
   resources :band_types
 
   root  'static_pages#home'
-  get 'show_users/show/:id' => 'show_users#show'
-  devise_for :users, :controllers => { registrations: 'registrations' }
+  get 'users/edit/:id' => 'users#edit', :as => :edit_current_user
+  get 'users/new' => 'users#new', :as => :signup
+  get 'logout' => 'sessions#destroy', :as => :logout
+  #get 'sessions/new' => 'sessions#new', :as => :login
+  get 'login' => 'sessions#new', :as => :login
+  #get 'show_users/show/:id' => 'show_users#show'
+  #get 'show_users/index' => 'show_users#index'
+  #devise_for :users, :controllers => { registrations: 'registrations' }
 
   #devise_for :users
 

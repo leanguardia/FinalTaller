@@ -2,7 +2,7 @@
 <html>
 <head>
 
-  <title>PROJECT</title>
+  <title>Binary-Band</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -32,11 +32,20 @@
                 <li>
                   <ul class="nav navbar-nav nav-pills">
                     <% if current_user %>
+<<<<<<< HEAD
                       <li><a href="/users/edit">Edit User &nbsp; <img class="icon" src="/Images/Icons/user.png"></a></li>
                       <li><a href="/show_users/show/<%=current_user.id%>">Show Profile</a></li>
                       <li>&nbsp;</li>
+=======
+                    <li><a href="/users/edit/<%=current_user.id%>">Edit User &nbsp; <img class="icon" src="/Images/Icons/user.png"></a></li>
+                    <li><a href="/users/<%=current_user.id%>">Show Profile</a></li>
+                    <li>&nbsp;</li>
+>>>>>>> 05f4a730d1734ffc7e4f54a0d71d765d8b8dee24
                     <% end %>
+
+                    
                     <% if !current_user %>
+<<<<<<< HEAD
                       <li><a href="/users/sign_in">Sign in &nbsp;<img class="icon" src="/Images/Icons/login.png"></a></li>
                       <li><a href="/users/sign_up">Sign up &nbsp;<img class="icon" src="/Images/Icons/signup.png"></a></li>
                     <%end%>
@@ -45,6 +54,17 @@
                     <% if current_user %>
                      <li><a href="/users/sign_out">Log out</a></li>
                     <% end %>
+=======
+                    <li><a href="<%=login_path%>">Sign in &nbsp;<img class="icon" src="/Images/Icons/login.png"></a></li>
+                    <li><a href="/users/new">Sign up &nbsp;<img class="icon" src="/Images/Icons/login.png"></a></li>
+                    <%end%>
+                    <li>&nbsp;</li>
+
+                    <% if current_user%>
+                    <li><a href="<%=logout_path%>">Log out</a></li>
+                    <% end %>
+
+>>>>>>> 05f4a730d1734ffc7e4f54a0d71d765d8b8dee24
                   </ul>
                 </li>
             </ul>
@@ -109,16 +129,14 @@
 <!--Content-->
 <br><br><br><br>
 
-  <% if notice %>
-    <p class="alert alert-success"><%= notice %></p>
-    <br><br>
-  <% end %>
-  <% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
-    <br><br>
-  <% end %>
-
+<div class="container">    
+    <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+        <br><br>
+    <% end %>
+</div>
   <%= yield %>
+
 
 
 <!--Footer-->
