@@ -13,12 +13,12 @@
 <nav class="navbar navbar-trans navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
-          <img class="icon" src="/Images/logo.png">
-           <a class="navbar-brand" href="/"> Binary-Band</a> &nbsp;
+          <a href="/"><img class="navbar-brand" src="/Images/logo.png"></a>
+          <a class="navbar-brand" href="/">Binary-Band</a>
         </div>
-        <div class="navbar-collapse collapse" id="navbar-collapsible">
+        <div class="navbar-collapse collapse">
           <% if current_user %>
-            <ul class="nav navbar-nav navbar-left"> 
+            <ul class="nav navbar-nav navbar-left nav-pills"> 
                 <li><a href="#section1">Band</a></li>
                 <li><a href="#section2">Workouts</a></li>
                 <li><a href="/goals">Goals</a></li>
@@ -29,25 +29,22 @@
             </ul>
             <% end %>
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                  <ul class="nav navbar-nav navbar-rigth">
-
+                <li>
+                  <ul class="nav navbar-nav nav-pills">
                     <% if current_user %>
-                    <li><a href="/users/edit">Edit User &nbsp; <img class="icon" src="/Images/Icons/user.png"></a></li>
-                    <li><a href="/show_users/show/<%=current_user.id%>">Show Profile</a></li>
-                    <li>&nbsp;</li>
+                      <li><a href="/users/edit">Edit User &nbsp; <img class="icon" src="/Images/Icons/user.png"></a></li>
+                      <li><a href="/show_users/show/<%=current_user.id%>">Show Profile</a></li>
+                      <li>&nbsp;</li>
                     <% end %>
                     <% if !current_user %>
-                    <li><a href="/users/sign_in">Sign in &nbsp;<img class="icon" src="/Images/Icons/login.png"></a></li>
-                    <li><a href="/users/sign_up">Sign up &nbsp;<img class="icon" src="/Images/Icons/login.png"></a></li>
+                      <li><a href="/users/sign_in">Sign in &nbsp;<img class="icon" src="/Images/Icons/login.png"></a></li>
+                      <li><a href="/users/sign_up">Sign up &nbsp;<img class="icon" src="/Images/Icons/signup.png"></a></li>
                     <%end%>
                     <li>&nbsp;</li>
 
                     <% if current_user %>
-                    <li><a href="/users/sign_out">Log out</a></li>
+                     <li><a href="/users/sign_out">Log out</a></li>
                     <% end %>
-
-
                   </ul>
                 </li>
             </ul>
@@ -109,24 +106,22 @@
             <!--</div> /.nav-collapse -->
   <!--</div> /.navbar -->
 
-  
-    
-  
+<!--Content-->
+<br><br><br><br>
 
-
-
-<div class="container">      
-  <br><br><br><br>
   <% if notice %>
     <p class="alert alert-success"><%= notice %></p>
+    <br><br>
   <% end %>
   <% if alert %>
     <p class="alert alert-danger"><%= alert %></p>
+    <br><br>
   <% end %>
+
   <%= yield %>
-</div>
 
 
+<!--Footer-->
 <footer id="footer">
     <div class="container">
         <div class="row">
@@ -146,7 +141,7 @@
                 <ul class="nav">
                     <li><a href="#">Twitter</a></li>
                     <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Google++</a></li>
+                    <li><a href="#">Google+</a></li>
                     <li><a href="#">Pinterest</a></li>
                 </ul>
             </div>
@@ -180,7 +175,7 @@
 </body>
 </html>
 
-
+<!--
 <script type="text/javascript">
   $(document).ready(function(){
   
@@ -204,4 +199,4 @@
   
 });
 
-</script>
+</script>-->

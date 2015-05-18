@@ -2335,7 +2335,7 @@ a:focus {
 /* NAV PILLS */
 .nav-pills > li > a {
   border-radius: 0;
-  border-top: 3px solid transparent;
+  border-top: 0px solid transparent;
   color: #444;
 }
 .nav-pills > li > a > .fa,
