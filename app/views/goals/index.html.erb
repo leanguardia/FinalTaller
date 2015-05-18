@@ -2,34 +2,33 @@
 
 <br><br><br>
 
-<% @goals.each do |goal| %>
-    <div style="float: left; width: 400px;" class="info-box" id="<%= goal.id %>goal">
-      <div class="info-box-content">
-        <span class="info-box-text"><%= goal.goal_type.typename %></span>
-        <span class="info-box-number"><%= goal.reached.to_s + " " + goal.goal_type.unit_measured + " reached so far" %></span>
-        <!--<div class="progress">-->
-          <!--<div class="progress-bar" style="width: 65%"></div>-->
-        <!--</div>-->
-        <span class="progress-description">
-          Goal target: <%= goal.target.to_s + " " + goal.goal_type.unit_measured %>
-        </span>
-        <span><%= link_to ' Show ', goal, class: "show-goal" %>&nbsp;</span>
-        <span><%= link_to ' Destroy ', goal, method: :delete, class: "show-goal" %></span>
-      </div><!-- info-box-content -->
-    </div><!-- info-box -->
-    <div class="col-xs-1"></div>
-<% end %>
+<div id="goals-container" class="row ui-sortable">
+  <% @goals.each do |goal| %>
+      <div class="box box-solid ui-sortable-handle goal-box">
+        <div class="box-header">
+          <h3 class="box-title"><%= goal.goal_type.typename %></h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          <div class="col-md-8">
+            <strong>Goal target: <%= (sprintf "%.2f", goal.target) +" " + goal.goal_type.unit_measured %></strong>
+            <p><%= goal.reached.to_s + " " + goal.goal_type.unit_measured + " reached so far" %></p>
+          </div>
+          <div class="col-md-2">
+            <div class="row">
+              <a data-method="delete" href="/goals/<%= goal.id %>" class="btn btn-sm bg-red goal-btn">Delete goal</a><br>
+            </div>
 
-<br><br><br><br><br><br><br><br><br><br><br><br>
+            <div class="row">
+              <a href="/goals/<%= goal.id %>" class="btn btn-sm bg-green goal-btn">Details</a><br><br>
+            </div>
+          </div>
+        </div><!-- /.box-body -->
+      </div>
+      <div class="col-xs-1">&nbsp;</div>
+  <% end %>
+</div>
 
-<%= link_to 'New Goal', new_goal_path %>
-
-<script type="text/javascript">
-  $(document).ready(function () {
-      var colorArray = ["red", "blue", "black", "purple", "yellow"];
-//      $(".info-box").addClass("bg-"+colorArray[Math.floor(Math.random() * 6)]);
-      $(".info-box").each(function () {
-          $(this).addClass("bg-"+colorArray[Math.floor(Math.random() * 5)]);
-      });
-  });
-</script>
+<div class="row">
+  <%= link_to 'New Goal', new_goal_path, {class: "btn btn-default"} %>
+</div>
+<br><br><br>

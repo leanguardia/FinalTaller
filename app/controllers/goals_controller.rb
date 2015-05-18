@@ -14,19 +14,8 @@ class GoalsController < ApplicationController
 
   def new
     @goal = Goal.new
-    @type = Array.new
-    GoalType.all.each do |x|
-      @type << [x.typename, x.id]
-    end
-
-    @times = Array.new
-    @times << ["1 day", 1]
-    @times << ["1 week", 2]
-    @times << ["1 month", 3]
-    @times << ["3 months", 4]
-    @times << ["6 months", 5]
-    @times << ["1 year", 6]
-
+    @types = Goal.get_types
+    @times = Goal.get_times
     respond_with(@goal)
   end
 
@@ -52,11 +41,12 @@ class GoalsController < ApplicationController
 
   private
   def set_goal
-    @goal = Goal.find(params[:id])
+    @goal =  User.find(current_user.id).goals.find(params[:id])
+    # @goal = Goal.find(params[:id])
   end
 
   def goal_params
-    # params.require(:goal).permit(:start_date, :end_date, :target, :reached, :goal_type_id, :user_id_id)
-    params.require(:goal).permit(:end_date, :target, :goal_type_id)
+    # params.require(:goal).permit(:start_date, :interval, :target, :reached, :goal_type_id, :user_id_id)
+    params.require(:goal).permit(:interval, :target, :goal_type_id)
   end
 end

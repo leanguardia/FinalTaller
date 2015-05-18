@@ -13,7 +13,9 @@
  *= require_tree .
  *= require_self
  *= require bootstrap.min
- *= require lib/_all-skins
- *= require lib/AdminLTE
  *= require realtime_validations
+ *= require bootstrap
+ *= require font-awesome
+ *= require ionicons
+ *= require admin-lte
  */

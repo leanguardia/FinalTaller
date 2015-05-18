@@ -14,7 +14,21 @@
 //= require jquery_ujs
 //= require_tree .
 //= require bootstrap.min
-//= //require lib/app.js
 //= require realtime_validations
-//= //require lib/dashboard
-//= **require lib/dashboard2
+//= require bootstrap.min
+//= require admin-lte
+
+
+$(document).ready(function () {
+    var colorObject = {
+        "Steps taken":"bg-green",
+        "Calories burned":"bg-orange",
+        "Sleep":"bg-blue",
+        "Distance covered":"bg-purple",
+        "Weight decrease":"bg-red",
+        "Weight increase":"bg-yellow"
+    };
+    $(".box-title").each(function () {
+        $(this).parent().addClass(colorObject[$(this).html()]);
+    });
+});

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150510193117) do
+ActiveRecord::Schema.define(version: 20150515012910) do
 
   create_table "band_types", force: true do |t|
     t.string   "model"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150510193117) do
 
   add_index "bands", ["Band_type_id"], name: "index_bands_on_Band_type_id"
   add_index "bands", ["user_id"], name: "index_bands_on_user_id"
- 
+
   create_table "goal_types", force: true do |t|
     t.string   "typename"
     t.string   "unit_measured"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20150510193117) do
 
   create_table "goals", force: true do |t|
     t.datetime "start_date"
-    t.datetime "end_date"
+    t.integer  "interval"
     t.float    "target"
     t.float    "reached"
     t.integer  "goal_type_id"
