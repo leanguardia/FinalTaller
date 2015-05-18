@@ -238,11 +238,11 @@ button.btn, a.btn, input.btn{
     float: left;
 }
 
-
 .goal-btn{
     min-width: 80px;
 }
 
-.goal-form-control{
+.goal-form-control {
     max-width: 500px;
     display: inline;
+}
