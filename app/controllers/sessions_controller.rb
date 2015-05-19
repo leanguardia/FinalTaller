@@ -5,17 +5,17 @@ class SessionsController < ApplicationController
 
   def create
     user = User.authenticate(params[:login], params[:password])
-    if user.active == true
-      session[:user_id] = user.id
-      flash[:success] = "Logged on succesfully"
-      #redirect_to_target_or_default root_url, :notice => "Sesion Iniciada Correctamente."
-      redirect_to '/bands/new'
-    else
-      if user.active == false
-        flash[:danger] = "Login or password invalid "
+    if user
+      if user.active
+        session[:user_id] = user.id
+        flash[:success] = "Logged on successfully"
+        #redirect_to_target_or_default root_url, :notice => "Sesion Iniciada Correctamente."
       else
-        flash[:danger] = "Your acount has been bloqued"
+          flash[:danger] = "Your account has been blocked"
+          render :action => 'new'
       end
+    else
+      flash[:danger] = "Wrong username or password"
       render :action => 'new'
     end
   end
