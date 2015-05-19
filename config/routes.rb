@@ -19,9 +19,10 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy', :as => :logout
   #get 'sessions/new' => 'sessions#new', :as => :login
   get 'login' => 'sessions#new', :as => :login
-  #get 'show_users/show/:id' => 'show_users#show'
-  #get 'show_users/index' => 'show_users#index'
-  #devise_for :users, :controllers => { registrations: 'registrations' }
+
+  get '/users/disable_user/:id/:active' => 'users#disable_user'
+  get 'users/search' => 'users#search'
+  
 
   #devise_for :users
 

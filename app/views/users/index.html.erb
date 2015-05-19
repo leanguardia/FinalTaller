@@ -1,6 +1,16 @@
-<h1>Listing users</h1>
+<h1>List of users</h1>
+<div align="center">
+  <%= form_tag("/users", :method => "get") do %>
+    <%= label_tag(:q, "Search User") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search", { :class=>"btn btn-primary" }) %>
+  <% end %>
+  <br><br>
+</div>
 
-<table>
+
+<div class="table-responsive">
+<table class="table no-margin">
   <thead>
     <tr>
       <th>Name</th>
@@ -24,14 +34,18 @@
         <td><%= user.height %></td>
         <td><%= user.birthdate %></td>        
         <td><%= user.email %></td>        
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', user, :class => 'btn btn-info' %></td>        
+        <td><%= link_to user.active == true ? 'Disable': 'Enable', '/users/disable_user/'+ user.id.to_s + '/' + (user.active == true ? '0': '1'), { :class=>"btn btn-danger" } %></td> 
+
+        <!--<td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
 
-<%= link_to 'New User', new_user_path %>
+<div align="right">
+  <%= link_to 'New User', new_user_path, :class => 'btn btn-success' %><br><br>
+</div>

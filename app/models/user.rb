@@ -25,9 +25,9 @@ class User < ActiveRecord::Base
   validates :email, presence: {:message => "You must enter a email"}
   validates :email, format:{ :multiline => true, with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/, message: "Invalid mail format"}
 
-  validates :password, presence: {:message => "You must enter a password"}
-  validates :password, length: {minimum: 6, :message => "Password must have at least 6 characters"}
-  validates :password, confirmation: {:message => "Passwords don't match"}
+  #validates :password, presence: {:message => "You must enter a password"}
+  #validates :password, length: {minimum: 6, :message => "Password must have at least 6 characters"}
+  #validates :password, confirmation: {:message => "Passwords don't match"}
 
 
   
@@ -90,7 +90,6 @@ class User < ActiveRecord::Base
     g2 = Goal.new :user_id => self.id, :goal_type_id => 2, :interval => 1, :target => calories
     g2.save
   end
-
 
   def self.authenticate(login, pass)
     user = find_by_email(login)

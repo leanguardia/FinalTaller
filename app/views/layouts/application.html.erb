@@ -11,48 +11,48 @@
 <body>
 	
 <nav class="navbar navbar-trans navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-          <a href="/"><img class="navbar-brand" src="/Images/logo.png"></a>
-          <a class="navbar-brand" href="/">Binary-Band</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <% if current_user %>
-            <ul class="nav navbar-nav navbar-left nav-pills"> 
-                <li><a href="#section1">Band</a></li>
-                <li><a href="#section2">Workouts</a></li>
-                <li><a href="/goals">Goals</a></li>
-                <li><a href="#section3">Sleep</a></li>
-                <li><a href="#section4">Alarms</a></li>
-                <li><a href="#section6">More</a></li>
-                <li>&nbsp;</li>
-            </ul>
-            <% end %>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                  <ul class="nav navbar-nav nav-pills">
-                    <% if current_user %>
-                    <li><a href="/users/edit/<%=current_user.id%>">Edit User &nbsp; <img class="icon" src="/Images/Icons/user.png"></a></li>
-                    <li><a href="/users/<%=current_user.id%>">Show Profile</a></li>
-                    <li>&nbsp;</li>
-                    <% end %>
-
-                    
-                    <% if !current_user %>
-                    <li><a href="<%=login_path%>">Sign in &nbsp;<img class="icon" src="/Images/Icons/login.png"></a></li>
-                    <li><a href="/users/new">Sign up &nbsp;<img class="icon" src="/Images/Icons/login.png"></a></li>
-                    <%end%>
-                    <li>&nbsp;</li>
-
-                    <% if current_user%>
-                    <li><a href="<%=logout_path%>">Log out</a></li>
-                    <% end %>
-
-                  </ul>
-                </li>
-            </ul>
-        </div>
+  <div class="container">
+    <div class="navbar-header">
+      <a href="/"><img class="navbar-brand" src="/Images/logo.png"></a>
+      <a class="navbar-brand" href="/">Binary-Band</a>
     </div>
+    <div class="navbar-collapse collapse">
+      <% if current_user %>  
+        <ul class="nav navbar-nav navbar-left nav-pills"> 
+          <%if current_user.role == 'Admin'%>            
+              <li><a href="/users">User List &nbsp; <img class="icon" src="/Images/Icons/user.png"></a>
+          <%else%>
+              <li><a href="#section1">Band</a></li>
+              <li><a href="#section2">Workouts</a></li>
+              <li><a href="/goals">Goals</a></li>
+              <li><a href="#section3">Sleep</a></li>
+              <li><a href="#section4">Alarms</a></li>
+              <li><a href="#section6">More</a></li>
+              <li>&nbsp;</li>
+          <%end%>
+        </ul>
+      <% end %>    
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <ul class="nav navbar-nav nav-pills">
+              <% if current_user %> 
+                <li><a href="/users/edit/<%=current_user.id%>">Edit User &nbsp; <img class="icon" src="/Images/Icons/user.png"></a></li>
+                <li><a href="/users/<%=current_user.id%>">Show Profile</a></li>
+                <li>&nbsp;</li>
+              <% end %>        
+              <% if !current_user %>
+                <li><a href="<%=login_path%>">Sign in &nbsp;<img class="icon" src="/Images/Icons/login.png"></a></li>
+                <li><a href="/users/new">Sign up &nbsp;<img class="icon" src="/Images/Icons/login.png"></a></li>
+                <li>&nbsp;</li>
+              <%end%>
+              <%if current_user%>  
+                <li><a href="<%=logout_path%>">Log out</a></li>
+              <%end%>
+            </ul>
+          </li>
+        </ul>
+    </div>
+  </div>
 </nav>
 
   <!--
@@ -117,6 +117,7 @@
         <div class="alert alert-<%= key %>"><%= value %></div>
         <br><br>
     <% end %>
+
 </div>
   <%= yield %>
 

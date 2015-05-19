@@ -4,7 +4,13 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    #@users = User.all
+    if params[:c] 
+      @posts = User.where("name LIKE '%#{params[:c]}%'").select("distinct users.* ")
+    else
+      q = params[:q] ? "name LIKE '%#{params[:q]}%'" : ""
+      @users = User.where(q).order(:created_at).reverse  
+    end
   end
 
   # GET /users/1
@@ -21,6 +27,27 @@ class UsersController < ApplicationController
   def edit
     @user = current_user
   end
+
+  def search
+    #@clients = buscar(params[:name])
+    @users = User.where("name like ?", "%#{params[:name]}%")
+    render 'index'
+  end
+
+  def buscar(name)
+      items = Array.new 
+      aux = Client.all
+      if name != "" && name != nil
+          aux.each do |item|
+          if (item.respondToname(name))
+              items.push(item)
+          end
+        end
+      else
+          items = aux
+      end
+      return items
+    end
 
   # POST /users
   # POST /users.json
@@ -44,7 +71,7 @@ class UsersController < ApplicationController
     @user = current_user
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to login_path flash[:success] = "User was successfully updated" }
+        format.html { redirect_to @user, flash[:success] = "User was successfully updated" }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -63,7 +90,17 @@ class UsersController < ApplicationController
     end
   end
 
-
+  def disable_user()
+    @user = User.find(params[:id])
+    type = params[:active]
+    if type == '1'
+      @user.active = true
+    else
+      @user.active = false
+    end
+    @user.save!
+    redirect_to users_url
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
