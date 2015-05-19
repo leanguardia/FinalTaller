@@ -1,6 +1,6 @@
 <h1>Listing users</h1>
-
-<table>
+<div class="table-responsive">
+<table class="table no-margin">
   <thead>
     <tr>
       <th>Name</th>
@@ -24,14 +24,18 @@
         <td><%= user.height %></td>
         <td><%= user.birthdate %></td>        
         <td><%= user.email %></td>        
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', user, :class => 'btn btn-info' %></td>        
+        <td><%= link_to user.active == true ? 'Disable': 'Enable', '/users/disable_user/'+ user.id.to_s + '/' + (user.active == true ? '0': '1'), { :class=>"btn btn-danger" } %></td> 
+    
+
+
+        <!--<td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
 
 <%= link_to 'New User', new_user_path %>

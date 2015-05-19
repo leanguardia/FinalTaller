@@ -1,6 +1,53 @@
 <h1>Editing user</h1>
 
-<%= render 'form' %>
+<%= form_validated_for(@user) do |f| %>
+  
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name ,:maxlength => 15, :placeholder=>'Name'%>
+  </div>
+  <div class="field">
+    <%= f.label :lastname %><br>
+    <%= f.text_field :lastname ,:maxlength => 20, :placeholder=>'LastName'%>
+  </div>
+  <!--<div class="field">
+    <%= f.label :sex %><br>
+    <%= f.select :sex, options_for_select([["Female", "Female"], ["Male", "Male"]],:disabled => true)%>
+  </div>-->
+  <div class="field">
+    <%= f.label :weight %><br>
+    <%= f.text_field :weight ,:maxlength => 7, :placeholder=>'Ej: 32.66', :disabled=>true%>
+  </div>
+  <div class="field">
+    <%= f.label :height %><br>
+    <%= f.text_field :height ,:maxlength => 7, :placeholder=>'Ej: 1.70', :disabled=>true%>
+  </div>
+  
+
+  <%= f.hidden_field :rol, :value => 'Client' %>
+        
+  <%= f.hidden_field :active, :value => true %>
+  
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email , :placeholder=>'example@gmail.com'%>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_comfirmation %>
+  </div>
+  <div class="actions">
+    <%= f.submit (@user.new_record? ? 'Create User' : 'Update User')%>
+  </div>
+<% end %>
+
+
+<!--<%= render 'form' %>-->
 
 <%= link_to 'Show', @user %> |
 <%= link_to 'Back', users_path %>

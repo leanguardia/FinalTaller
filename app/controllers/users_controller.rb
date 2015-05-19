@@ -44,7 +44,7 @@ class UsersController < ApplicationController
     @user = current_user
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to login_path flash[:success] = "User was successfully updated" }
+        format.html { redirect_to @user, flash[:success] = "User was successfully updated" }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -63,7 +63,17 @@ class UsersController < ApplicationController
     end
   end
 
-
+  def disable_user()
+    @user = User.find(params[:id])
+    type = params[:active]
+    if type == '1'
+      @user.active = true
+    else
+      @user.active = false
+    end
+    @user.save!
+    redirect_to users_url
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

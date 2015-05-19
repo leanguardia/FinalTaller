@@ -1,9 +1,39 @@
-<h1>Login</h1>
+
+<div class="container jumbotron">
+      
+      <div class="col-xs-1 col-lg-1"></div>
+     
+      <div class="col-xs-4 col-lg-4">
+      	<h2>Login </h2><br>
+
 <%= form_tag sessions_path do %>
-	<div class="col-xs-3">
-  		<p><%= text_field_tag :login, params[:login], :class => 'form-control', :placeholder => 'example@gmail.com' %></p>
-  		<p><%= password_field_tag :password, params[:password], :class => 'form-control', :placeholder => 'Password...' %></p>
-  		<p><%= submit_tag "Login", :class => "btn btn-lg btn-primary btn-block" %>
-  	</div>
+
+<form role="form">
+                   <div class="form-group">
+
+
+                   	<%= label_tag :email %>
+                        <div class="input-group">
+                            <span class="input-group-addon">@</span>
+                          <%= text_field_tag :login, params[:login], :class => 'form-control', :placeholder => 'example@gmail.com' %>
+                          <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                        </div>    
+                          <br>
+                        <%= label_tag :password %><br>
+                        <div class="input-group">
+                          <span class="input-group-addon"><img class="icon" src="/Images/Icons/lock.png"></span></span>
+                          <%= password_field_tag :password, params[:password], :class => 'form-control', :placeholder => 'Password...' %>
+                          <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                        </div>
+                        <%= submit_tag "Login", :class => "btn btn-lg btn-primary btn-block" %>
+                      <br>
+	
+		</div>
+
+  	</form>
 <% end %>
 
+</div>
+
+</div>
+</div>
