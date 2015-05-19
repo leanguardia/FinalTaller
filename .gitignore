@@ -17,3 +17,6 @@
 
 #rubymine config
 .idea/
+
+#ignore simplecov files
+coverage
