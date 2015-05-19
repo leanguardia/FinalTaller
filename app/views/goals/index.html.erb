@@ -1,34 +1,37 @@
-<h1>Goals</h1>
+<div class="container">
+  <div class="goal-title"><h1 class="big-font">Your goals</h1></div>
 
-<br><br><br>
+  <br><br>
 
-<div id="goals-container" class="row ui-sortable">
-  <% @goals.each do |goal| %>
-      <div class="box box-solid ui-sortable-handle goal-box">
-        <div class="box-header">
-          <h3 class="box-title"><%= goal.goal_type.typename %></h3>
-        </div><!-- /.box-header -->
-        <div class="box-body">
-          <div class="col-md-8">
-            <strong>Goal target: <%= (sprintf "%.2f", goal.target) +" " + goal.goal_type.unit_measured %></strong>
-            <p><%= goal.reached.to_s + " " + goal.goal_type.unit_measured + " reached so far" %></p>
-          </div>
-          <div class="col-md-2">
-            <div class="row">
-              <a data-method="delete" href="/goals/<%= goal.id %>" class="btn btn-sm bg-red goal-btn">Delete goal</a><br>
+  <div id="goals-container" class="row">
+    <% @goals.each do |goal| %>
+        <div class="box box-solid goal-box">
+          <div class="box-header">
+            <h2 class="box-title"><%= goal.goal_type.typename %></h2>
+          </div><!-- /.box-header -->
+          <div class="box-body">
+            <div class="col-md-8">
+              <h3>Goal target: <%= (sprintf "%.2f", goal.target) +" " + goal.goal_type.unit_measured %></h3>
+              <h4><%= goal.reached.to_s + " " + goal.goal_type.unit_measured + " reached so far" %></h4>
             </div>
-
-            <div class="row">
-              <a href="/goals/<%= goal.id %>" class="btn btn-sm bg-green goal-btn">Details</a><br><br>
+            <div class="col-md-2">
+              <div class="row">
+                <a href="/goals/<%= goal.id %>" class="btn bg-green goal-btn">Details</a><br>
+              </div>
+              <div class="row">
+                <a data-method="delete" href="/goals/<%= goal.id %>" class="btn bg-red goal-btn">Delete goal</a><br><br>
+              </div><!-- buttons div -->
             </div>
-          </div>
-        </div><!-- /.box-body -->
-      </div>
-      <div class="col-xs-1">&nbsp;</div>
-  <% end %>
-</div>
+          </div><!-- /.box-body -->
+        </div>
+        <div class="col-xs-1">&nbsp;</div>
+    <% end %>
+  </div>
 
-<div class="row">
-  <%= link_to 'New Goal', new_goal_path, {class: "btn btn-default"} %>
+
+
+  <div class="row">
+    <%= link_to 'New Goal', new_goal_path, {class: "btn btn-default"} %>
+  </div>
+  <br><br><br>
 </div>
-<br><br><br>

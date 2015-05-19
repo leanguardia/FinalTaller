@@ -40,11 +40,11 @@ class User < ActiveRecord::Base
   end
 
   def get_calories(age)
-    if self.sex == 'Male'
-      10 * self.weight + 6.25 * (self.height * 100) - 5 * age + 5 + 500
-    else
-      10 * self.weight + 6.25 * (self.height * 100) - 5 * age + 5 - 161 + 500
+    calories = 10 * self.weight + 6.25 * (self.height * 100) - 5 * age + 5 + 500
+    if self.sex == 'Female'
+      calories = calories - 161
     end
+    calories
   end
 
   def get_ideal_weight
