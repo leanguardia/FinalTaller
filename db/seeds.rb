@@ -23,6 +23,18 @@
 	test_user.active = true
 	test_user.save!
 
+	test_user = User.new
+	test_user.name = 'Administrador'	
+	test_user.lastname = 'De Prueba'
+	test_user.email = 'admin@gmail.com'
+	test_user.password = '12345678'
+	test_user.sex = 'Male'
+	test_user.weight = '75.5'
+	test_user.height = '1.80'
+	test_user.birthdate = '01/07/1991'
+	test_user.role = 'Admin'
+	test_user.active = true
+	test_user.save!
 
 	test_band = Band.new
 	test_band.color = 'blue'

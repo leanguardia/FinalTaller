@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   #get 'sessions/new' => 'sessions#new', :as => :login
   get 'login' => 'sessions#new', :as => :login
 
-   get '/users/disable_user/:id/:active' => 'users#disable_user'
+  get '/users/disable_user/:id/:active' => 'users#disable_user'
+  get 'users/search' => 'users#search'
   
 
   #devise_for :users

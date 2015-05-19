@@ -4,7 +4,13 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    #@users = User.all
+    if params[:c] 
+      @posts = User.where("name LIKE '%#{params[:c]}%'").select("distinct users.* ")
+    else
+      q = params[:q] ? "name LIKE '%#{params[:q]}%'" : ""
+      @users = User.where(q).order(:created_at).reverse  
+    end
   end
 
   # GET /users/1
@@ -21,6 +27,27 @@ class UsersController < ApplicationController
   def edit
     @user = current_user
   end
+
+  def search
+    #@clients = buscar(params[:name])
+    @users = User.where("name like ?", "%#{params[:name]}%")
+    render 'index'
+  end
+
+  def buscar(name)
+      items = Array.new 
+      aux = Client.all
+      if name != "" && name != nil
+          aux.each do |item|
+          if (item.respondToname(name))
+              items.push(item)
+          end
+        end
+      else
+          items = aux
+      end
+      return items
+    end
 
   # POST /users
   # POST /users.json

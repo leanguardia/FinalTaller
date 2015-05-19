@@ -100,11 +100,6 @@ class User < ActiveRecord::Base
     BCrypt::Engine.hash_secret(pass, password_salt)
   end
 
-  def desable_user(user)
-    user.active = false 
-  end
-
-
 private
 
    def prepare_password
