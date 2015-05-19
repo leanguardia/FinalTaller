@@ -162,75 +162,75 @@ div.jumbotron h2{
   font-size: 39px;
   font-weight: bold;
 }
-/*div.input-group-lg > .form-control,*/
-/*div.input-group-lg > .input-group-addon,*/
-/*div.input-group-lg > .input-group-btn > .btn {*/
-  /*height: 46px;*/
-  /*padding: 10px 16px;*/
-  /*font-size: 18px;*/
-  /*line-height: 1.3333333;*/
-  /*border-radius: 0px;*/
-/*}*/
+div.input-group-lg > .form-control,
+div.input-group-lg > .input-group-addon,
+div.input-group-lg > .input-group-btn > .btn {
+  height: 46px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 0px;
+}
 
-/*input.form-control{*/
-  /*display: inline;*/
-/*}*/
+input.form-control{
+  display: inline;
+}
 
-/*button.btn, a.btn, input.btn{*/
-  /*display: inline;*/
-  /*padding: 7px 13px;*/
-  /*font-size: 13px;*/
-  /*border: 1px solid gray;*/
-  /*border-radius: 0px;*/
-  /*color: #fff;*/
-  /*background-color: #484848;*/
-  /*font-weight: bold;*/
-/*}*/
-/*.btn-normal:hover,*/
-/*.btn-normal:focus,*/
-/*.btn-normal.focus,*/
-/*.btn-normal:active,*/
-/*.btn-normal.active,*/
-/*.open > .dropdown-toggle.btn-normal {*/
-  /*background-color: #E6E6E6;*/
-  /*border-color: #CFCFCF;*/
-/*}*/
-/*.btn-green:hover,*/
-/*.btn-green:focus,*/
-/*.btn-green.focus,*/
-/*.btn-green:active,*/
-/*.btn-green.active,*/
-/*.open > .dropdown-toggle.btn-green {*/
-  /*background-color: #99FFCC;*/
-  /*border-color: #CFCFCF;*/
-/*}*/
-/*.btn-yellow:hover,*/
-/*.btn-yellow:focus,*/
-/*.btn-yellow.focus,*/
-/*.btn-yellow:active,*/
-/*.btn-yellow.active,*/
-/*.open > .dropdown-toggle.btn-yellow {*/
-  /*background-color: #FFFF66;*/
-  /*border-color: #CFCFCF;*/
-/*}*/
-/*.btn-blue:hover,*/
-/*.btn-blue:focus,*/
-/*.btn-blue.focus,*/
-/*.btn-blue:active,*/
-/*.btn-blue.active,*/
-/*.open > .dropdown-toggle.btn-blue {*/
-  /*background-color: #66CCFF;*/
-  /*border-color: #CFCFCF;*/
-/*}*/
-/*.btn-red:hover,*/
-/*.btn-red:focus,*/
-/*.btn-red.focus,*/
-/*.btn-red:active,*/
-/*.btn-red.active,*/
-/*.open > .dropdown-toggle.btn-red {*/
-  /*background-color: #FF5050;*/
-  /*border-color: #CFCFCF;*/
-/*}*/
+button.btn, a.btn, input.btn{
+  display: inline;
+  padding: 7px 13px;
+  font-size: 13px;
+  border: 1px solid gray;
+  border-radius: 0px;
+  color: #fff;
+  background-color: #484848;
+  font-weight: bold;
+}
+.btn-normal:hover,
+.btn-normal:focus,
+.btn-normal.focus,
+.btn-normal:active,
+.btn-normal.active,
+.open > .dropdown-toggle.btn-normal {
+  background-color: #E6E6E6;
+  border-color: #CFCFCF;
+}
+.btn-green:hover,
+.btn-green:focus,
+.btn-green.focus,
+.btn-green:active,
+.btn-green.active,
+.open > .dropdown-toggle.btn-green {
+  background-color: #99FFCC;
+  border-color: #CFCFCF;
+}
+.btn-yellow:hover,
+.btn-yellow:focus,
+.btn-yellow.focus,
+.btn-yellow:active,
+.btn-yellow.active,
+.open > .dropdown-toggle.btn-yellow {
+  background-color: #FFFF66;
+  border-color: #CFCFCF;
+}
+.btn-blue:hover,
+.btn-blue:focus,
+.btn-blue.focus,
+.btn-blue:active,
+.btn-blue.active,
+.open > .dropdown-toggle.btn-blue {
+  background-color: #66CCFF;
+  border-color: #CFCFCF;
+}
+.btn-red:hover,
+.btn-red:focus,
+.btn-red.focus,
+.btn-red:active,
+.btn-red.active,
+.open > .dropdown-toggle.btn-red {
+  background-color: #FF5050;
+  border-color: #CFCFCF;
+}
 
 .big-font{
     font-size: 55%;
