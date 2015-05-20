@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
         session[:user_id] = user.id
         flash[:success] = "Logged on successfully"
         #redirect_to_target_or_default root_url, :notice => "Sesion Iniciada Correctamente."
+        redirect_to root_url
       else
           flash[:danger] = "Your account has been blocked"
           render :action => 'new'
