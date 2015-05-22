@@ -27,10 +27,8 @@
         </div><br>
 
         <div class="form-group">
-          <%= f.label :birthdate %>
-          <div class="input-group-addon">
-            <%= f.date_select :birthdate,{:order => [:day, :month, :year], :start_year => 1890}, {:class => "form-control"} %>
-          </div>
+          <%= f.label :birthdate %>          
+            <%= f.date_select :birthdate,{:order => [:day, :month, :year], :start_year => 1890}, {:class => "form-control"} %>          
         </div><br>
 
         <%= f.hidden_field :rol, :value => 'Client' %>
@@ -53,9 +51,15 @@
         </div><br>
 
         <div class="actions" align="right">
-          <%= f.submit (@user.new_record? ? 'Create User' : 'Update User'),:class => 'btn btn-primary'%>
+          <%= f.submit (@user.new_record? ? 'Create User' : 'Update User'),:class => 'btn btn-green'%>
         </div>
   <% end %>
 
       
-    
+
+<script type="text/javascript">
+            // When the document is ready
+  $(document).ready(function () {
+    $('#birthdate').datepicker({ format: "dd/mm/yyyy" });  
+  });
+</script>
