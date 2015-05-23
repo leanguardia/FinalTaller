@@ -1,53 +1,71 @@
-<h1>Editing user</h1>
 
-<%= form_validated_for(@user) do |f| %>
+<div class="container ">  
+  <div class="col-xs-3 col-lg-3"></div>
+    <div class="col-lg-6">
+      <h2>Editing user</h2><br>
+        <%= form_validated_for(@user) do |f| %>
   
+        <div class="form-group">
+          <span class="label-group-addon"><img class="icon" src="/Images/Icons/user.png"></span>&nbsp;&nbsp;<%= f.label :name%>
+          <%= f.text_field :name, autofocus: true, :class => 'form-control',:maxlength => 25, :placeholder=>'Name'%>
+        </div><br>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name ,:maxlength => 15, :placeholder=>'Name'%>
-  </div>
-  <div class="field">
-    <%= f.label :lastname %><br>
-    <%= f.text_field :lastname ,:maxlength => 20, :placeholder=>'LastName'%>
-  </div>
-  <!--<div class="field">
-    <%= f.label :sex %><br>
-    <%= f.select :sex, options_for_select([["Female", "Female"], ["Male", "Male"]],:disabled => true)%>
-  </div>-->
-  <div class="field">
-    <%= f.label :weight %><br>
-    <%= f.text_field :weight ,:maxlength => 7, :placeholder=>'Ej: 32.66', :disabled=>true%>
-  </div>
-  <div class="field">
-    <%= f.label :height %><br>
-    <%= f.text_field :height ,:maxlength => 7, :placeholder=>'Ej: 1.70', :disabled=>true%>
-  </div>
-  
-
-  <%= f.hidden_field :rol, :value => 'Client' %>
         
-  <%= f.hidden_field :active, :value => true %>
-  
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email , :placeholder=>'example@gmail.com'%>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_comfirmation %>
-  </div>
-  <div class="actions">
-    <%= f.submit (@user.new_record? ? 'Create User' : 'Update User')%>
-  </div>
-<% end %>
+        <div class="form-group">
+          <span class="label-group-addon"><img class="icon" src="/Images/Icons/user.png"></span>&nbsp;&nbsp;<%= f.label :lastname %>
+          <%= f.text_field :lastname, autofocus: true, :class => 'form-control',:maxlength => 25, :placeholder=>'lastname'%>                    
+        </div><br>
+        
+        <div class="form-group">
+          <span class="label-group-addon"><img class="icon" src="/Images/Icons/sex.png"></span>&nbsp;&nbsp;<%= f.label :sex %>
+          <%= f.select(:sex, [["Female", "Female"], ["Male", "Male"]], {}, {:class => 'form-control'} )%>          
+        </div><br>
+        
+        <div class="form-group">
+          <span class="label-group-addon"><span class="glyphicon glyphicon-asterisk"></span>&nbsp;&nbsp;<%= f.label :weight %>
+          <%= f.text_field :weight, autofocus: true, :class => 'form-control',:maxlength => 7, :placeholder=>'Ex: 70.12'%>
+        </div><br>
 
+        <div class="form-group">
+          <span class="label-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>&nbsp;&nbsp;<%= f.label :height %>
+          <%= f.text_field :height, autofocus: true, :class => 'form-control',:maxlength => 6, :placeholder=>'Ex: 1.70'%>
+        </div><br>
 
-<!--<%= render 'form' %>-->
+        <div class="form-group">
+          <%= f.label :birthdate %>
+          <div class="input-group-addon">
+            <%= f.date_select :birthdate,{:order => [:day, :month, :year], :start_year => 1890}, {:class => "form-control"} %>
+          </div>
+        </div><br>
+
+        <%= f.hidden_field :rol, :value => 'Client' %>
+              
+        <%= f.hidden_field :active, :value => true %>
+        
+        <div class="form-group">
+          <span class="label-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>&nbsp;&nbsp;<%= f.label :email %>
+          <%= f.text_field :email , autofocus: true, :class => 'form-control',:maxlength => 25, :placeholder=>'example@domain.com' %>
+        </div><br>
+
+        <div class="form-group">
+          <span class="label-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>&nbsp;&nbsp;<%= f.label :password %>
+          <%= f.password_field :password, autocomplete: "off", :class => 'form-control',:maxlength => 25, :placeholder=>'*******'  %>
+        </div><br>
+
+        <div class="form-group">
+          <span class="label-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>&nbsp;&nbsp;<%= f.label :password_confirmation %>
+          <%= f.password_field :password_comfirmation, autocomplete: "off", :class => 'form-control',:maxlength => 25, :placeholder=>'*******' %>
+        </div><br>
+
+        <div class="actions" align="right">
+          <%= f.submit (@user.new_record? ? 'Create User' : 'Update User'), :class => 'btn btn-yellow'%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!--<%= render 'form' %>
 
 <%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', users_path %>-->

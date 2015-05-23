@@ -1,39 +1,64 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<div class="container ">  
+  <div class="panel panel-primary">
+    <div class="panel-heading" align="center"><h1><strong>Profile</strong></h1></div>
+    <div class="panel-body">  
+     <center> <table class="table table-user-information">
+        <tbody >
+          <tr>
+            <td><strong>Name</strong></td>
+            <td><%= @user.name %></td>
+          <tr>
 
-<p>
-  <strong>Lastname:</strong>
-  <%= @user.lastname %>
-</p>
+          <tr>
+            <td><strong>Lastname</strong></td>
+            <td><%= @user.lastname %></td>
+          </tr>
 
-<p>
-  <strong>Sex:</strong>
-  <%= @user.sex %>
-</p>
 
-<p>
-  <strong>Weight:</strong>
-  <%= @user.weight %>
-</p>
+          <tr>
+            <td><strong>Sex</strong></td>
+            <td><%= @user.sex %></td>
+          </tr>
 
-<p>
-  <strong>Height:</strong>
-  <%= @user.height %>
-</p>
+          <tr>
+            <td><strong>Weight</strong></td>
+            <td><%= @user.weight %></td>
+          </tr>
 
-<p>
-  <strong>Birthdate:</strong>
-  <%= @user.birthdate %>
-</p>
+          <tr>
+            <td><strong>Height</strong></td>
+            <td><%= @user.height %></td>
+          </tr>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+          <tr>
+            <td><strong>Birthdate</strong></td>
+            <td><%= @user.birthdate %></td>
+          </tr>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+          <tr>
+            <td><strong>Email</strong></td>
+            <td><%= @user.email %></td>
+          </tr>
+          <tr>
+            <td><strong>Role</strong></td>
+            <td><%= @user.role %></td>
+          </tr>
+          <th>
+            <td></td>
+
+          </th>
+      <tbody>
+    </table></center>
+
+<div align="right">
+<%= link_to 'Edit', edit_user_path(@user), :class=>'btn btn-yellow' %> 
+<%= link_to 'Back', users_path, :class=>'btn btn-normal' %>
+</div>
+</div>
+
+
+
+</div>
+
+</div><br>

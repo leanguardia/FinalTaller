@@ -1,39 +1,53 @@
 
 <div class="container jumbotron">
-      
-      <div class="col-xs-1 col-lg-1"></div>
-     
-      <div class="col-xs-4 col-lg-4">
-      	<h2>Login </h2><br>
+  <div class="col-xs-1 col-lg-1"></div>   
+    <div class="col-xs-4 col-lg-4">
+      <h2>Login </h2><br>
+      <%= form_tag sessions_path do %>
+        <form role="form">
+          <div class="form-group">
+            <%= label_tag :email %>
+            <div class="input-group">
+              <span class="input-group-addon">@</span>
+              <%= text_field_tag :login, params[:login], :class => 'form-control', :placeholder => 'example@gmail.com' %>
+              <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+            </div><br>
+            <%= label_tag :password %><br>
+            <div class="input-group">
+              <span class="input-group-addon"><img class="icon" src="/Images/Icons/lock.png"></span></span>
+              <%= password_field_tag :password, params[:password], :class => 'form-control', :placeholder => 'Password...' %>
+              <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+            </div>
+            <div align="right">                        
+                <br><%= submit_tag "Log in", :class => "btn btn-green" %>
+            </div>              
+      		</div>
+        </form>
+      <% end %>
+    </div>
 
-<%= form_tag sessions_path do %>
+  <div class="col-xs-5 col-lg-5">
+        Para borrar: <br>
+        <h2>Siempre usar h2 para los titulos dentro de un div Jumbotron</h2> <br>
 
-<form role="form">
-                   <div class="form-group">
+              <p>Text input</p>
+                              <%= label_tag(:lab, "Label:") %>
+              <div class="form-inline">
+                <input type="text" class="form-control" >
+                <button type="submit" class="btn btn-normal search">Search &nbsp;<img src="/Images/Icons/search.png"></button>
+              </div>
+              <br><br>
 
+              <p>Botones: </p>
+              <%= link_to "Normal", "/", :class => 'btn btn-normal' %> 
+              <%= link_to "Green", "/", :class => 'btn btn-green' %> 
+              <%= link_to "Red", "/", :class => 'btn btn-red' %> 
+              <%= link_to "Yellow", "/", :class => 'btn btn-yellow' %> 
+              <%= link_to "Blue", "/", :class => 'btn btn-blue' %>
 
-                   	<%= label_tag :email %>
-                        <div class="input-group">
-                            <span class="input-group-addon">@</span>
-                          <%= text_field_tag :login, params[:login], :class => 'form-control', :placeholder => 'example@gmail.com' %>
-                          <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
-                        </div>    
-                          <br>
-                        <%= label_tag :password %><br>
-                        <div class="input-group">
-                          <span class="input-group-addon"><img class="icon" src="/Images/Icons/lock.png"></span></span>
-                          <%= password_field_tag :password, params[:password], :class => 'form-control', :placeholder => 'Password...' %>
-                          <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
-                        </div>
-                        <%= submit_tag "Login", :class => "btn btn-lg btn-primary btn-block" %>
-                      <br>
-	
-		</div>
+        <br>
+        <br>
+    </div>
+  </div>
 
-  	</form>
-<% end %>
-
-</div>
-
-</div>
 </div>
