@@ -21,14 +21,38 @@
 
 $(document).ready(function () {
     var colorObject = {
-        "Steps taken":"bg-green",
+        "Steps taken":"bg-olive",
         "Calories burned":"bg-orange",
         "Sleep":"bg-blue",
         "Distance covered":"bg-purple",
-        "Weight decrease":"bg-red",
-        "Weight increase":"bg-yellow"
+        "Weight decrease":"bg-teal",
+        "Weight increase":"bg-aqua"
     };
-    $(".box-title").each(function () {
+    $(".box-title").each(function (){
         $(this).parent().addClass(colorObject[$(this).html()]);
+    });
+
+    $('.percentage').each(function(){
+        var percentage;
+        if($(this).hasClass("badge")){
+            percentage = $(this).html();
+            percentage = parseInt(percentage.substring(0, percentage.length - 1));
+        }
+        else{
+            var fullBar = $(".progress").width();
+            percentage = Math.round(parseInt($(this).css("width"))/fullBar*100);
+        }
+        if(percentage > 80){
+            $(this).addClass('bg-green');
+        }
+        else if(percentage > 50){
+            $(this).addClass('bg-blue');
+        }
+        else if(percentage > 40){
+            $(this).addClass('bg-yellow');
+        }
+        else{
+            $(this).addClass('bg-red');
+        }
     });
 });
