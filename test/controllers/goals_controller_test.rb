@@ -1,9 +1,9 @@
 require 'test_helper'
 
 class GoalsControllerTest < ActionController::TestCase
-  setup do
-    @goal = goals(:one)
-  end
+  # setup do
+  #   @goal = goals(:one)
+  # end
 
   # test "should get index" do
   #   get :index

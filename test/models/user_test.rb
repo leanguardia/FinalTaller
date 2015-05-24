@@ -6,16 +6,30 @@ class UserTest < ActiveSupport::TestCase
     			:name => "Usuario",
     			:lastname => "De Perueba",
     			:email =>"user@gmail.com",
-                :password => "123456",
-    			:sex => "MAle",
+          :password => "123456",
+    			:sex => "Male",
     			:weight => "70.5",
     			:height => "1.70",          
-    			:birthdate => "10/10/1991"
-                :role => "Client",
-                :active => true)
-    assert User.authenticated?("homer", "123456")   
+    			:birthdate => "10/10/1991",
+          :role => "Client",
+          :active => true)
+    assert User.authenticated?("homer", "123456")
+    # assert User.authenticate("user@gmail.com", "123456")
   end
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test "should create 3 automatic goals when new user is created" do
+    count = Goal.all.count
+    User.create(
+        :name => "Test",
+        :lastname => "User",
+        :email =>"test@gmail.com",
+        :password => "123456",
+        :sex => "Male",
+        :weight => "70.5",
+        :height => "1.70",
+        :birthdate => "10/10/1991",
+        :role => "Client",
+        :active => true)
+    assert_equal((count+3), Goal.all.count, "3 goals created")
+  end
 end

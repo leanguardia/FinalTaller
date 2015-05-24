@@ -28,7 +28,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 group :test, :development do
   gem 'autotest-rails'
-  gem 'simplecov'
+  gem 'simplecov', :require => false
   gem 'metric_fu'
 end
 
