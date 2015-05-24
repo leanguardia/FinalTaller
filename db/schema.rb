@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150515232653) do
+ActiveRecord::Schema.define(version: 20150521210500) do
 
   create_table "band_types", force: true do |t|
     t.string   "model"
@@ -66,5 +66,27 @@ ActiveRecord::Schema.define(version: 20150515232653) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "workout_types", force: true do |t|
+    t.string   "typename"
+    t.boolean  "outside"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "workouts", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "workout_type_id"
+    t.datetime "start"
+    t.datetime "end"
+    t.integer  "calories"
+    t.integer  "heartrate"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "workouts", ["user_id"], name: "index_workouts_on_user_id"
+  add_index "workouts", ["workout_type_id"], name: "index_workouts_on_workout_type_id"
 
 end

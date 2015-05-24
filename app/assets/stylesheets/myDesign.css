@@ -176,7 +176,7 @@ input.form-control{
   display: inline;
 }
 
-button.btn, a.btn, input.btn{
+button.bton, a.bton, input.bton{
   display: inline;
   padding: 7px 13px;
   font-size: 13px;
@@ -186,48 +186,54 @@ button.btn, a.btn, input.btn{
   background-color: #484848;
   font-weight: bold;
 }
-.btn-normal:hover,
-.btn-normal:focus,
-.btn-normal.focus,
-.btn-normal:active,
-.btn-normal.active,
-.open > .dropdown-toggle.btn-normal {
+button.bton:hover, a.bton:hover, input.bton:hover,
+button.bton:active, a.bton:active, input.bton:active
+{
+  color:#2E2E2E;
+}
+
+.bton-normal:hover,
+.bton-normal:focus,
+.bton-normal.focus,
+.bton-normal:active,
+.bton-normal.active,
+.open > .dropdown-toggle.bton-normal {
   background-color: #E6E6E6;
   border-color: #CFCFCF;
 }
-.btn-green:hover,
-.btn-green:focus,
-.btn-green.focus,
-.btn-green:active,
-.btn-green.active,
-.open > .dropdown-toggle.btn-green {
+.bton-green:hover,
+.bton-green:focus,
+.bton-green.focus,
+.bton-green:active,
+.bton-green.active,
+.open > .dropdown-toggle.bton-green {
   background-color: #99FFCC;
   border-color: #CFCFCF;
 }
-.btn-yellow:hover,
-.btn-yellow:focus,
-.btn-yellow.focus,
-.btn-yellow:active,
-.btn-yellow.active,
-.open > .dropdown-toggle.btn-yellow {
+.bton-yellow:hover,
+.bton-yellow:focus,
+.bton-yellow.focus,
+.bton-yellow:active,
+.bton-yellow.active,
+.open > .dropdown-toggle.bton-yellow {
   background-color: #FFFF66;
   border-color: #CFCFCF;
 }
-.btn-blue:hover,
-.btn-blue:focus,
-.btn-blue.focus,
-.btn-blue:active,
-.btn-blue.active,
-.open > .dropdown-toggle.btn-blue {
+.bton-blue:hover,
+.bton-blue:focus,
+.bton-blue.focus,
+.bton-blue:active,
+.bton-blue.active,
+.open > .dropdown-toggle.bton-blue {
   background-color: #66CCFF;
   border-color: #CFCFCF;
 }
-.btn-red:hover,
-.btn-red:focus,
-.btn-red.focus,
-.btn-red:active,
-.btn-red.active,
-.open > .dropdown-toggle.btn-red {
+.bton-red:hover,
+.bton-red:focus,
+.bton-red.focus,
+.bton-red:active,
+.bton-red.active,
+.open > .dropdown-toggle.bton-red {
   background-color: #FF5050;
   border-color: #CFCFCF;
 }

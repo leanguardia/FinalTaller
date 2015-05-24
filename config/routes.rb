@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
 
   
+  resources :workouts
+
+  resources :workout_types
+
   resources :users
   resources :sessions
 

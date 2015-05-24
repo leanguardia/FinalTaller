@@ -1,3 +1,5 @@
+<div class="container">
+
 <h1>Editing user</h1>
 
 <%= form_validated_for(@user) do |f| %>
@@ -55,12 +57,15 @@
         </div><br>
 
         <div class="actions" align="right">
-          <%= f.submit (@user.new_record? ? 'Create User' : 'Update User'), :class => 'btn btn-primary'%>
+          <%= f.submit (@user.new_record? ? 'Create User' : 'Update User'), :class => 'bton bton-green'%>
         </div>
   <% end %>
 
 
 <!--<%= render 'form' %>-->
+<br>
+<%= link_to 'Show', @user ,:class => 'bton bton-blue'%> &nbsp;
+<%= link_to 'Back', users_path, :class => 'bton bton-yellow' %>
+<br><br><br>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+</div>
