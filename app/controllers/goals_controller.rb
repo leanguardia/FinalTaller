@@ -9,6 +9,7 @@ class GoalsController < ApplicationController
   end
 
   def show
+    @percentage = (@goal.reached * 100)/ @goal.target
     respond_with(@goal)
   end
 
@@ -29,10 +30,10 @@ class GoalsController < ApplicationController
     respond_with(@goal)
   end
 
-  def update
-    @goal.update(goal_params)
-    respond_with(@goal)
-  end
+  # def update
+  #   @goal.update(goal_params)
+  #   respond_with(@goal)
+  # end
 
   def destroy
     @goal.destroy

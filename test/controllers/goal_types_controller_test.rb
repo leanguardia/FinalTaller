@@ -1,9 +1,9 @@
 require 'test_helper'
 
 class GoalTypesControllerTest < ActionController::TestCase
-  setup do
-    @goal_type = goal_types(:one)
-  end
+  # setup do
+  #   @goal_type = goal_types(:one)
+  # end
 
   # test "should get index" do
   #   get :index

@@ -1,8 +1,10 @@
 <div class="container">
 
-<h1>Editing user</h1>
-
-<%= form_validated_for(@user) do |f| %>
+<div class="container ">  
+  <div class="col-xs-3 col-lg-3"></div>
+    <div class="col-lg-6">
+      <h1>Editing user</h1><br>
+        <%= form_validated_for(@user) do |f| %>
   
         <div class="form-group">
           <span class="label-group-addon"><img class="icon" src="/Images/Icons/user.png"></span>&nbsp;&nbsp;<%= f.label :name%>
@@ -22,7 +24,7 @@
         
         <div class="form-group">
           <span class="label-group-addon"><span class="glyphicon glyphicon-asterisk"></span>&nbsp;&nbsp;<%= f.label :weight %>
-          <%= f.text_field :weight, autofocus: true, :class => 'form-control',:maxlength => 7, :placeholder=>'Ex: 70.12'%>
+          <%= f.text_field :weight, autofocus: true, :class => 'form-control',:maxlength => 7, :placeholder=>'Ex: 70.12'%></span>
         </div><br>
 
         <div class="form-group">
@@ -59,13 +61,18 @@
         <div class="actions" align="right">
           <%= f.submit (@user.new_record? ? 'Create User' : 'Update User'), :class => 'bton bton-green'%>
         </div>
-  <% end %>
+      <% end %>
 
+    <%= link_to 'Show', @user ,:class => 'bton bton-blue'%> &nbsp;
+    <%= link_to 'Back', users_path, :class => 'bton bton-yellow' %>
+          
+    </div>
+  </div>
+</div>
 
 <!--<%= render 'form' %>-->
 <br>
-<%= link_to 'Show', @user ,:class => 'bton bton-blue'%> &nbsp;
-<%= link_to 'Back', users_path, :class => 'bton bton-yellow' %>
+
 <br><br><br>
 
 </div>
