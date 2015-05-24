@@ -1,5 +1,7 @@
 require 'rubygems'
 require 'mechanize'
+require 'net/http'
+require 'uri'
 
 # user = "1"
 # band = "1"
@@ -10,18 +12,15 @@ require 'mechanize'
 # latitude = 0
 # longitude = 0
 
-data = {"band_data[user_id]" => 1, "band_data[band_id]" => 1, "band_data[date]" => Time.now, "band_data[steps_taken]" => 666, "band_data[calories_burnt]" => 666, "band_data[hearth_rate_pminute]" => 666, "band_data[latitude]" => 0, "band_data[longitude]" => 0}
+data = {"band_datum[user_id]" => 1, "band_datum[band_id]" => 1, "band_datum[date]" => Time.now, "band_datum[steps_taken]" => 666, "band_datum[calories_burnt]" => 666, "band_datum[hearth_rate_pminute]" => 666, "band_datum[latitude]" => 0, "band_datum[longitude]" => 0}
 
-agent = Mechanize.new
-agent.auth('admin@gmail.com', '12345678')
 
-page = agent.get('http://localhost:3000/goals')
-puts page.title
+uri = URI.parse("http://127.0.0.1:3000/band_data.json")
 
-# json = agent.post('http://localhost:3000/band_data.json', data).body
-# result = JSON.parse json
-# puts result
+# Full control
+http = Net::HTTP.new(uri.host, uri.port)
 
-# json = Mechanize.new.post('http://localhost:3000/band_data.json', data).body
-# result = JSON.parse json
-# puts result
+request = Net::HTTP::Post.new(uri.request_uri)
+request.set_form_data(data)
+
+http.request(request)

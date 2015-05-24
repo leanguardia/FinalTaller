@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   has_many :goals
-  has_many :workouts
+  # has_many :workouts
   
   attr_accessor :password,  :password_comfirmation
   before_save :prepare_password

@@ -18,7 +18,7 @@ class WorkoutsControllerTest < ActionController::TestCase
 
   test "should create workout" do
     assert_difference('Workout.count') do
-      post :create, workout: { calories: @workout.calories, end: @workout.end, heartrate: @workout.heartrate, name: @workout.name, start: @workout.start, user_id: @workout.user_id, work_type_id: @workout.work_type_id }
+      post :create, workout: { calories: @workout.calories, end: @workout.end, heartrate: @workout.heartrate, name: @workout.name, start: @workout.start, user_id: @workout.user_id, workout_type_id: @workout.workout_type_id }
     end
 
     assert_redirected_to workout_path(assigns(:workout))
@@ -35,7 +35,7 @@ class WorkoutsControllerTest < ActionController::TestCase
   end
 
   test "should update workout" do
-    patch :update, id: @workout, workout: { calories: @workout.calories, end: @workout.end, heartrate: @workout.heartrate, name: @workout.name, start: @workout.start, user_id: @workout.user_id, work_type_id: @workout.work_type_id }
+    patch :update, id: @workout, workout: { calories: @workout.calories, end: @workout.end, heartrate: @workout.heartrate, name: @workout.name, start: @workout.start, user_id: @workout.user_id, workout_type_id: @workout.workout_type_id }
     assert_redirected_to workout_path(assigns(:workout))
   end
 

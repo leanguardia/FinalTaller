@@ -2,7 +2,7 @@
 
 one:
   user_id: 
-  work_type_id: 
+  workout_type_id:
   start: 2015-05-21 17:05:00
   end: 2015-05-21 17:05:00
   calories: 1
@@ -11,7 +11,7 @@ one:
 
 two:
   user_id: 
-  work_type_id: 
+  workout_type_id:
   start: 2015-05-21 17:05:00
   end: 2015-05-21 17:05:00
   calories: 1

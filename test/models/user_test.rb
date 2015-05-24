@@ -13,8 +13,8 @@ class UserTest < ActiveSupport::TestCase
     			:birthdate => "10/10/1991",
           :role => "Client",
           :active => true)
-    assert User.authenticated?("homer", "123456")
-    # assert User.authenticate("user@gmail.com", "123456")
+    # assert User.authenticated?("homer", "123456")
+    assert User.authenticate("user@gmail.com", "123456")
   end
 
   test "should create 3 automatic goals when new user is created" do
