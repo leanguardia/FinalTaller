@@ -1,0 +1,39 @@
+<div class="container">
+
+<div class="col-xs-4 col-lg-4">
+	<h1>New workout</h1>
+	<br>
+	<%= form_for(@workout) do |f| %>
+	  <% if @workout.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@workout.errors.count, "error") %> prohibited this workout from being saved:</h2>
+
+	      <ul>
+	      <% @workout.errors.full_messages.each do |message| %>
+	        <li><%= message %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+
+	  <div class="field">
+	    <%= f.label :workout_type_id %><br>
+	    <%= f.select :workout_type_id , @types, {}, {class: 'form-control'}  %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :Name %> &nbsp;
+	    <i>(Not necesary)</i>
+	    <br>
+	    <%= f.text_field :name , :class => 'form-control'%>
+	  </div>
+
+	  <div class="actions">
+	    <%= f.submit 'START WORKOUT', :class => 'bton bton-red'%>
+	  </div>
+	<% end %>
+	<br>
+	<%= link_to 'Back', workouts_path, :class => 'bton bton-normal' %>
+	<br>
+	<br>
+	</div>
+</div>

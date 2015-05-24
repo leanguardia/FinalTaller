@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Typename:</strong>
+  <%= @workout_type.typename %>
+</p>
+
+<p>
+  <strong>Outside:</strong>
+  <%= @workout_type.outside %>
+</p>
+
+<%= link_to 'Edit', edit_workout_type_path(@workout_type) %> |
+<%= link_to 'Back', workout_types_path %>

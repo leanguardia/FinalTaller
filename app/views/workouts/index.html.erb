@@ -1,0 +1,83 @@
+<div class="container">
+
+    <h1>Your Workouts</h1>
+
+    <br><br>
+
+    <td><%= link_to 'New Workout', new_workout_path , :class=>"bton btn-blue"%></td>
+
+<br><br><br>
+<h2>Active Workouts</h2>
+<br>
+<% if @actives.empty? %>
+  <p>You are not doing anything right now, Begin Now!</p>
+<%else%>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Start</th>
+        <th colspan="2">More</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @workouts.each do |workout| %>
+        <tr>
+          <% if workout.end == nil %>
+            <td><%= workout.workout_type.typename %></td>
+            <td><%= workout.name %></td>
+            <td><%= workout.start %></td>
+            <td><%= link_to 'Details', workout , :class=>"bton btn-yellow"%></td>
+            <td><a class="bton btn-red "href="#">Stop Exercise</a></td>
+             <!--<td><%= link_to 'Edit', edit_workout_path(workout) %></td> -->
+             <!--<td><%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+
+<br>
+<h2>Finished Workouts</h2>
+<br>
+<% if @done.empty? %>
+  <p>You have not done anything untill now, You lazy, GO!</p>
+<%else%>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Name</th>
+          <th>Start</th>
+          <th>End</th>
+          <th>Calories</th>
+          <th>Heartrate</th>
+          <th>More</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @workouts.each do |workout| %>
+          <% if workout.end != nil %>
+            <tr>
+              <td><%= workout.workout_type.typename %></td>
+              <td><%= workout.name %></td>
+              <td><%= workout.start %></td>
+              <td><%= workout.end %></td>
+              <td><%= workout.calories %></td>
+              <td><%= workout.heartrate %></td>
+              <td><%= link_to 'Details', workout , :class=>"bton btn-yellow"%></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+<%end%>
+<br>
+<br>
+
+</div>

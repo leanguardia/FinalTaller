@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
 
 
-  
   resources :band_data
 
+  resources :workouts
+
+  resources :workout_types
+
   resources :users
+
   resources :sessions
 
   resources :goals

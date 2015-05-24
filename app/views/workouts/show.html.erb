@@ -1,0 +1,49 @@
+<div class="container">
+
+  <p id="notice"><%= notice %></p>
+  <div class="col-lg-6 col-xs-7" >
+    <div class="small-box bg-green">
+      <div class="inner">
+          <p>
+          <strong>Workout type:</strong>
+          <%= @workout.workout_type.typename %>
+          </P>
+
+          <p>
+            <strong>Name:</strong>
+            <%= @workout.name %>
+          </p>
+
+          <p>
+            <strong>Start:</strong>
+            <%= @workout.start %>
+          </p>
+          <%if @workout.end!=nil%>
+              <p>
+                <strong>End:</strong>
+                <%= @workout.end %>
+              </p>
+
+              <p>
+                <strong>Calories:</strong>
+                <%= @workout.calories %>
+              </p>
+
+              <p>
+                <strong>Heartrate:</strong>
+                <%= @workout.heartrate %>
+              </p> 
+          <%end%>   
+      </div>
+
+      <%if @workout.end==nil%>
+          <a href="#" class="small-box-footer">Stop Exercise Now!</a>
+      <%end%>
+    </div>
+    <%= link_to 'Back', workouts_path ,:class => 'bton bton-normal'%>
+  </div>
+  </div>
+
+  <!--<%= link_to 'Edit', edit_workout_path(@workout) %>-->
+  <br><br>
+</div>
