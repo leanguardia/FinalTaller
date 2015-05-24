@@ -6,7 +6,7 @@
     <div class="box-tools" align="right">    
        <div class="input-group">
         <%= form_tag("/users", :method => "get") do %>      
-          <%= text_field_tag(:q, 'search', { :class=>"form-control" } ) %>                    
+          <%= text_field_tag(:q, '', { :class=>"form-control", :placeholder => 'Search' } ) %>                    
         <% end %>
        </div>
     </div>

@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def index
     #@users = User.all
     if params[:c] 
-      @posts = User.where("name LIKE '%#{params[:c]}%'").select("distinct users.* ")
+      @users = User.where("name LIKE '%#{params[:c]}%'").select("distinct users.* ")
     else
       q = params[:q] ? "name LIKE '%#{params[:q]}%'" : ""
       @users = User.where(q).order(:created_at).reverse  
@@ -28,26 +28,10 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-  def search
-    #@clients = buscar(params[:name])
+  def search  
     @users = User.where("name like ?", "%#{params[:name]}%")
     render 'index'
   end
-
-  def buscar(name)
-      items = Array.new 
-      aux = Client.all
-      if name != "" && name != nil
-          aux.each do |item|
-          if (item.respondToname(name))
-              items.push(item)
-          end
-        end
-      else
-          items = aux
-      end
-      return items
-    end
 
   # POST /users
   # POST /users.json

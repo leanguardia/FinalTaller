@@ -13,34 +13,13 @@
 
 ActiveRecord::Schema.define(version: 20150524050819) do
 
-  create_table "workout_types", force: true do |t|
-    t.string   "typename"
-    t.boolean  "outside"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "workouts", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "workout_type_id"
-    t.datetime "start"
-    t.datetime "end"
-    t.integer  "calories"
-    t.integer  "heartrate"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "workouts", ["user_id"], name: "index_workouts_on_user_id"
-  add_index "workouts", ["workout_type_id"], name: "index_workouts_on_workout_type_id"
-
   create_table "band_data", force: true do |t|
     t.integer  "user_id"
     t.integer  "band_id"
+    t.datetime "date_sent"
     t.integer  "steps_taken"
     t.integer  "calories_burnt"
-    t.integer  "hearth_rate_pminute"
+    t.integer  "heart_rate_pminute"
     t.float    "longitude"
     t.float    "latitude"
     t.datetime "created_at"
@@ -103,5 +82,27 @@ ActiveRecord::Schema.define(version: 20150524050819) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "workout_types", force: true do |t|
+    t.string   "typename"
+    t.boolean  "outside"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "workouts", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "workout_type_id"
+    t.datetime "start"
+    t.datetime "end"
+    t.integer  "calories"
+    t.integer  "heartrate"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "workouts", ["user_id"], name: "index_workouts_on_user_id"
+  add_index "workouts", ["workout_type_id"], name: "index_workouts_on_workout_type_id"
 
 end
