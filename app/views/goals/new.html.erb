@@ -1,7 +1,7 @@
 <div class="container">
   <h1>New goal</h1>
 
-  <%= form_for(@goal) do |f| %>
+  <%= form_validated_for(@goal) do |f| %>
 
       <div class="field">
         <%= f.label :goal_type_id %><br>

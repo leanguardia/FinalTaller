@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @band_datum.user %>
+</p>
+
+<p>
+  <strong>Band:</strong>
+  <%= @band_datum.band %>
+</p>
+
+<p>
+  <strong>Steps taken:</strong>
+  <%= @band_datum.steps_taken %>
+</p>
+
+<p>
+  <strong>Calories burnt:</strong>
+  <%= @band_datum.calories_burnt %>
+</p>
+
+<p>
+  <strong>Hearth rate pminute:</strong>
+  <%= @band_datum.hearth_rate_pminute %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @band_datum.longitude %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @band_datum.latitude %>
+</p>
+
+<%= link_to 'Edit', edit_band_datum_path(@band_datum) %> |
+<%= link_to 'Back', band_data_path %>
