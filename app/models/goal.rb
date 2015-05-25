@@ -48,7 +48,7 @@ class Goal < ActiveRecord::Base
     elsif goal.goal_type_id == 2
       goal.update(reached: steps)
     elsif goal.goal_type_id == 5
-      weight = User.find(current_user_id).weight - ((0.5 * steps + calories) / 10000)
+      weight = User.find(current_user_id).weight - ((0.5 * steps + calories) / 100000)
       goal.update(reached: weight)
     end
   end
