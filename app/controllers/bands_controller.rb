@@ -4,7 +4,7 @@ class BandsController < ApplicationController
   respond_to :html
 
   def index
-    @bands = Band.all
+    @bands = Band.where(user_id: current_user.id)
     respond_with(@bands)
   end
 
@@ -13,6 +13,8 @@ class BandsController < ApplicationController
   end
 
   def new
+    @types = Band.get_types
+    @colors = Band.get_color
     @band = Band.new
     respond_with(@band)
   end
@@ -22,6 +24,7 @@ class BandsController < ApplicationController
 
   def create
     @band = Band.new(band_params)
+    @band.user_id = current_user.id
     @band.save
     respond_with(@band)
   end

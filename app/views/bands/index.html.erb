@@ -14,8 +14,8 @@
     <% @bands.each do |band| %>
       <tr>
         <td><%= band.color %></td>
-        <td><%= band.user %></td>
-        <td><%= band.Band_type %></td>
+        <td><%= band.user.email %></td>
+        <td><%= band.Band_type.model %></td>
         <td><%= link_to 'Show', band %></td>
         <td><%= link_to 'Edit', edit_band_path(band) %></td>
         <td><%= link_to 'Destroy', band, method: :delete, data: { confirm: 'Are you sure?' } %></td>

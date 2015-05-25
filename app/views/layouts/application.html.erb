@@ -22,13 +22,16 @@
           <%if current_user.role == 'Admin'%>            
               <li><a href="/users">User List &nbsp; <img class="icon" src="/Images/Icons/user.png"></a>
           <%else%>
-              <li><a href="#section1">Band</a></li>
+              <li><a href="/bands">Band</a></li>
               <li><a href="/workouts">Workouts</a></li>
               <li><a href="/goals">Goals</a></li>
               <li><a href="#section3">Sleep</a></li>
               <li><a href="#section4">Alarms</a></li>
               <li><a href="#section6">More</a></li>
               <li>&nbsp;</li>
+              <%if !current_user.band %>
+                  <li><a href="/bands/new" style="background-color: red">REGISTER BAND</a></li>
+              <%end%>
           <%end%>
         </ul>
       <% end %>    

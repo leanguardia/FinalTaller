@@ -20,6 +20,7 @@
 
 
 $(document).ready(function () {
+    //
     var colorObject = {
         "Steps taken":"bg-olive",
         "Calories burned":"bg-orange",
@@ -55,4 +56,6 @@ $(document).ready(function () {
             $(this).addClass('bg-red');
         }
     });
+
+
 });

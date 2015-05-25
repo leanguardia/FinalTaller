@@ -21,12 +21,12 @@ class Goal < ActiveRecord::Base
 
   def self.get_times
     times = Array.new
-    times << ["1 day", 1]
-    times << ["1 week", 2]
-    times << ["1 month", 3]
-    times << ["3 months", 4]
-    times << ["6 months", 5]
-    times << ["1 year", 6]
+    times << ['1 day', 1]
+    times << ['1 week', 2]
+    times << ['1 month', 3]
+    times << ['3 months', 4]
+    times << ['6 months', 5]
+    times << ['1 year', 6]
 
     times
   end

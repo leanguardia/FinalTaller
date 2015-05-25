@@ -1,8 +1,21 @@
-<div class="container jumbotron">
+<div class="container jumbotron" style="background-color: inherit">
 
 	<h2>Register your New band</h2>
 
-	<%= render 'form' %>
+  <%= form_validated_for(@band) do |f| %>
 
-	<%= link_to 'Back', bands_path %>
+      <div class="field">
+        <%= f.label :color %><br>
+        <%= f.select :color, @colors, {}, {class: 'form-control'}%>
+      </div>
+
+      <div class="field">
+        <%= f.label :Band_type_id %><br>
+        <%= f.select :Band_type_id, @types, {}, {class: 'form-control'}%>
+      </div>
+      <div class="actions" align="left">
+        <%= f.submit "OK", :class => 'btn btn-warning'%><%= link_to 'Back', bands_path, {class: "btn btn-default", style: "float:right;"} %>
+      </div>
+
+  <% end %>
 </div>
