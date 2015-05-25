@@ -48,14 +48,25 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should update user in parameter active" do
-    @user = User.find(params[:id])
-    type = params[:active]
+    User.create( 
+          :name => "Usuario",
+          :lastname => "De Perueba",
+          :email =>"user@gmail.com",
+          :password => "123456",
+          :sex => "Male",
+          :weight => "70.5",
+          :height => "1.70",          
+          :birthdate => "10/10/1991",
+          :role => "Client",
+          :active => true)
+    type = '0'
     if type == '1'
       @user.active = true
     else
       @user.active = false
     end
     patch :update, id: @user, user: { active: @user.active, birthdate: @user.birthdate, email: @user.email, height: @user.height, lastname: @user.lastname, name: @user.name, password_hash: @user.password_hash, password_salt: @user.password_salt, role: @user.role, sex: @user.sex, weight: @user.weight }
+    assert_equal(@user.active = false, @user.active = false, msg = nil) 
     assert_redirected_to users_url
   end
 
