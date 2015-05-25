@@ -104,6 +104,12 @@ ul.nav-pills > li.active > a:focus {
 footer {
    background-color:#3385AD;
     color:white;
+
+    display: block;
+    margin: 0 auto auto auto;
+    width: 100%;
+    position: absolute;
+    
     min-height:100px;
     padding-top:20px;
     padding-bottom:40px;
