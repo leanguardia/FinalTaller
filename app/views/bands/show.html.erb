@@ -1,19 +1,41 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Color:</strong>
-  <%= @band.color %>
-</p>
-
-<p>
+<div class="container jumbotron" style="background-color: inherit">
+	  <p>
   <strong>User:</strong>
   <%= current_user.name %>
 </p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @band.Band_type.model %>
+</p>
+
+
+  <strong>Color:</strong>
+  <%if @band.color == 'green' || @band.color == '2'%>
+  	<li style="background-color: rgb(0, 166, 90); border-color: rgb(0, 166, 90); wigth: 20px;"></li>
+  <%end%>
+  <%if @band.color == 'blue' || @band.color == '1'%>
+	<li style="background-color: rgb(0, 115, 183); border-color: rgb(0, 115, 183); wigth: 20px;"></li>
+  <%end%>
+  <%if @band.color == 'red' || @band.color == '3'%>
+  	<li style="background-color: rgb(221, 75, 57); border-color: rgb(221, 75, 57); wigth: 20px;"></li>
+  <%end%>
+
+  
+ 	<%= link_to 'Edit', edit_band_path(@band) %> |
+	<%= link_to 'Back', bands_path %>
+
+</div>
+
+
+
 
 <!--<p>
   <strong>Model:</strong>
   <%= @band.Band_type %>
 </p>
 -->
-<%= link_to 'Edit', edit_band_path(@band) %> |
-<%= link_to 'Back', bands_path %>
+
+

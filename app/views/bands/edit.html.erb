@@ -1,6 +1,25 @@
-<h1>Editing band</h1>
+<div class="container jumbotron" style="background-color: inherit">
 
-<%= render 'form' %>
+	<h2>Edit your band</h2>
+  <%= form_validated_for(@band) do |f| %>
 
-<%= link_to 'Show', @band %> |
+      <div class="field">
+        <%= f.label :color %><br>
+        <%= f.select :color, @colors, {}, {class: 'form-control'}%>
+      </div>
+
+      <div class="field">
+        <%= f.label :Band_type_id %><br>
+        <%= f.select :Band_type_id, @types, {}, {class: 'form-control'}%>
+      </div>
+      <div class="actions" align="left">
+        <%= f.submit "OK", :class => 'btn btn-warning'%><%= link_to 'Back', bands_path, {class: "btn btn-default", style: "float:right;"} %>
+      </div>
+
+  <% end %>
+
+
+  <%= link_to 'Show', @band %> |
 <%= link_to 'Back', bands_path %>
+
+</div>
