@@ -7,4 +7,5 @@ class BandTest < ActiveSupport::TestCase
     color << ["red", 3]
     color << ["blue", 4]
     assert_equal(times, Band.get_color)
-  end
+	end
+end
