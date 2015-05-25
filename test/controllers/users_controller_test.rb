@@ -46,4 +46,17 @@ class UsersControllerTest < ActionController::TestCase
 
     assert_redirected_to users_path
   end
+
+  test "should update user in parameter active" do
+    @user = User.find(params[:id])
+    type = params[:active]
+    if type == '1'
+      @user.active = true
+    else
+      @user.active = false
+    end
+    patch :update, id: @user, user: { active: @user.active, birthdate: @user.birthdate, email: @user.email, height: @user.height, lastname: @user.lastname, name: @user.name, password_hash: @user.password_hash, password_salt: @user.password_salt, role: @user.role, sex: @user.sex, weight: @user.weight }
+    assert_redirected_to users_url
+  end
+
 end
