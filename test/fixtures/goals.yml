@@ -2,7 +2,7 @@
 
 one:
   start_date: 2015-05-09 10:51:04
-  interval: 10
+  interval: 1
   target: 1.5
   reached: 1.5
   goal_type_id: 
@@ -10,8 +10,8 @@ one:
 
 two:
   start_date: 2015-05-09 10:51:04
-  interval: 10
+  interval: 7
   target: 1.5
   reached: 1.5
   goal_type_id: 
-  user_id: 
+  user_id:

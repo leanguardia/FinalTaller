@@ -3,6 +3,7 @@ class Band < ActiveRecord::Base
   belongs_to :Band_type
 
   before_create :set_values
+  before_update :set_values
 
   def self.get_types
     type = Array.new
