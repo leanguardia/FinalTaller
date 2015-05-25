@@ -20,6 +20,11 @@ class BandsController < ApplicationController
   end
 
   def edit
+    @band.user_id = current_user.id
+    @types = Band.get_types
+    @colors = Band.get_color
+    @band = Band.find(params[:id])
+    respond_with(@band)
   end
 
   def create
