@@ -1,25 +1,23 @@
-<div class="container jumbotron" style="background-color: inherit">
+<div class="container ">  
+  <div class="col-xs-3 col-lg-3"></div>
+    <div class="col-lg-6">
 
-	<h2>Edit your band</h2>
-  <%= form_validated_for(@band) do |f| %>
+    	<h2>Edit your band</h2>
+      <%= form_validated_for(@band) do |f| %>
 
-      <div class="field">
-        <%= f.label :color %><br>
-        <%= f.select :color, @colors, {}, {class: 'form-control'}%>
-      </div>
+          <div class="form-group">
+            <%= f.label :color %><br>
+            <%= f.select :color, @colors, {}, {class: 'form-control'}%>
+          </div>
 
-      <div class="field">
-        <%= f.label :Band_type_id %><br>
-        <%= f.select :Band_type_id, @types, {}, {class: 'form-control'}%>
-      </div>
-      <div class="actions" align="left">
-        <%= f.submit "OK", :class => 'btn btn-warning'%><%= link_to 'Back', bands_path, {class: "btn btn-default", style: "float:right;"} %>
-      </div>
-
-  <% end %>
-
-
-  <%= link_to 'Show', @band %> |
-<%= link_to 'Back', bands_path %>
-
+          <div class="form-group">
+            <%= f.label :Band_type_id %><br>
+            <%= f.select :Band_type_id, @types, {}, {class: 'form-control'}%>
+          </div>
+          <div class="actions" align="left">
+            <%= f.submit "Edit Band", :class => 'btn btn-warning'%><%= link_to 'Back', bands_path, {class: "btn btn-default", style: "float:right;"} %>
+          </div><br>
+      <% end %>
+    </div>
+  </div>
 </div>

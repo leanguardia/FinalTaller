@@ -28,10 +28,10 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-  def search  
-    @users = User.where("name like ?", "%#{params[:name]}%")
-    render 'index'
-  end
+  #def search  
+   # @users = User.where("name like ?", "%#{params[:name]}%")
+   # render 'index'
+  #end
 
   # POST /users
   # POST /users.json
