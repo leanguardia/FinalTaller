@@ -6,16 +6,16 @@
       <div class="field">
         <%= f.label :goal_type_id %><br>
         <%= f.select(:goal_type_id, @types, {}, {class: 'form-control goal-form-control'})%>
-      </div>
+      </div><br><br>
 
       <div class="field">
         <%= f.label "Repeat every" %><br>
         <%= f.select :interval, @times, {}, {class: 'form-control goal-form-control'}%>
-      </div>
+      </div><br><br>
 
       <div class="field">
         <%= f.label :target %><br>
-        <%= f.number_field :target, class: 'form-control goal-form-control' , id: "project_name"%>
+        <%= f.number_field :target, class: 'form-control goal-form-control'%>
       </div>
       <br><br>
       <div class="actions">
@@ -26,27 +26,3 @@
 
   <%= link_to 'Back', goals_path, {class: "btn btn-default"} %>
 </div>
-
-
-<script type="text/javascript">
-//   function validate_project(){
-//            var check = 0;
-//            if($("#project_name").val() == '' || ($("#project_name").val() == null)){
-//                $("#project_name_error").show();
-//                $("#project_name_error").html("<font color='red' size='1'>Please enter a project name</font>");
-//                return false;
-//            }
-//            if ($("#project_name").val() != ''){
-//                $.get( "validate/"+$("#project_name").val(), function( data ) {
-//                    $("#project_name_error").show();
-//                    $("#project_name_error").html("<font color='red' size='1'>Name Already Exist</font>");
-//                    check = 1;
-//                    return false;
-//                });
-//                alert("1st alert")
-//                return false;
-//            }
-//            alert("2nd alert")
-//            return true;
-//        }
-</script>

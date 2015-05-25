@@ -18,7 +18,7 @@ class BandDataControllerTest < ActionController::TestCase
 
   test "should create band_datum" do
     assert_difference('BandDatum.count') do
-      post :create, band_datum: { band_id: @band_datum.band_id, calories_burnt: @band_datum.calories_burnt, hearth_rate_pminute: @band_datum.hearth_rate_pminute, latitude: @band_datum.latitude, longitude: @band_datum.longitude, steps_taken: @band_datum.steps_taken, user_id: @band_datum.user_id }
+      post :create, band_datum: { band_id: @band_datum.band_id, calories_burnt: @band_datum.calories_burnt, heart_rate_pminute: @band_datum.heart_rate_pminute, latitude: @band_datum.latitude, longitude: @band_datum.longitude, steps_taken: @band_datum.steps_taken, user_id: @band_datum.user_id }
     end
 
     assert_redirected_to band_datum_path(assigns(:band_datum))
@@ -35,7 +35,7 @@ class BandDataControllerTest < ActionController::TestCase
   end
 
   test "should update band_datum" do
-    patch :update, id: @band_datum, band_datum: { band_id: @band_datum.band_id, calories_burnt: @band_datum.calories_burnt, hearth_rate_pminute: @band_datum.hearth_rate_pminute, latitude: @band_datum.latitude, longitude: @band_datum.longitude, steps_taken: @band_datum.steps_taken, user_id: @band_datum.user_id }
+    patch :update, id: @band_datum, band_datum: { band_id: @band_datum.band_id, calories_burnt: @band_datum.calories_burnt, heart_rate_pminute: @band_datum.heart_rate_pminute, latitude: @band_datum.latitude, longitude: @band_datum.longitude, steps_taken: @band_datum.steps_taken, user_id: @band_datum.user_id }
     assert_redirected_to band_datum_path(assigns(:band_datum))
   end
 

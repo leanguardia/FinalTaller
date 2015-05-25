@@ -20,6 +20,10 @@
     <%= f.text_field :band_id %>
   </div>
   <div class="field">
+    <%= f.label :date_sent %><br>
+    <%= f.date_select :date_sent %>
+  </div>
+  <div class="field">
     <%= f.label :steps_taken %><br>
     <%= f.number_field :steps_taken %>
   </div>
@@ -27,10 +31,10 @@
     <%= f.label :calories_burnt %><br>
     <%= f.number_field :calories_burnt %>
   </div>
-  <div class="field">
-    <%= f.label :hearth_rate_pminute %><br>
-    <%= f.number_field :hearth_rate_pminute %>
-  </div>
+    <div class="field">
+      <%= f.label :heart_rate_pminute %><br>
+      <%= f.number_field :heart_rate_pminute %>
+    </div>
   <div class="field">
     <%= f.label :longitude %><br>
     <%= f.text_field :longitude %>

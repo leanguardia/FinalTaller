@@ -42,6 +42,6 @@ class BandDataController < ApplicationController
     end
 
     def band_datum_params
-      params.require(:band_datum).permit(:user_id, :band_id, :steps_taken, :calories_burnt, :hearth_rate_pminute, :longitude, :latitude)
+      params.require(:band_datum).permit(:user_id, :band_id, :date_sent, :steps_taken, :calories_burnt, :heart_rate_pminute, :longitude, :latitude)
     end
 end
