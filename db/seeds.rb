@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
   # Goal types
-  GoalType.create([{typename: "Steps taken", unit_measured: "Steps"},{typename: "Calories burned", unit_measured: "Calories"},{typename: "Sleep", unit_measured: "Hours"}])
-  GoalType.create([{typename: "Distance covered", unit_measured: "km"},{typename: "Weight decrease", unit_measured: "kilograms"},{typename: "Weight increase", unit_measured: "kg"}])
+  GoalType.create([{typename: 'Steps taken', unit_measured: 'Steps'},{typename: 'Calories burned', unit_measured: 'Calories'},{typename: 'Sleep', unit_measured: 'Hours'}])
+  GoalType.create([{typename: 'Distance covered', unit_measured: 'km'},{typename: 'Weight decrease', unit_measured: 'kilograms'},{typename: 'Weight increase', unit_measured: 'kilograms'}])
   # Goal types
 
   test_user = User.new
@@ -192,29 +192,29 @@
   # test_user.save!
 
 #WO types
-wotype =WorkoutType.new(typename:"Outside Run",outside:true)
+wotype =WorkoutType.new(typename:'Outside Run',outside:true)
 wotype.save!
 
-wotype =WorkoutType.new(typename:"Inside Run",outside:false)
+wotype =WorkoutType.new(typename:'Inside Run',outside:false)
 wotype.save!
 
-wotype =WorkoutType.new(typename:"Walk",outside:true)
+wotype =WorkoutType.new(typename:'Walk',outside:true)
 wotype.save!
 
-wotype =WorkoutType.new(typename:"Musculation",outside:false)
+wotype =WorkoutType.new(typename:'Musculation',outside:false)
 wotype.save!
 
-wotype =WorkoutType.new(typename:"Outside Cycling",outside:true)
+wotype =WorkoutType.new(typename:'Outside Cycling',outside:true)
 wotype.save!
 
-wotype =WorkoutType.new(typename:"Inside Cycling",outside:false)
+wotype =WorkoutType.new(typename:'Inside Cycling',outside:false)
 wotype.save!
 
 #WO's User_1
 #Active (current)
-wo=Workout.new(user_id:1,workout_type_id:1,start:"13/05/2015 14:39",name:"Primer Workout")
+wo=Workout.new(user_id:1,workout_type_id:1,start:'13/05/2015 14:39',name:'Primer Workout')
 wo.save!
 
 #Finished (already Done)
-wo=Workout.new(user_id:1,workout_type_id:3,start:"10/05/2015 10:02:23",end:"10/05/2015 12:12:43",calories:250,heartrate:66,name:"Primer Workout")
+wo=Workout.new(user_id:1,workout_type_id:3,start:'10/05/2015 10:02:23',end:'10/05/2015 12:12:43',calories:250,heartrate:66,name:'Primer Workout')
 wo.save!

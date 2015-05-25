@@ -31,6 +31,28 @@ class Goal < ActiveRecord::Base
     times
   end
 
+  def self.calculate_measure(current_user_id, goal)
+    data = BandDatum.where(user_id: current_user_id)
+    endDate = goal.start_date + goal.interval.days
+    calories = 0
+    steps = 0
+    data.each do |record|
+      if record.date_sent < endDate
+          calories += record.calories_burnt
+          steps += record.steps_taken
+      end
+    end
+
+    if goal.goal_type_id == 1
+      goal.update(reached: calories)
+    elsif goal.goal_type_id == 2
+      goal.update(reached: steps)
+    elsif goal.goal_type_id == 5
+      weight = User.find(current_user_id).weight - ((0.5 * steps + calories) / 10000)
+      goal.update(reached: weight)
+    end
+  end
+
   def set_values
     self.reached = 0
     self.start_date = Time.zone.now

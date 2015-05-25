@@ -5,6 +5,9 @@ class GoalsController < ApplicationController
 
   def index
     @goals = User.find(current_user.id).goals
+    @goals.each do |goal|
+      Goal.calculate_measure(current_user.id, goal)
+    end
     respond_with(@goals)
   end
 
