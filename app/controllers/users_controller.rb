@@ -36,7 +36,9 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+
     @user = User.new(user_params)
+    @user.role = 'client'
 
     respond_to do |format|
       if @user.save
@@ -53,6 +55,8 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     @user = current_user
+    @user.role = 'client'
+    
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, flash[:success] => "User was successfully updated" }

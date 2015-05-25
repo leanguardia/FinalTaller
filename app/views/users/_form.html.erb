@@ -29,9 +29,7 @@
         <div class="form-group">
           <%= f.label :birthdate %>          
             <%= f.date_select :birthdate,{:order => [:day, :month, :year], :start_year => 1890}, {:class => "form-control"} %>          
-        </div><br>
-
-        <%= f.hidden_field :rol, :value => 'Client' %>
+        </div><br>        
               
         <%= f.hidden_field :active, :value => true %>
         
