@@ -32,6 +32,11 @@ group :test, :development do
   gem 'metric_fu'
 end
 
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -48,5 +53,5 @@ gem 'tzinfo-data'
 #added by the team
 gem 'devise'
 gem 'adminlte-rails'
-gem "bcrypt-ruby", :require => "bcrypt"
+gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'realtime-validations'
