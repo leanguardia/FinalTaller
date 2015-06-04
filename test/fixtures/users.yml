@@ -9,7 +9,7 @@ one:
   birthdate: 2015-05-15
   role: MyString
   active: false
-  email: MyString
+  email: MyString1@gmail.com
   password_hash: MyString
   password_salt: MyString
 
@@ -22,6 +22,19 @@ two:
   birthdate: 2015-05-15
   role: MyString
   active: false
-  email: MyString
+  email: MyString2@gmail.com
+  password_hash: MyString
+  password_salt: MyString
+
+three:
+  name: MyString
+  lastname: MyString
+  sex: MyString
+  weight: 1.5
+  height: 1.5
+  birthdate: 2015-05-15
+  role: MyString
+  active: false
+  email: MyString3@gmail.com
   password_hash: MyString
   password_salt: MyString
