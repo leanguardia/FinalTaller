@@ -19,6 +19,7 @@ data = {'band_datum[user_id]' => user, 'band_datum[band_id]' => band, 'band_datu
 
 
 uri = URI.parse('http://127.0.0.1:3000/band_data.json')
+# uri = URI.parse('http://binaryband.herokuapp.com/band_data.json')
 
 # Full control
 http = Net::HTTP.new(uri.host, uri.port)

@@ -52,8 +52,8 @@
     </table></center>
 
 <div align="right">
-  <%= link_to 'Back', root_path , :class =>"bton bton-yellow"%> &nbsp;
-  <%= link_to 'Edit', edit_user_path(@user) , :class => "bton bton-blue"%>
+  <%= link_to 'Back', root_path , :class =>'bton bton-yellow'%> &nbsp;
+  <% if current_user.id == @user.id %> <%= link_to 'Edit', edit_user_path(@user) , :class => 'bton bton-blue'%> <% end %>
 </div>
 </div>
 

@@ -28,7 +28,6 @@ Rails.application.routes.draw do
 
   get '/users/disable_user/:id/:active' => 'users#disable_user'
   get 'users/search' => 'users#search'
-  match '/api/json/new' => 'band_data#load_data',  via: :post
   
 
   #devise_for :users

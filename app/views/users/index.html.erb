@@ -13,8 +13,10 @@
       <table class="table no-margin">
         <thead>
           <tr>
+            <th>Id</th>
             <th>Name</th>
             <th>Lastname</th>
+            <th>Band Id</th>
             <th>Sex</th>
             <th>Weight</th>
             <th>Height</th>
@@ -27,9 +29,11 @@
         <tbody>
           <% @users.each do |user| %>
             <%if user.role != "Admin"%>
-            <tr>            
+            <tr>
+              <td><%= user.id %></td>
               <td><%= user.name %></td>
               <td><%= user.lastname %></td>
+              <td><%= if user.band then user.band.id else 'n/a' end %></td>
               <td><%= user.sex %></td>
               <td><%= user.weight %></td>
               <td><%= user.height %></td>

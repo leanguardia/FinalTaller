@@ -5,13 +5,45 @@ one:
   interval: 1
   target: 1.5
   reached: 1.5
-  goal_type_id: 
+  goal_type_id: 1
   user_id: 
 
 two:
   start_date: 2015-05-09 10:51:04
-  interval: 7
+  interval: 2
   target: 1.5
   reached: 1.5
-  goal_type_id: 
+  goal_type_id: 2
+  user_id:
+
+three:
+  start_date: 2015-05-09 10:51:04
+  interval: 3
+  target: 1.5
+  reached: 1.5
+  goal_type_id: 3
+  user_id:
+
+four:
+  start_date: 2015-05-09 10:51:04
+  interval: 4
+  target: 1.5
+  reached: 1.5
+  goal_type_id: 4
+  user_id:
+
+five:
+  start_date: 2015-05-09 10:51:04
+  interval: 5
+  target: 1.5
+  reached: 1.5
+  goal_type_id: 5
+  user_id:
+
+six:
+  start_date: 2015-05-09 10:51:04
+  interval: 6
+  target: 1.5
+  reached: 1.5
+  goal_type_id: 6
   user_id:

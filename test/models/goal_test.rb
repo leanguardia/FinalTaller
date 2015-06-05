@@ -17,15 +17,11 @@ class GoalTest < ActiveSupport::TestCase
     assert_equal(times, Goal.get_times)
   end
 
-  test 'should create tests with different intervals' do
-    (1..6).each do |num|
-      goal = Goal.new
-      goal.interval = num
-      goal.save
-    end
+  test 'should create six goals' do
+    assert_equal(6, Goal.all.count)
   end
 
   test 'should get all goal types in an array' do
-    assert_equal(2, Goal.get_types.count)
+    assert_equal(6, Goal.get_types.count)
   end
 end

@@ -37,7 +37,7 @@ class Goal < ActiveRecord::Base
     calories = 0
     steps = 0
     data.each do |record|
-      if record.date_sent < end_date
+      if record.date_sent < end_date && record.date_sent > goal.start_date
           calories += record.calories_burnt
           steps += record.steps_taken
       end

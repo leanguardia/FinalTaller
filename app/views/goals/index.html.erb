@@ -11,8 +11,8 @@
           </div><!-- /.box-header -->
           <div class="box-body">
             <div class="col-md-8">
-              <h3>Goal target: <%= (sprintf "%.2f", goal.target) +" " + goal.goal_type.unit_measured %></h3>
-              <h4><%= goal.reached.to_s + " " + goal.goal_type.unit_measured + " reached so far" %></h4>
+              <h3>Goal target: <%= (sprintf '%.2f', goal.target) +' ' + goal.goal_type.unit_measured %></h3>
+              <% unless goal.goal_type.id >= 5 %> <h4><%= goal.reached.to_s + ' ' + goal.goal_type.unit_measured + ' reached so far' %></h4> <% end %>
             </div>
             <div class="col-md-2">
               <div class="row">
@@ -31,7 +31,7 @@
 
 
   <div class="row">
-    <%= link_to 'New Goal', new_goal_path, {class: "btn btn-default"} %>
+    <%= link_to 'New Goal', new_goal_path, {class: 'btn btn-default'} %>
   </div>
   <br><br><br>
 </div>
