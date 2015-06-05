@@ -1,0 +1,42 @@
+<div class="container ">  
+  <div class="panel panel-primary">
+    <div class="panel-heading" align="center"><h1><strong>Alarm</strong></h1></div>
+    <div class="panel-body">  
+     <center> <table class="table table-user-information">
+        <tbody>
+          <tr>
+            <td><strong>Day week</strong></td>
+            <td><%= @alarm.day_week %></td>
+          <tr>
+
+          <tr>
+            <td><strong>Alarm hour</strong></td>
+            <td><%= @alarm.alarm_hour  %></td>
+          </tr>
+
+          <tr>
+            <td><strong>State</strong></td>
+            <td><%= @alarm.state %></td>
+          </tr>
+      
+          <th>
+            <td></td>
+
+          </th>
+      </tbody>
+    </table></center>
+
+<div align="right">
+  <%= link_to 'Edit', edit_alarm_path(@alarm), :class =>'bton bton-yellow' %> &nbsp;
+  <%= link_to 'Back', alarms_path  , :class =>'bton bton-default'%> 
+    
+</div>
+</div>
+
+
+
+</div>
+
+</div><br>
+
+

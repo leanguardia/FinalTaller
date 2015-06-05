@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
   has_many :goals
   has_many :workouts
+  has_many :alarms
   has_one  :band
   
   attr_accessor :password,  :password_comfirmation
