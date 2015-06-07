@@ -4,11 +4,9 @@ class BandDataController < ApplicationController
   respond_to :html
 
   def index
-    if current_user
-      if current_user.role == 'Admin'
-        @band_data = BandDatum.all
-        respond_with(@band_data)
-      end
+    if current_user && current_user.role == 'Admin'
+      @band_data = BandDatum.all
+      respond_with(@band_data)
     else
       redirect_to '/'
     end
