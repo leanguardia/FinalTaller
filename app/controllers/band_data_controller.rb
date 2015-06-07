@@ -27,6 +27,7 @@ class BandDataController < ApplicationController
   def create
     @band_datum = BandDatum.new(band_datum_params)
     @band_datum.save
+    respond_with(@band_datum)
   end
 
   def update
