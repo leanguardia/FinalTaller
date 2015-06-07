@@ -20,17 +20,18 @@
     <div class="navbar-collapse collapse">
       <% if current_user %>  
         <ul class="nav navbar-nav navbar-left nav-pills"> 
-          <%if current_user.role == 'Admin'%>            
-              <li><a href="/users">User List &nbsp; <img class="icon" src="/Images/Icons/user.png"></a>
+          <%if current_user.role == 'Admin'%>
+              <li><a href="/users">User List &nbsp; <i class="fa fa-fw fa-group"></i></a>
+              <li><a href="/band_data">Band Data &nbsp; <i class="fa fa-table"></i></a>
           <%else%>
               <li><a href="/bands">Band</a></li>
               <li><a href="/workouts">Workouts</a></li>
               <li><a href="/goals">Goals</a></li>
               <li><a href="#section3">Sleep</a></li>
               <li><a href="/alarms">Alarms</a></li>
-              <li><a href="#section6">More</a></li>
+              <li><a href="/dashboard">Dashboard</a></li>
               <li>&nbsp;</li>
-              <%if !current_user.band %>
+              <%unless current_user.band %>
                   <li><a href="/bands/new" style="background-color: red">REGISTER BAND</a></li>
               <%end%>
           <%end%>

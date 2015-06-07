@@ -4,11 +4,15 @@ class GoalsController < ApplicationController
   respond_to :html
 
   def index
-    @goals = User.find(current_user.id).goals
-    @goals.each do |goal|
-      Goal.calculate_measure(current_user.id, goal)
+    if current_user
+      @goals = User.find(current_user.id).goals
+      @goals.each do |goal|
+        Goal.calculate_measure(current_user.id, goal)
+      end
+      respond_with(@goals)
+    else
+      redirect_to '/'
     end
-    respond_with(@goals)
   end
 
   def show

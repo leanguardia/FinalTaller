@@ -5,11 +5,15 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     #@users = User.all
-    if params[:c] 
-      @users = User.where("name LIKE '%#{params[:c]}%'").select("distinct users.* ")
+    if current_user && current_user.role == 'Admin'
+      if params[:c]
+        @users = User.where("name LIKE '%#{params[:c]}%'").select("distinct users.* ")
+      else
+        q = params[:q] ? "name LIKE '%#{params[:q]}%'" : ""
+        @users = User.where(q).order(:created_at).reverse
+      end
     else
-      q = params[:q] ? "name LIKE '%#{params[:q]}%'" : ""
-      @users = User.where(q).order(:created_at).reverse  
+      redirect_to '/'
     end
   end
 
