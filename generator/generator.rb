@@ -7,6 +7,8 @@ puts 'Desired user id'
 user = gets.chomp
 puts 'Desired band id'
 band = gets.chomp
+puts 'Desired workout id'
+workout = gets.chomp
 puts 'Start year'
 year = gets.chomp
 puts 'Start month'
@@ -15,7 +17,7 @@ puts 'Start day'
 day = gets.chomp
 date = Time.new(year, month, day, 20, 40)
 
-data = {'band_datum[user_id]' => user, 'band_datum[band_id]' => band, 'band_datum[date_sent]' => date, 'band_datum[steps_taken]' => 666, 'band_datum[calories_burnt]' => 666, 'band_datum[heart_rate_pminute]' => 666, 'band_datum[latitude]' => 0, 'band_datum[longitude]' => 0}
+data = {'band_datum[user_id]' => user, 'band_datum[band_id]' => band,'band_datum[workout_id]' => workout, 'band_datum[date_sent]' => date, 'band_datum[steps_taken]' => 666, 'band_datum[calories_burnt]' => 666, 'band_datum[heart_rate_pminute]' => 666, 'band_datum[latitude]' => 0, 'band_datum[longitude]' => 0}
 
 
 uri = URI.parse('http://127.0.0.1:3000/band_data.json')

@@ -63,7 +63,6 @@ class Goal < ActiveRecord::Base
     end_date = goal.start_date + goal.interval.days
 
     results = self.get_sum(data, end_date, goal.start_date)
-    logger.info results
 
     if ret
       if goal.goal_type_id == 1
