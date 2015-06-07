@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
   has_many :goals
   has_many :workouts
+  has_many :alarms
   has_one  :band
   has_many :band_data
 

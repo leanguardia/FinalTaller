@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :alarms
+
   resources :band_data
 
   resources :workouts
