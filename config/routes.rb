@@ -34,6 +34,7 @@ Rails.application.routes.draw do
 
   get 'goal/history/:id' => 'goals#history'
   get 'band_data' => 'band_data#index'
+  post 'band_data.json' => 'band_data#create'
   get 'dashboard' => 'static_pages#dashboard'
   
 

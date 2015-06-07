@@ -27,7 +27,6 @@ class BandDataController < ApplicationController
   def create
     @band_datum = BandDatum.new(band_datum_params)
     @band_datum.save
-    respond_with(@band_datum)
   end
 
   def update
@@ -46,6 +45,6 @@ class BandDataController < ApplicationController
     end
 
     def band_datum_params
-      params.require(:band_datum).permit(:user_id, :band_id, :date_sent, :steps_taken, :calories_burnt, :heart_rate_pminute, :longitude, :latitude)
+      params.require(:band_datum).permit(:user_id, :band_id, :date_sent, :steps_taken, :calories_burnt, :heart_rate_pminute, :longitude, :latitude, :token)
     end
 end
