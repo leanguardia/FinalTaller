@@ -16,6 +16,10 @@ class GoalsController < ApplicationController
     respond_with(@goal)
   end
 
+  def history
+    @goals = Goal.generate_history(current_user.id, params[:id])
+  end
+
   def new
     @goal = Goal.new
     @types = Goal.get_types

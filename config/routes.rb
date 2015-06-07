@@ -28,6 +28,9 @@ Rails.application.routes.draw do
 
   get '/users/disable_user/:id/:active' => 'users#disable_user'
   get 'users/search' => 'users#search'
+
+
+  get 'goal/history/:id' => 'goals#history'
   
 
   #devise_for :users

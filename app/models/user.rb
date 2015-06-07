@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
   has_many :goals
   has_many :workouts
   has_one  :band
-  
+  has_many :band_data
+
   attr_accessor :password,  :password_comfirmation
   before_save :prepare_password
 
@@ -74,23 +75,20 @@ class User < ActiveRecord::Base
 
   def get_steps(age)
     if age >= 65
-      steps = 1500
+      steps = 4000
     elsif age > 25
-      steps = 2500
+      steps = 8000
     elsif age > 14
-      steps = 2000
+      steps = 7000
     else
-      steps = 1800
+      steps = 4200
     end
     steps
   end
 
   def create_goals
     age = get_age
-    hours = get_sleep_hours(age)
-    calories = get_calories(age)
     weight = get_ideal_weight - self.weight
-    steps = get_steps(age)
 
     if weight < 0
       g3 = Goal.new :user_id => self.id, :goal_type_id => 5, :target => (-1 * weight)
@@ -100,11 +98,11 @@ class User < ActiveRecord::Base
       g3.save
     end
 
-    g1 = Goal.new :user_id => self.id, :goal_type_id => 3, :interval => 1, :target => hours
+    g1 = Goal.new :user_id => self.id, :goal_type_id => 3, :interval => 1, :target => get_sleep_hours(age)
     g1.save
-    g2 = Goal.new :user_id => self.id, :goal_type_id => 2, :interval => 1, :target => calories
+    g2 = Goal.new :user_id => self.id, :goal_type_id => 2, :interval => 1, :target => get_calories(age)
     g2.save
-    g4 = Goal.new :user_id => self.id, :goal_type_id => 1, :interval => 1, :target => steps
+    g4 = Goal.new :user_id => self.id, :goal_type_id => 1, :interval => 1, :target => get_steps(age)
     g4.save
   end
 

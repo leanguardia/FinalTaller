@@ -7,6 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
   # Goal types
+    # Steps           -> 1
+    # Calories        -> 2
+    # Sleep           -> 3
+    # Distance        -> 4
+    # Weight decrease -> 5
+    # Weight increase -> 6
+
   GoalType.create([{typename: 'Steps taken', unit_measured: 'Steps'},{typename: 'Calories burned', unit_measured: 'Calories'},{typename: 'Sleep', unit_measured: 'Hours'}])
   GoalType.create([{typename: 'Distance covered', unit_measured: 'km'},{typename: 'Weight decrease', unit_measured: 'kilograms'},{typename: 'Weight increase', unit_measured: 'kilograms'}])
   # Goal types

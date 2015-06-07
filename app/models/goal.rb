@@ -5,8 +5,8 @@ class Goal < ActiveRecord::Base
   before_create :set_values
 
 
-  validates :target, presence: {:message => "Goal target must be set"},
-                     length: {minimum: 1, :message => "must have at least one number" }
+  validates :target, presence: {:message => 'Goal target must be set'},
+                     length: {minimum: 1, :message => 'must have at least one number' }
   # validates :target, length: {minimum: 1, maximum: 4, :message => "El target debe tener minimo numeros"}
  
 
@@ -31,22 +31,53 @@ class Goal < ActiveRecord::Base
     times
   end
 
-  def self.calculate_measure(current_user_id, goal)
-    data = BandDatum.where(user_id: current_user_id)
-    end_date = goal.start_date + goal.interval.days
+  def self.generate_history(current_user_id, current_goal)
+    current_goal = Goal.find(current_goal)
+    goals = Array.new
+    today = Time.zone.now
+    while current_goal.start_date < today
+      goals << calculate_measure(current_user_id, current_goal, true)
+      current_goal = current_goal.dup
+      current_goal.start_date += current_goal.interval.days
+    end
+    goals
+  end
+
+  def self.get_sum(data, end_date, start_date)
     calories = 0
     steps = 0
     data.each do |record|
-      if record.date_sent < end_date && record.date_sent > goal.start_date
-          calories += record.calories_burnt
-          steps += record.steps_taken
+      if record.date_sent < end_date && record.date_sent > start_date
+        calories += record.calories_burnt
+        steps += record.steps_taken
       end
     end
+    result = Hash.new
+    result[:steps] = steps
+    result[:calories] = calories
+    result
+  end
 
-    if goal.goal_type_id == 1
-      goal.update(reached: calories)
-    elsif goal.goal_type_id == 2
-      goal.update(reached: steps)
+  def self.calculate_measure(current_user_id, goal, ret = false)
+    data = BandDatum.where(user_id: current_user_id)
+    end_date = goal.start_date + goal.interval.days
+
+    results = self.get_sum(data, end_date, goal.start_date)
+    logger.info results
+
+    if ret
+      if goal.goal_type_id == 1
+        goal.reached = results[:steps]
+      elsif goal.goal_type_id == 2
+        goal.reached = results[:calories]
+      end
+      goal
+    else
+      if goal.goal_type_id == 1
+        goal.update(reached: results[:steps])
+      elsif goal.goal_type_id == 2
+        goal.update(reached: results[:calories])
+      end
     end
   end
 
