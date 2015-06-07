@@ -1,3 +1,4 @@
 <div class="container">
   Charts should go here
+  <%= line_chart BandDatum.group_by_second(:created_at, 'sum', 'steps_taken') %>
 </div>
