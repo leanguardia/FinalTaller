@@ -18,6 +18,9 @@
 //= require bootstrap.min
 //= require admin-lte
 //= require jsapi
+//= require chartkick
+//= require underscore
+//= require gmaps/google
 
 
 $(document).ready(function () {

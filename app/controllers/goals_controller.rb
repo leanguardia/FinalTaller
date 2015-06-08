@@ -21,7 +21,7 @@ class GoalsController < ApplicationController
   end
 
   def history
-    @goals = Goal.generate_history(current_user.id, params[:id])
+    @goals = Goal.generate_history(current_user.id, params[:id]).paginate(page: params[:page], per_page: 10)
   end
 
   def new

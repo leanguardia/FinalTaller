@@ -1,5 +1,3 @@
-<%= javascript_include_tag '//www.google.com/jsapi', 'chartkick' %>
-
 <div class="container">
 
     <div class="small-box bg-green">
@@ -66,7 +64,20 @@
   <%if @workout.workout_type.outside %>
     <div class="container">
       <h3>Path covered</h3>
-        <p>Map goes here.</p>
+      <div style='width: 800px;'>
+        <div id="map" style='width: 800px; height: 400px;'></div>
+      </div>
+
+      <script type="text/javascript">
+
+          handler = Gmaps.build('Google');
+          handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+              markers = handler.addMarkers(<%=raw @hash.to_json %>);
+              handler.bounds.extendWith(markers);
+              handler.fitMapToBounds();
+          });
+
+      </script>
     </div>
 
   <%end%>

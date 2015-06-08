@@ -6,7 +6,7 @@ class WorkoutTest < ActiveSupport::TestCase
     @workout = workouts(:one)
   end
 
-  test "should get all workout types in an array" do
+  test 'should get all workout types in an array' do
     type = Array.new
     WorkoutType.all.each do |x|
       type << [x.typename, x.id]
@@ -14,8 +14,8 @@ class WorkoutTest < ActiveSupport::TestCase
     assert_equal(type, Workout.get_types)
   end
 
-  test "should calculate data from band_datum" do
-    test = Workout.new(id: 1,user_id: 1,start: "2015-05-21 17:05:00",end: "2015-05-21 19:05:00" ,name: "testing")
+  test 'should calculate data from band_datum' do
+    test = Workout.new(id: 1,user_id: 1,start: '2015-05-21 17:05:00',end: '2015-05-21 19:05:00' ,name: "testing")
     test.save!
     calories=0
     steps=0
@@ -32,6 +32,7 @@ class WorkoutTest < ActiveSupport::TestCase
     assert_equal(calories,@workout.calories)
     assert_equal(steps,@workout.steps)
     assert_equal(heartrate,@workout.heartrate)
+    @workout.calculate_data
   end
 
 end

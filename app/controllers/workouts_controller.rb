@@ -19,6 +19,10 @@ class WorkoutsController < ApplicationController
   end
 
   def show
+    @hash = Gmaps4rails.build_markers(@workout.band_datums) do |record, marker|
+      marker.lat record.latitude
+      marker.lng record.longitude
+    end
     respond_with(@workout)
   end
 
