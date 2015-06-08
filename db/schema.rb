@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 20150608023234) do
 
   add_index "band_data", ["band_id"], name: "index_band_data_on_band_id"
   add_index "band_data", ["user_id"], name: "index_band_data_on_user_id"
-  add_index "band_data", ["workout_id"], name: "index_band_data_on_workout_id"
 
   create_table "band_types", force: true do |t|
     t.string   "model"
@@ -118,7 +117,6 @@ ActiveRecord::Schema.define(version: 20150608023234) do
     t.datetime "end"
     t.integer  "calories"
     t.integer  "heartrate"
-    t.integer  "steps"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
