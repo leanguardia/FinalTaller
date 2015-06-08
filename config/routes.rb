@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   get 'band_data' => 'band_data#index'
   post 'band_data.json' => 'band_data#create'
   get 'dashboard' => 'static_pages#dashboard'
+  get 'icons' => 'static_pages#icons'
   
 
   #devise_for :users

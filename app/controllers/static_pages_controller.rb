@@ -8,7 +8,10 @@ class StaticPagesController < ApplicationController
     end
   end
 
-	def home
+  def home
+  end
+
+  def icons
   end
 
   def help

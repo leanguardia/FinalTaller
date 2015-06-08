@@ -38,16 +38,6 @@ class UsersController < ApplicationController
    # render 'index'
   #end
 
-  def verify_alarm
-    @user = current_user
-    current_user.alarms.each do |alarm|
-      if current_user.verify_day_and_hour_of_alarm(alarm)
-        flash[:success] = "djasndjnsajdsadksa"}
-      end
-    end
-    flash[:success] = "djasndjnsajdsadksa"}
-  end
-
   # POST /users
   # POST /users.json
   def create
