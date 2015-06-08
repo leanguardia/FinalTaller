@@ -1,0 +1,4 @@
+<%= javascript_include_tag '//www.google.com/jsapi', 'chartkick' %>
+<div class="container">
+  <%= line_chart @band_data.group_by_minute(:date_sent, 'avg', 'steps_taken') %>
+</div>

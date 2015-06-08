@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :alarms
 
-  resources :band_data
+  # resources :band_data
 
   resources :workouts
 
@@ -30,6 +30,12 @@ Rails.application.routes.draw do
 
   get '/users/disable_user/:id/:active' => 'users#disable_user'
   get 'users/search' => 'users#search'
+
+
+  get 'goal/history/:id' => 'goals#history'
+  get 'band_data' => 'band_data#index'
+  post 'band_data.json' => 'band_data#create'
+  get 'dashboard' => 'static_pages#dashboard'
   
 
   #devise_for :users

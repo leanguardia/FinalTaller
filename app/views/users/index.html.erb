@@ -28,7 +28,7 @@
 
         <tbody>
           <% @users.each do |user| %>
-            <%if user.role != "Admin"%>
+            <%if user.role != 'Admin'%>
             <tr>
               <td><%= user.id %></td>
               <td><%= user.name %></td>
@@ -39,8 +39,12 @@
               <td><%= user.height %></td>
               <td><%= user.birthdate %></td>        
               <td><%= user.email %></td>        
-              <td><%= link_to 'Show', user, :class => 'btn btn-info' %></td>        
-              <td><%= link_to user.active == true ? 'Disable': 'Enable', '/users/disable_user/'+ user.id.to_s + '/' + (user.active == true ? '0': '1'), { :class=>"btn btn-danger" } %></td> 
+              <td><%= link_to 'Show', user, :class => 'btn btn-info' %></td>
+              <% if user.active %>
+              <td><%= link_to raw('Disable&nbsp;<i class="fa fa-fw fa-lock"></i>'), '/users/disable_user/'+ user.id.to_s + '/0', { :class=>'btn btn-danger' } %></td>
+              <% else %>
+              <td><%= link_to raw('Enable&nbsp;<i class="fa fa-fw fa-unlock">'), '/users/disable_user/'+ user.id.to_s + '/1', { :class=>'btn bg-green' } %></i></td>
+              <% end %>
 
               <!--<td><%= link_to 'Edit', edit_user_path(user) %></td>
               <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
