@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   has_many :workouts
   has_many :alarms
   has_one  :band
-  
+  has_many :band_data
+
   attr_accessor :password,  :password_comfirmation
   before_save :prepare_password
 
@@ -60,6 +61,56 @@ class User < ActiveRecord::Base
     end
   end
 
+  def alarm_list
+    @alarm_l = Alarm.all
+  end
+
+   def verify_day_and_hour_of_alarm(alarm)
+    timeNow = DateTime.now    
+    dayNow = timeNow.wday
+    hourNow = timeNow.hour
+    minuteNow = timeNow.min
+
+    day = alarm.day_week
+    hour = alarm.alarm_hour.hour
+    minute = alarm.alarm_hour.min
+
+    dNow = convert_values_of_days(dayNow)
+    
+
+
+    if day == 'All days' && alarm.state == true && hour == hourNow && minute == minuteNow      
+      alarm.state = false
+      return true       
+    elsif day == dNow && alarm.state == true && hour == hourNow && minute == minuteNow
+      alarm.state = false
+      return true
+    else
+      return false
+    end
+  end
+
+
+  def convert_values_of_days(val)   
+    
+    if val == 1
+      return 'Monday'
+    elsif val == 2
+      return 'Tuesday'
+    elsif val == 3
+      return 'Wednesday'
+    elsif val == 4
+      return 'Thursday'
+    elsif val == 5
+      return 'Friday'
+    elsif val == 6
+      return 'Saturday'
+    elsif val == 0
+      return 'Sunday'
+    end
+  end
+
+
   def get_sleep_hours(age)
     if age >= 65
       hours = 7.5
@@ -75,23 +126,20 @@ class User < ActiveRecord::Base
 
   def get_steps(age)
     if age >= 65
-      steps = 1500
+      steps = 4000
     elsif age > 25
-      steps = 2500
+      steps = 8000
     elsif age > 14
-      steps = 2000
+      steps = 7000
     else
-      steps = 1800
+      steps = 4200
     end
     steps
   end
 
   def create_goals
     age = get_age
-    hours = get_sleep_hours(age)
-    calories = get_calories(age)
     weight = get_ideal_weight - self.weight
-    steps = get_steps(age)
 
     if weight < 0
       g3 = Goal.new :user_id => self.id, :goal_type_id => 5, :target => (-1 * weight)
@@ -101,11 +149,11 @@ class User < ActiveRecord::Base
       g3.save
     end
 
-    g1 = Goal.new :user_id => self.id, :goal_type_id => 3, :interval => 1, :target => hours
+    g1 = Goal.new :user_id => self.id, :goal_type_id => 3, :interval => 1, :target => get_sleep_hours(age)
     g1.save
-    g2 = Goal.new :user_id => self.id, :goal_type_id => 2, :interval => 1, :target => calories
+    g2 = Goal.new :user_id => self.id, :goal_type_id => 2, :interval => 1, :target => get_calories(age)
     g2.save
-    g4 = Goal.new :user_id => self.id, :goal_type_id => 1, :interval => 1, :target => steps
+    g4 = Goal.new :user_id => self.id, :goal_type_id => 1, :interval => 1, :target => get_steps(age)
     g4.save
   end
 

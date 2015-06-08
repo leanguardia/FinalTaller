@@ -3,8 +3,11 @@
 <table class="table table-bordered">
   <thead>
     <tr>
+      <th>#</th>
+      <th>Data id</th>
       <th>User</th>
       <th>Band</th>
+      <th>Workout</th>
       <th>Date sent</th>
       <th>Steps taken</th>
       <th>Calories burnt</th>
@@ -14,12 +17,15 @@
       <!--<th colspan="3"></th>-->
     </tr>
   </thead>
-
+    <% a = 1 %>
   <tbody>
     <% @band_data.each do |band_datum| %>
       <tr>
+        <td><%= a %><% a+=1 %></td>
+        <td><%= band_datum.id %></td>
         <td><%= if band_datum.user then band_datum.user.email else band_datum.user end %></td>
         <td><%= if band_datum.band then band_datum.band.id else band_datum.band end %></td>
+        <td><%= if band_datum.workout then band_datum.workout.id else band_datum.workout end %></td>
         <td><%= band_datum.date_sent %></td>
         <td><%= band_datum.steps_taken %></td>
         <td><%= band_datum.calories_burnt %></td>

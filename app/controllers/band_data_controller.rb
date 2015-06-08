@@ -4,8 +4,12 @@ class BandDataController < ApplicationController
   respond_to :html
 
   def index
-    @band_data = BandDatum.all
-    respond_with(@band_data)
+    if current_user && current_user.role == 'Admin'
+      @band_data = BandDatum.all
+      respond_with(@band_data)
+    else
+      redirect_to '/'
+    end
   end
 
   def show
@@ -42,6 +46,6 @@ class BandDataController < ApplicationController
     end
 
     def band_datum_params
-      params.require(:band_datum).permit(:user_id, :band_id, :date_sent, :steps_taken, :calories_burnt, :heart_rate_pminute, :longitude, :latitude)
+      params.require(:band_datum).permit(:user_id, :band_id,:workout_id ,:date_sent, :steps_taken, :calories_burnt, :heart_rate_pminute, :longitude, :latitude)
     end
 end

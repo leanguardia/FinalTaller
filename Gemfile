@@ -33,6 +33,13 @@ group :test, :development do
   
 end
 
+gem 'chartkick'
+gem 'hightop'
+gem 'active_median'
+gem 'dateslices'
+
+gem 'gmaps4rails'
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'

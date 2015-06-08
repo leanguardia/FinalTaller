@@ -6,7 +6,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <link rel="shortcut icon" href=/Images/logo.png>
+  <link rel="shortcut icon" href="/Images/logo.png">
 
 </head>
 <body>
@@ -20,17 +20,18 @@
     <div class="navbar-collapse collapse">
       <% if current_user %>  
         <ul class="nav navbar-nav navbar-left nav-pills"> 
-          <%if current_user.role == 'Admin'%>            
-              <li><a href="/users">User List &nbsp; <img class="icon" src="/Images/Icons/user.png"></a>
+          <%if current_user.role == 'Admin'%>
+              <li><a href="/users">User List &nbsp; <i class="fa fa-fw fa-group"></i></a>
+              <li><a href="/band_data">Band Data &nbsp; <i class="fa fa-table"></i></a>
           <%else%>
               <li><a href="/bands">Band</a></li>
               <li><a href="/workouts">Workouts</a></li>
               <li><a href="/goals">Goals</a></li>
               <li><a href="#section3">Sleep</a></li>
               <li><a href="/alarms">Alarms</a></li>
-              <li><a href="#section6">More</a></li>
+              <li><a href="/dashboard">Dashboard</a></li>
               <li>&nbsp;</li>
-              <%if !current_user.band %>
+              <%unless current_user.band %>
                   <li><a href="/bands/new" style="background-color: red">REGISTER BAND</a></li>
               <%end%>
           <%end%>
@@ -68,10 +69,41 @@
         <!--<div class="alert alert-<%= key %>"><%= value %></div>-->
         <!--<br><br>-->
     <!--<% end %>-->
+    <!-- Button trigger modal -->
 
 </div>
+
+<%if current_user%>
+      <% current_user.alarms.each do |alarm| %>
+        <%if current_user.verify_day_and_hour_of_alarm(alarm)%>  
+      
+          <div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">kksdksd</h4>
+                </div>
+                <div class="modal-body">                  
+
+                 
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>       
+                </div>
+              </div>
+            </div>
+          </div>
+    
+
+        <%end%>  
+      <%end%>
+    <%end%>
   <%= yield %>
 
+
+    
+    </div>
 <!--Footer-->
 <footer id="footer">
     <div class="container">
@@ -121,6 +153,15 @@
         <p class="text-right">©2015</p>
     </div>
 </footer>
+
+
+
+
+
+<!-- Button trigger modal -->
+
+
+
 
 
 </body>

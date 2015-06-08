@@ -17,6 +17,7 @@
 //= require realtime_validations
 //= require bootstrap.min
 //= require admin-lte
+//= require jsapi
 
 
 $(document).ready(function () {

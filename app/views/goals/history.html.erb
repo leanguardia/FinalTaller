@@ -1,0 +1,27 @@
+<div class="container">
+  <table class="table no-margin">
+    <thead>
+    <tr>
+      <th>Goal Type</th>
+      <th>Target</th>
+      <th>Reached</th>
+      <th>Started at</th>
+      <th>Ended at</th>
+      <th>Repeat every</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @goals.each do |goal| %>
+            <tr>
+              <td><%= goal.goal_type.typename %></td>
+              <td><%= goal[:target] %></td>
+              <td><%= goal[:reached] %></td>
+              <td><%= goal[:start_date] %></td>
+              <td><%= goal[:start_date] + goal[:interval].days %></td>
+              <td><%= goal[:interval] %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

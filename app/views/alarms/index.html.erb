@@ -5,7 +5,7 @@
         <table class="table no-margin">
         <thead>
           <tr>
-            <th>User</th>
+            <th>Type</th>
             <th>Day week</th>
             <th>Alarm hour</th>
             <th>State</th>
@@ -16,7 +16,7 @@
         <tbody>
           <% @alarms.each do |alarm| %>
             <tr>
-              <td><%= alarm.user_id %></td>
+              <td><%= alarm.name %></td>
               <td><%= alarm.day_week %></td>
               <td><%= alarm.alarm_hour.strftime("%H : %M")%></td>
               <td><%= alarm.state %></td>

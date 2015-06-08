@@ -44,6 +44,6 @@ class AlarmsController < ApplicationController
     end
 
     def alarm_params
-      params.require(:alarm).permit(:user_id, :day_week, :alarm_hour, :state)
+      params.require(:alarm).permit(:user_id, :day_week, :alarm_hour, :state, :name)
     end
 end
