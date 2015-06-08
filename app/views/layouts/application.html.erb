@@ -32,7 +32,7 @@
               <li><a href="/dashboard">Dashboard</a></li>
               <li>&nbsp;</li>
               <%unless current_user.band %>
-                  <li><a href="/bands/new" style="background-color: red">REGISTER BAND</a></li>
+                  <li><a href="/bands/new" style="background-color: #5F04B4">REGISTER BAND</a></li>
               <%end%>
           <%end%>
         </ul>
@@ -61,6 +61,7 @@
   <!--</div>-->
 </nav>
 
+
 <!--Content-->
 <br><br><br><br>
 
@@ -72,6 +73,7 @@
     <!-- Button trigger modal -->
 
 </div>
+
 
 <%if current_user%>
       <% current_user.alarms.each do |alarm| %>

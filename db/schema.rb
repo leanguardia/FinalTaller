@@ -20,14 +20,12 @@ ActiveRecord::Schema.define(version: 20150606001932) do
     t.boolean  "state"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "type"
     t.string   "name"
   end
 
   create_table "band_data", force: true do |t|
     t.integer  "user_id"
     t.integer  "band_id"
-    t.integer  "workout_id"
     t.datetime "date_sent"
     t.integer  "steps_taken"
     t.integer  "calories_burnt"
@@ -38,7 +36,6 @@ ActiveRecord::Schema.define(version: 20150606001932) do
     t.datetime "updated_at"
   end
 
-  add_index "band_data", ["workout_id"], name: "index_band_data_on_workout_id"
   add_index "band_data", ["band_id"], name: "index_band_data_on_band_id"
   add_index "band_data", ["user_id"], name: "index_band_data_on_user_id"
 
