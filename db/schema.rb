@@ -119,6 +119,7 @@ ActiveRecord::Schema.define(version: 20150608023234) do
     t.datetime "end"
     t.integer  "calories"
     t.integer  "heartrate"
+    t.integer  "steps"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"

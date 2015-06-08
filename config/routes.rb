@@ -42,6 +42,8 @@ Rails.application.routes.draw do
   
   get 'sleep/awake/:id' => 'sleeps#awake'
 
+  get 'workout/finish/:id' => 'workouts#finish'
+
   #devise_for :users
 
   #resources :bands

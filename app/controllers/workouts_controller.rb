@@ -5,7 +5,7 @@ class WorkoutsController < ApplicationController
 
   def index
     #@active_wos = Workout.where(user_id:current_user.id , end:nil)
-    @workouts = Workout.where(user_id:current_user.id)
+    @workouts = Workout.where(user_id:current_user.id).reverse
     @actives = Array.new #current workouts
     @done = Array.new #Done workouts
     @workouts.each do |workout|
@@ -20,6 +20,14 @@ class WorkoutsController < ApplicationController
 
   def show
     respond_with(@workout)
+  end
+
+  def finish
+    @workout = Workout.find(params[:id])
+    @workout.end=DateTime.now
+    @workout.calculate_data
+    @workout.save
+    redirect_to('/workouts')
   end
 
   def new
