@@ -30,9 +30,7 @@
             <td><%= workout.name %></td>
             <td><%= workout.start %></td>
             <td><%= link_to 'Details', workout , :class=>"bton btn-yellow"%></td>
-            <td><a class="bton btn-red "href="#">Stop Exercise</a></td>
-             <!--<td><%= link_to 'Edit', edit_workout_path(workout) %></td> -->
-             <!--<td><%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+            <td><a class="bton btn-red "href="workout/finish/<%=workout.id%>">Stop Exercise</a></td>
           <% end %>
         </tr>
       <% end %>
@@ -55,7 +53,8 @@
           <th>Start</th>
           <th>End</th>
           <th>Calories</th>
-          <th>Heartrate</th>
+          <th>Heart Rate</th>
+          <th>Steps</th>
           <th>More</th>
         </tr>
       </thead>
@@ -70,6 +69,12 @@
               <td><%= workout.end %></td>
               <td><%= workout.calories %></td>
               <td><%= workout.heartrate %></td>
+              <%if workout.workout_type.outside %>
+                  <td><%= workout.steps %></td>
+              <%else%>
+                  <td>N/A</td>
+              <%end%>
+
               <td><%= link_to 'Details', workout , :class=>"bton btn-yellow"%></td>
             </tr>
           <% end %>

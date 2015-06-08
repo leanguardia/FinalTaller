@@ -7,6 +7,7 @@ class CreateWorkouts < ActiveRecord::Migration
       t.datetime :end
       t.integer :calories
       t.integer :heartrate
+      t.integer :steps
       t.string :name
 
       t.timestamps

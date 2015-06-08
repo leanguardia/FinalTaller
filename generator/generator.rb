@@ -41,7 +41,7 @@ loop do
   sleep 0.01
   data['band_datum[date_sent]'] = date
   data['band_datum[steps_taken]'] = rand(100)
-  data['band_datum[calories_burnt]'] = data['band_datum[steps_taken]'] / 2
+  data['band_datum[calories_burnt]'] = data['band_datum[steps_taken]'] /2 + rand(50)
   data['band_datum[heart_rate_pminute]'] = 30 + rand(200)
   data['band_datum[longitude]'] += interval
 

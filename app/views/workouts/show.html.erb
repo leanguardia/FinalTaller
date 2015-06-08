@@ -1,7 +1,5 @@
 <div class="container">
 
-  <p id="notice"><%= notice %></p>
-  <div class="col-lg-6 col-xs-7" >
     <div class="small-box bg-green">
       <div class="inner">
           <p>
@@ -30,20 +28,59 @@
               </p>
 
               <p>
-                <strong>Heartrate:</strong>
+                <strong>Heart Rate:</strong>
                 <%= @workout.heartrate %>
-              </p> 
-          <%end%>   
+              </p>
+                <%if @workout.workout_type.outside %>
+                    <p>
+                      <strong>Steps:</strong>
+                      <%= @workout.steps%>
+                    </p>
+                <%end%>
+           <%end%>
       </div>
 
       <%if @workout.end==nil%>
-          <a href="#" class="small-box-footer">Stop Exercise Now!</a>
+          <a href="/workout/finish/<%=@workout.id%>" class="small-box-footer">Stop Exercise Now!</a>
       <%end%>
     </div>
     <%= link_to 'Back', workouts_path ,:class => 'bton bton-normal'%>
-  </div>
-  </div>
+    <br>
+  <br/>
+  <%if @workout.end!=nil%>
+      <div class="container">
+        <br/>
+        <h2>Steps chart</h2>
+        <%= line_chart @workout.band_datums.group_by_minute(:date_sent, 'avg', 'steps_taken') %>
+        <br/>
+        <br/>
+        <h2>Calories burned</h2>
+        <%= line_chart @workout.band_datums.group_by_minute(:date_sent, 'avg', 'calories_burnt') %>
+        <br/>
+        <br/>
+      </div>
+  <%end%>
 
-  <!--<%= link_to 'Edit', edit_workout_path(@workout) %>-->
-  <br><br>
+  <%if @workout.workout_type.outside %>
+    <div class="container">
+      <h3>Path covered</h3>
+      <div style='width: 800px;'>
+        <div id="map" style='width: 800px; height: 400px;'></div>
+      </div>
+
+      <script type="text/javascript">
+
+          handler = Gmaps.build('Google');
+          handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+              markers = handler.addMarkers(<%=raw @hash.to_json %>);
+              handler.bounds.extendWith(markers);
+              handler.fitMapToBounds();
+          });
+
+      </script>
+    </div>
+
+  <%end%>
+
+
 </div>
