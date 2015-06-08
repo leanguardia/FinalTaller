@@ -16,13 +16,7 @@ class AlarmsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create alarm" do
-    assert_difference('Alarm.count') do
-      post :create, alarm: { alarm_hour: @alarm.alarm_hour, day_week: @alarm.day_week, state: @alarm.state, user_id: @alarm.user_id }
-    end
 
-    assert_redirected_to alarm_path(assigns(:alarm))
-  end
 
   test "should show alarm" do
     get :show, id: @alarm

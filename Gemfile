@@ -30,6 +30,7 @@ group :test, :development do
   gem 'autotest-rails'
   gem 'simplecov', :require => false
   gem 'metric_fu'
+  
 end
 
 group :production do
