@@ -2,12 +2,12 @@
 
 one:
   user_id: 1
-  day_week: MyString
+  day_week: Monday
   alarm_hour: 2015-06-05 12:03:20
   state: false
 
 two:
   user_id: 1
-  day_week: MyString
+  day_week: Saturday
   alarm_hour: 2015-06-05 12:03:20
-  state: false
+  state: true
