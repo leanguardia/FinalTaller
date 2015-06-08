@@ -60,6 +60,56 @@ class User < ActiveRecord::Base
     end
   end
 
+  def alarm_list
+    @alarm_l = Alarm.all
+  end
+
+   def verify_day_and_hour_of_alarm(alarm)
+    timeNow = DateTime.now    
+    dayNow = timeNow.wday
+    hourNow = timeNow.hour
+    minuteNow = timeNow.min
+
+    day = alarm.day_week
+    hour = alarm.alarm_hour.hour
+    minute = alarm.alarm_hour.min
+
+    dNow = convert_values_of_days(dayNow)
+    
+
+
+    if day == 'All days' && alarm.state == true && hour == hourNow && minute == minuteNow      
+      alarm.state = false
+      return true       
+    elsif day == dNow && alarm.state == true && hour == hourNow && minute == minuteNow
+      alarm.state = false
+      return true
+    else
+      return false
+    end
+  end
+
+
+  def convert_values_of_days(val)   
+    
+    if val == 1
+      return 'Monday'
+    elsif val == 2
+      return 'Tuesday'
+    elsif val == 3
+      return 'Wednesday'
+    elsif val == 4
+      return 'Thursday'
+    elsif val == 5
+      return 'Friday'
+    elsif val == 6
+      return 'Saturday'
+    elsif val == 0
+      return 'Sunday'
+    end
+  end
+
+
   def get_sleep_hours(age)
     if age >= 65
       hours = 7.5

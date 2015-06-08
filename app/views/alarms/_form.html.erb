@@ -1,6 +1,11 @@
 <%= form_validated_for(@alarm) do |f| %>
   
   <div class="form-group">
+    <%= f.label :type %><br>    
+    <%= f.text_field :name, :class => 'form-control' %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :day_week %><br>    
     <%= f.select :day_week, @days, {}, {:class => 'form-control'} %>
   </div>
@@ -15,4 +20,5 @@
   <div class="actions" align="right">
     <%= f.submit (@alarm.new_record? ? 'Create Alarm' : 'Update Alarm'),:class => 'bton bton-green'%>
   </div>  
+
 <% end %>

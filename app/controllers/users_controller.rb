@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     end
   end
 
+
   # GET /users/1
   # GET /users/1.json
   def show
@@ -32,6 +33,16 @@ class UsersController < ApplicationController
    # @users = User.where("name like ?", "%#{params[:name]}%")
    # render 'index'
   #end
+
+  def verify_alarm
+    @user = current_user
+    current_user.alarms.each do |alarm|
+      if current_user.verify_day_and_hour_of_alarm(alarm)
+        flash[:success] = "djasndjnsajdsadksa"}
+      end
+    end
+    flash[:success] = "djasndjnsajdsadksa"}
+  end
 
   # POST /users
   # POST /users.json
@@ -89,6 +100,8 @@ class UsersController < ApplicationController
     @user.save!
     redirect_to users_url
   end
+  
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.

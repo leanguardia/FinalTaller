@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150605160319) do
+ActiveRecord::Schema.define(version: 20150606001932) do
 
   create_table "alarms", force: true do |t|
     t.integer  "user_id"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20150605160319) do
     t.boolean  "state"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "type"
+    t.string   "name"
   end
 
   create_table "band_data", force: true do |t|
