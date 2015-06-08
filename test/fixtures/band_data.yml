@@ -1,19 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: 2
+  user_id: 1
   band_id: 1
   steps_taken: 1
   calories_burnt: 1
   heart_rate_pminute: 1
   longitude: 1.5
   latitude: 1.5
+  date_sent: 2015-05-09 10:55:04
 
 two:
-  user_id: 3
+  user_id: 1
   band_id: 2
   steps_taken: 1
   calories_burnt: 1
   heart_rate_pminute: 1
   longitude: 1.5
   latitude: 1.5
+  date_sent: 2015-05-09 10:54:04

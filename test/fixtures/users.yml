@@ -1,9 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   name: MyString
   lastname: MyString
-  sex: MyString
+  sex: Female
   weight: 1.5
   height: 1.5
   birthdate: 2015-05-15
@@ -12,29 +13,50 @@ one:
   email: MyString1@gmail.com
   password_hash: MyString
   password_salt: MyString
+  active: true
 
 two:
+  id: 2
   name: MyString
   lastname: MyString
-  sex: MyString
+  sex: Male
   weight: 1.5
   height: 1.5
-  birthdate: 2015-05-15
+  birthdate: 1900-05-15
   role: MyString
   active: false
   email: MyString2@gmail.com
   password_hash: MyString
   password_salt: MyString
+  active: true
 
 three:
+  id: 3
   name: MyString
   lastname: MyString
-  sex: MyString
+  sex: Female
   weight: 1.5
   height: 1.5
-  birthdate: 2015-05-15
+  birthdate: 1980-05-15
   role: MyString
   active: false
   email: MyString3@gmail.com
   password_hash: MyString
   password_salt: MyString
+  active: true
+
+
+four:
+  id: 4
+  name: MyString
+  lastname: MyString
+  sex: Male
+  weight: 200.5
+  height: 1.5
+  birthdate: 2014-05-15
+  role: MyString
+  active: false
+  email: MyString3@gmail.com
+  password_hash: MyString
+  password_salt: MyString
+  active: true
