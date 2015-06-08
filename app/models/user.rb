@@ -62,10 +62,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def alarm_list
-    @alarm_l = Alarm.all
-  end
-
    def verify_day_and_hour_of_alarm(alarm)
     timeNow = DateTime.now    
     dayNow = timeNow.wday

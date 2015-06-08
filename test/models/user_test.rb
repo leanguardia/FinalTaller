@@ -68,6 +68,14 @@ class UserTest < ActiveSupport::TestCase
         :role => 'Client',
         :active => true)
 
+    User.find(1).verify_day_and_hour_of_alarm(Alarm.new(id: 999, alarm_hour: Time.now, day_week:'2', state: true))
+
     assert_equal((count+16), Goal.all.count, '4 goals created')
+  end
+
+  test 'should get day of the week' do
+    (0..6).each do |num|
+      User.all.first.convert_values_of_days(num)
+    end
   end
 end

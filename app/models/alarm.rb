@@ -39,23 +39,4 @@ class Alarm < ActiveRecord::Base
     end
   end
 
-  def verify_day_and_hour_of_alarm(alarm)
-    timeNow = DateTime.now    
-    dayNow = timeNow.strftime("%A")
-    hourNow = timeNow.strftime("%H")
-    minuteNow = timeNow.strftime("%M")
-
-    day = alarm.day_week.strftime("%A")
-    hour = alarm.day_week.strftime("%H")
-    minute = alarm.day_week.strftime("%M")
-
-    if day == 'All days' && alarm.state == true && hour == hourNow && minute == minuteNow      
-      return true
-    elsif day == dayNow && alarm.state == true && hour == hourNow && minute == minuteNow
-      return true
-    else
-      return false
-    end
-  end
-
 end
