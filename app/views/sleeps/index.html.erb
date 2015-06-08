@@ -1,0 +1,42 @@
+<div class="container jumbotron">
+
+  <h1>Your nights</h1>
+  <br>
+  <%= form_tag("/sleeps", method: "post") do %>
+    <%= submit_tag("New Sleep", :class => 'bton bton-blue' )%>
+  <% end %>
+  <br>
+  <br>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Started at</th>
+        <th>Awaken at</th>
+        <th>Sleep Time</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @sleeps.each do |sleep| %>
+        <tr>
+          <td><%= sleep.started_at %></td>
+          <td><%= sleep.awaken_at %></td>
+          <% if sleep.awaken_at == nil %>
+            <td><a href="sleep/awake/<%=sleep.id%>">Wake Up</a></td>
+          <%else%>  
+            <td><%= sleep.getDifference %> hours</td>
+          <% end %>
+          
+     <!--     <td><%= link_to 'Show', sleep %></td>
+          <td><%= link_to 'Edit', edit_sleep_path(sleep) %></td>
+          <td><%= link_to 'Destroy', sleep, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        -->
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+</div>

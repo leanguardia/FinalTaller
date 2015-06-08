@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :alarms
   has_one  :band
   has_many :band_data
+  has_many :sleeps
 
   attr_accessor :password,  :password_comfirmation
   before_save :prepare_password

@@ -1,9 +1,8 @@
 class AlarmsController < ApplicationController
-  before_action :set_alarm, only: [:show, :edit, :update, :destroy]
+  before_action :set_alarm, only: [:show, :edit, :update, :destroy] 
 
-  respond_to :html
-
-  def index
+  respond_to :html  
+  def index 
     @alarms = Alarm.all
     respond_with(@alarms)
   end

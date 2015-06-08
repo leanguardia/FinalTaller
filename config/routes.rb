@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :sleeps
+
   resources :alarms
 
   # resources :band_data
@@ -38,6 +40,7 @@ Rails.application.routes.draw do
   get 'dashboard' => 'static_pages#dashboard'
   get 'icons' => 'static_pages#icons'
   
+  get 'sleep/awake/:id' => 'sleeps#awake'
 
   #devise_for :users
 

@@ -5,6 +5,9 @@ class Band < ActiveRecord::Base
   before_create :set_values
   before_update :set_values
 
+  validates :color, presence: true
+  validates :Band_type_id, presence: true
+
   def self.get_types
     type = Array.new
     BandType.all.each do |x|
@@ -23,7 +26,6 @@ class Band < ActiveRecord::Base
   end
 
   def set_values
-    logger.info self.color
     val = self.color
     case val
       when '1'
