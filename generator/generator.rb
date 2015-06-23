@@ -7,8 +7,11 @@ puts 'Desired user id'
 user = gets.chomp
 puts 'Desired band id'
 band = gets.chomp
-puts 'Desired workout id'
+puts 'Desired workout id (0 for none)'
 workout = gets.chomp
+if workout == 0
+  workout = nil
+end
 puts 'Start year'
 year = gets.chomp
 puts 'Start month'
