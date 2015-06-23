@@ -71,7 +71,7 @@ GEM
     coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.9.1.1)
+    coffee-script-source (1.8.0)
     colored (1.2)
     concord (0.1.5)
       adamantium (~> 0.2.0)
@@ -282,6 +282,7 @@ DEPENDENCIES
   bcrypt-ruby
   chartkick
   coffee-rails (~> 4.0.0)
+  coffee-script-source (= 1.8.0)
   dateslices
   devise
   gmaps4rails

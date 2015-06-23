@@ -62,3 +62,6 @@ gem 'devise'
 gem 'adminlte-rails'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'realtime-validations'
+
+#solves the <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %> problem
+gem 'coffee-script-source', '1.8.0'
