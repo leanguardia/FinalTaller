@@ -34,7 +34,6 @@ class User < ActiveRecord::Base
   #validates :password, length: {minimum: 6, :message => "Password must have at least 6 characters"}
   #validates :password, confirmation: {:message => "Passwords don't match"}
 
-
   
 
   after_create :create_goals
@@ -134,6 +133,33 @@ class User < ActiveRecord::Base
     steps
   end
 
+  def get_heart_rate(age)
+    case age
+      when 0..20
+        target_value = (100+170)/2
+      when 21..30
+        target_value = (95+162)/2
+      when 31..35
+        target_value = (93+157)/2
+      when 36..40
+        target_value = (90+153)/2
+      when 41..45
+        target_value = (88+149)/2
+      when 46..50
+        target_value = (85+145)/2
+      when 51..55
+        target_value = (83+140)/2
+      when 56..60
+        target_value = (80+136)/2
+      when 61..65
+        target_value = (78+132)/2
+      else
+        target_value = (75+128)/2
+    end
+    target_value
+  end
+
+
   def create_goals
     age = get_age
     weight = get_ideal_weight - self.weight
@@ -152,6 +178,8 @@ class User < ActiveRecord::Base
     g2.save
     g4 = Goal.new :user_id => self.id, :goal_type_id => 1, :interval => 1, :target => get_steps(age)
     g4.save
+    g5 = Goal.new :user_id => self.id, :goal_type_id => 6, :interval => 1, :target => get_heart_rate(age)
+    g5.save
   end
 
   def self.authenticate(login, pass)
