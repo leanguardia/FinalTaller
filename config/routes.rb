@@ -36,6 +36,7 @@ Rails.application.routes.draw do
 
   get 'goal/history/:id' => 'goals#history'
   get 'band_data' => 'band_data#index'
+  get 'share/:id' => 'static_pages#share'
   post 'band_data.json' => 'band_data#create'
   get 'dashboard' => 'static_pages#dashboard'
   get 'icons' => 'static_pages#icons'

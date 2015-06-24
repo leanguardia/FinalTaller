@@ -8,6 +8,11 @@ class StaticPagesController < ApplicationController
     end
   end
 
+  def share
+    @goal = Goal.find(params[:id])
+    @percentage = (@goal.reached * 100)/ @goal.target
+  end
+
   def home
   end
 

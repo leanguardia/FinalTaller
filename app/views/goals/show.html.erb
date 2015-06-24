@@ -33,7 +33,7 @@
             <tr>
               <td>Progress so far</td>
               <td><%= (sprintf "%.2f", @goal.reached) +" " + @goal.goal_type.unit_measured %></td>
-              <td><span class="badge percentage"><%= (sprintf "%.0f", @percentage) %>%</span></td>
+              <td><span class="badge percentage"><%= (sprintf "%.0f", @percentage) %>%</span><% if @percentage > 99 %> <div class="fb-share-button" data-href="http://binaryband.herokuapp.com/share/<%= @goal.id %>" data-layout="button"></div> <% end %></td>
               <td>
                 <div class="progress progress-xs">
                   <div class="progress-bar percentage" style="width: <%= (sprintf "%.0f", @percentage) %>%"></div>
