@@ -59,6 +59,6 @@ class GoalsController < ApplicationController
 
   def goal_params
     # params.require(:goal).permit(:start_date, :interval, :target, :reached, :goal_type_id, :user_id_id)
-    params.require(:goal).permit(:interval, :target, :goal_type_id)
+    params.require(:goal).permit(:interval, :target, :goal_type_id, workout_id)
   end
 end

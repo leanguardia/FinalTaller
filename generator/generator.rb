@@ -26,8 +26,8 @@ interval = 0.000205
 data = {'band_datum[user_id]' => user, 'band_datum[band_id]' => band,'band_datum[workout_id]' => workout, 'band_datum[date_sent]' => date, 'band_datum[steps_taken]' => 666, 'band_datum[calories_burnt]' => 666, 'band_datum[heart_rate_pminute]' => 666, 'band_datum[latitude]' => start_latitude, 'band_datum[longitude]' => longitude}
 
 
-uri = URI.parse('http://127.0.0.1:3000/band_data.json')
-# uri = URI.parse('http://binaryband.herokuapp.com/band_data.json')
+# uri = URI.parse('http://127.0.0.1:3000/band_data.json')
+uri = URI.parse('http://binaryband.herokuapp.com/band_data.json')
 
 # Full control
 http = Net::HTTP.new(uri.host, uri.port)
