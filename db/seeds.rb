@@ -15,7 +15,7 @@
     # Weight increase -> 6
 
   GoalType.create([{typename: 'Steps taken', unit_measured: 'Steps'},{typename: 'Calories burned', unit_measured: 'Calories'},{typename: 'Sleep', unit_measured: 'Hours'}])
-  GoalType.create([{typename: 'Distance covered', unit_measured: 'km'},{typename: 'Weight decrease', unit_measured: 'kilograms'}])
+  GoalType.create([{typename: 'Distance covered', unit_measured: 'km'},{typename: 'Weight decrease', unit_measured: 'kilograms'},{typename: 'Weight increase', unit_measured: 'kilograms'}])
   GoalType.create(typename:'Heart Rate',unit_measured:'beats per minute')
   # Goal types
 
