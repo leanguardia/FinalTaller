@@ -1,4 +1,22 @@
 <div class="container">
+
+  <h1>Your Charts</h1>
+
+  <div class="jumbotron form-inline">
+    <h2>Select a range of time</h2>
+
+    <%= form_tag dashboard_path, :method => 'get' do %>
+        <%= label_tag :from %> <br/>
+        <%= select_date @vars[1] ,{ prefix: :from, :order => [:day,:month,:year]}, {:class => 'form-control'}%>
+        <br/> <br/>
+        <%= label_tag :to %> <br/>
+        <%= select_date @vars[2] ,{ prefix: :to, :order => [:day,:month,:year]}, {:class => 'form-control'} %>
+        <br/> <br/>
+        <%= submit_tag "Send", :name => nil, :class=> 'btn btn-default' %>
+    <%end %>
+  </div>
+  <br/>
+
   <div class="box box-solid" style="background-color: #75DBDB">
     <div class="box-header ui-sortable-handle" style="cursor: move;">
       <h3 class="box-title" style="color: white">Steps taken over time</h3>
@@ -9,7 +27,7 @@
     </div>
     <div class="box-body border-radius-none">
       <div class="morris-hover-point" style="color: #efefef">
-        <%= line_chart @band_data.group_by_minute(:date_sent, 'sum', 'steps_taken'), library: {backgroundColor: '#75DBDB', lineWidth: 5, legend: 'none', series: {0 => {color: '#E8E8E8'}}} %>
+        <%= line_chart @vars[0].group_by_minute(:date_sent, 'sum', 'steps_taken'), library: {backgroundColor: '#75DBDB', lineWidth: 5, legend: 'none', series: {0 => {color: '#E8E8E8'}}} %>
       </div>
     </div><!-- /.box-body -->
     <!--<div class="box-footer no-border">-->
@@ -28,32 +46,23 @@
     </div>
     <div class="box-body border-radius-none">
       <div class="morris-hover-point" style="color: #efefef">
-        <%= line_chart @band_data.group_by_minute(:date_sent, 'sum', 'calories_burnt'), library: {backgroundColor: '#6de167', lineWidth: 5, legend: 'none', series: {0 => {color: '#EFEFEF'}}} %>
+        <%= line_chart @vars[0].group_by_minute(:date_sent, 'sum', 'calories_burnt'), library: {backgroundColor: '#6de167', lineWidth: 5, legend: 'none', series: {0 => {color: '#EFEFEF'}}} %>
       </div>
-
-
-
-    </div><!-- /.box-body -->
-    <!--<div class="box-footer no-border">-->
-    <!--<div class="col-xs-4 text-center">-->
-    <!--</div>-->
-    <!--</div>&lt;!&ndash; /.box-footer &ndash;&gt;-->
+    </div>
   </div>
 
-<div class="box box-solid" style="background-color: #58D3F7">
+  <div class="box box-solid" style="background-color: #58D3F7">
     <div class="box-header ui-sortable-handle" style="cursor: move;">
       <h3 class="box-title" style="color: white">Heart Rate</h3>
       <div class="box-tools pull-right">
         <button class="btn bg-blue btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
-        <!--<button class="btn bg-teal btn-sm" data-widget="remove"><i class="fa fa-times"></i></button>-->
       </div>
     </div>
     <div class="box-body border-radius-none">
       <div class="morris-hover-point" style="color: #efefef">
-        <%= line_chart @band_data.group_by_minute(:date_sent, 'sum', 'heart_rate_pminute'), library: {backgroundColor: '#58D3F7', lineWidth: 5, legend: 'none', series: {0 => {color: '#58D3F7'}}} %>
+        <%= line_chart @vars[0].group_by_minute(:date_sent, 'sum', 'heart_rate_pminute'), library: {backgroundColor: '#58D3F7', lineWidth: 5, legend: 'none', series: {0 => {color: 'white'}}} %>
       </div>
     </div>
   </div>
-   
-</div>
 
+</div>
