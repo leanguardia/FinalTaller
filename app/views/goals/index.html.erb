@@ -1,4 +1,23 @@
 <div class="container">
+  <div id="fb-root"></div>
+  <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : 503520029796244,
+          xfbml      : true,
+          version    : 'v2.3'
+        });
+      };
+
+      (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=503520029796244";
+          fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+  </script>
+
   <div class="goal-title"><h1 class="big-font">Your goals</h1></div>
 
   <br><br>
@@ -8,11 +27,14 @@
         <div class="box box-solid goal-box">
           <div class="box-header">
             <h2 class="box-title"><%= goal.goal_type.typename %></h2>
+            <% if goal.goal_type.id < 5 && goal.reached >= goal.target %>
+                <div class="fb-share-button" data-href="http://binaryband.herokuapp.com//goals/<%= goal.id %>" data-layout="button"></div>
+            <% end %>
           </div><!-- /.box-header -->
           <div class="box-body">
             <div class="col-md-8">
               <h3>Goal target: <%= (sprintf '%.2f', goal.target) +' ' + goal.goal_type.unit_measured %></h3>
-              <% unless goal.goal_type.id > 6 %> <h4><%= goal.reached.to_s + ' ' + goal.goal_type.unit_measured + ' reached so far' %></h4> <% end %>
+              <% unless goal.goal_type.id >= 5 %> <h4><%= goal.reached.to_s + ' ' + goal.goal_type.unit_measured + ' reached so far' %></h4> <% end %>
             </div>
             <div class="col-md-2">
               <div class="row">

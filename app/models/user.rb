@@ -178,7 +178,7 @@ class User < ActiveRecord::Base
     g2.save
     g4 = Goal.new :user_id => self.id, :goal_type_id => 1, :interval => 1, :target => get_steps(age)
     g4.save
-    g5 = Goal.new :user_id => self.id, :goal_type_id => 6, :interval => 1, :target => get_heart_rate(age)
+    g5 = Goal.new :user_id => self.id, :goal_type_id => 7, :interval => 1, :target => get_heart_rate(age)
     g5.save
   end
 
