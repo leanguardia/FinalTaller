@@ -28,8 +28,7 @@ class SleepsController < ApplicationController
 
   def awake
     @sleep = Sleep.find(params[:id])
-    @sleep.awaken_at=DateTime.now + 6.hours
-    @sleep.save
+    @sleep.awake()
     redirect_to('/sleeps')
   end
 
