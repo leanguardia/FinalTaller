@@ -4,18 +4,10 @@ class WorkoutsController < ApplicationController
   respond_to :html
 
   def index
-    #@active_wos = Workout.where(user_id:current_user.id , end:nil)
-    @workouts = Workout.where(user_id:current_user.id).reverse
-    @actives = Array.new #current workouts
-    @done = Array.new #Done workouts
-    @workouts.each do |workout|
-      if workout.end == nil
-        @actives << workout
-      else
-        @done << workout
-      end
-    end
-    #respond_with(@workouts)
+
+    @actives = Workout.where(:user_id=>current_user.id , :end=>nil)
+    @done = Workout.find_by_sql("SELECT * FROM workouts WHERE user_id=#{current_user.id } and end")
+
   end
 
   def show

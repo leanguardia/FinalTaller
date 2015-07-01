@@ -23,15 +23,13 @@
     </thead>
 
     <tbody>
-      <% @workouts.each do |workout| %>
+      <% @actives.each do |workout| %>
         <tr>
-          <% if workout.end == nil %>
             <td><%= workout.workout_type.typename %></td>
             <td><%= workout.name %></td>
             <td><%= workout.start %></td>
             <td><%= link_to 'Details', workout , :class=>"btn bg-yellow"%></td>
             <td><a class="btn bg-red "href="workout/finish/<%=workout.id%>">Stop Exercise</a></td>
-          <% end %>
         </tr>
       <% end %>
     </tbody>
@@ -60,8 +58,7 @@
       </thead>
 
       <tbody>
-        <% @workouts.each do |workout| %>
-          <% if workout.end != nil %>
+        <% @done.each do |workout| %>
             <tr>
               <td><%= workout.workout_type.typename %></td>
               <td><%= workout.name %></td>
@@ -77,7 +74,6 @@
 
               <td><%= link_to 'Details', workout , :class=>"btn bg-yellow"%></td>
             </tr>
-          <% end %>
         <% end %>
       </tbody>
     </table>
