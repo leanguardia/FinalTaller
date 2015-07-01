@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   resources :band_types
 
-  root  'static_pages#home'
+  get '' => 'static_pages#home'
   get 'users/edit/:id' => 'users#edit', :as => :edit_current_user
   get 'users/new' => 'users#new', :as => :signup
   get 'logout' => 'sessions#destroy', :as => :logout
