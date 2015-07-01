@@ -7,7 +7,7 @@ puts 'Desired user id'
 user = gets.chomp
 puts 'Desired band id'
 band = gets.chomp
-puts 'Desired workout id (0 for none)'
+# puts 'Desired workout id (0 for none)'
 # workout = 0
 # workout = gets.chomp
 # if workout == 0
