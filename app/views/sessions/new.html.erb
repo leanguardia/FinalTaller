@@ -3,6 +3,11 @@
   <div class="col-xs-1 col-lg-1"></div>   
     <div class="col-xs-4 col-lg-4">
       <h2>Login </h2><br>
+      <div class="flashes">
+        <% if flash[:danger] -%>
+            <p style="color:red;"><%= flash[:danger] %></p>
+        <% end -%>
+      </div>
       <%= form_tag sessions_path do %>
         <form role="form">
           <div class="form-group">
