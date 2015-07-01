@@ -1,5 +1,7 @@
 == README
 
+::GENERADOR DE DATOS
+
 Para generar datos de la banda a la aplicacion ir a a la carpeta generator y correr el archivo generator.rb.
 El generador le pedira:
 * User id
@@ -10,3 +12,8 @@ El generador le pedira:
 Si se quiere mandar datos a la applicacion en heroku modificar el archivo generator.rb,
 hay dos lineas donde se configura el url al que se hara el request commentar la linea con el
 url no deseado y correr el archivo generator.rb.
+
+
+::WORKOUT
+
+El nombre del workout no es un campo obligatorio, un workout puede no tener nombre
