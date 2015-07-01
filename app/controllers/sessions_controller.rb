@@ -31,6 +31,6 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     flash[:danger] = "Your session has been closed"
-    redirect_to root_url
+    redirect_to '/'
   end
 end

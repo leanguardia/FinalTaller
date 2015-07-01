@@ -1,21 +1,18 @@
 class StaticPagesController < ApplicationController
 
   def dashboard
-    if current_user
-      @form = Date.today
-      @to = Date.today
-      if !params[:from]
-        @band_data = User.find(current_user.id).band_data
-      else
-        @from = Date.new(params[:from][:year].to_i,params[:from][:month].to_i,params[:from][:day].to_i)
-        @to = Date.new(params[:to][:year].to_i, params[:to][:month].to_i, params[:to][:day].to_i)
-        @band_data = BandDatum.where(:user_id=>current_user.id,:date_sent=> @from.beginning_of_day..@to.end_of_day)
-        #@band_data = User.find(current_user.id).band_data
-      end
-      @vars= [@band_data,@from,@to]
+    @form = Date.today
+    @to = Date.today
+    desde = params[:from]
+    hasta = params[:to]
+    if !desde
+      @band_data = User.find(current_user.id).band_data
     else
-      redirect_to '/'
+      @from = Date.new(desde[:year].to_i,desde[:month].to_i,desde[:day].to_i)
+      @to = Date.new(hasta[:year].to_i, hasta[:month].to_i, hasta[:day].to_i)
+      @band_data = BandDatum.where(:user_id=>current_user.id,:date_sent=> @from.beginning_of_day..@to.end_of_day)
     end
+    @vars= [@band_data,@from,@to]
   end
 
   def share
