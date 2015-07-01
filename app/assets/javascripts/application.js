@@ -32,7 +32,8 @@ $(document).ready(function () {
         "Distance covered":"bg-purple",
         "Weight decrease":"bg-teal",
         "Weight increase":"bg-aqua",
-        "Heart Rate":"bg-red"
+        "Heart Rate":"bg-red",
+        "Sleep Quality":"bg-olive"
     };
     $(".box-title").each(function (){
         $(this).parent().addClass(colorObject[$(this).html()]);

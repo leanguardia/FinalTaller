@@ -25,7 +25,7 @@ longitude = -66.162296
 interval = 0.000205
 
 #data = {'band_datum[user_id]' => user, 'band_datum[band_id]' => band, 'band_datum[date_sent]' => date, 'band_datum[steps_taken]' => 666, 'band_datum[calories_burnt]' => 666, 'band_datum[heart_rate_pminute]' => 666, 'band_datum[latitude]' => start_latitude, 'band_datum[longitude]' => longitude}
-data = data = {'band_datum[user_id]' => user, 'band_datum[band_id]' => band,'band_datum[workout_id]' => workout, 'band_datum[date_sent]' => date, 'band_datum[steps_taken]' => 666, 'band_datum[calories_burnt]' => 666, 'band_datum[heart_rate_pminute]' => 666, 'band_datum[latitude]' => start_latitude, 'band_datum[longitude]' => longitude}
+data = data = {'band_datum[user_id]' => user, 'band_datum[band_id]' => band,'band_datum[workout_id]' => workout, 'band_datum[date_sent]' => date, 'band_datum[steps_taken]' => 666, 'band_datum[calories_burnt]' => 666, 'band_datum[heart_rate_pminute]' => 666, 'band_datum[latitude]' => start_latitude, 'band_datum[longitude]' => longitude, 'band_datum[sleep_quality]'=>3}
 
 #cambiar destino de los datos
 uri = URI.parse('http://127.0.0.1:3000/band_data.json')
@@ -48,6 +48,7 @@ loop do
   data['band_datum[calories_burnt]'] = data['band_datum[steps_taken]'] /2 + rand(50)
   data['band_datum[heart_rate_pminute]'] = 30 + rand(200)
   data['band_datum[longitude]'] += interval
+  data['band_datum[sleep_quality]'] = rand(100)
 
   pp(data)
   puts

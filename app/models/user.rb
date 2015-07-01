@@ -159,6 +159,22 @@ class User < ActiveRecord::Base
     target_value/2
   end
 
+  def get_sleep_quality (age)
+    case age
+      when 0..14
+        target_value = 80
+      when 15..50
+        target_value = 70
+      else
+        target_value = 75
+    end
+
+    if self.sex=='Female'
+      target_value+=5
+    end
+    target_value
+  end
+
 
   def create_goals
     age = get_age
@@ -180,6 +196,8 @@ class User < ActiveRecord::Base
     g4.save
     g5 = Goal.new :user_id => self.id, :goal_type_id => 7, :interval => 1, :target => get_heart_rate(age)
     g5.save
+    g6 = Goal.new :user_id => self.id, :goal_type_id => 8, :interval => 1, :target => get_sleep_quality(age)
+    g6.save
   end
 
   def get_max_normal_hr

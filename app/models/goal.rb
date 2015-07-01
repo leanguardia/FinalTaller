@@ -80,6 +80,10 @@ class Goal < ActiveRecord::Base
     end
   end
 
+  def get_band_data
+    @data = BandDatum.where(:user_id=>self.user_id,:date_sent=> self.created_at.beginning_of_day..self.created_at.end_of_day)
+  end
+
   def set_values
     self.reached = 0
     self.start_date = Time.zone.now
@@ -100,5 +104,19 @@ class Goal < ActiveRecord::Base
       else
         self.interval = 1
     end
+  end
+
+  def update_sleep_quality
+    avg = 0
+    data = BandDatum.where(:user_id=>self.user_id,:date_sent=> self.created_at.beginning_of_day..self.created_at.end_of_day)
+    data.each do |datum|
+      avg += datum[:sleep_quality]
+    end
+    avg/=data.count
+    self.update(reached: avg)
+  end
+
+  def get_time_now
+    DateTime.now    
   end
 end

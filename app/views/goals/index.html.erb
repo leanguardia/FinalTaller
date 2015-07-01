@@ -10,8 +10,10 @@
         <div class="box box-solid goal-box">
           <div class="box-header">
             <h2 class="box-title"><%= goal.goal_type.typename %></h2>
-            <% if goal.goal_type.id < 5 && goal.reached >= goal.target %>
-                <div class="fb-share-button" data-href="http://binaryband.herokuapp.com/share/<%= goal.id %>" data-layout="button"></div>
+            <% if (goal.goal_type.id < 5 || goal.goal_type.id == 8) && goal.reached >= goal.target %>
+                <div class="fb-share-button" data-href="http://binaryband.herokuapp.com/share/<%= goal.id %>" data-layout="button">
+                </div>
+
             <% end %>
           </div><!-- /.box-header -->
           <div class="box-body">
@@ -30,6 +32,10 @@
                 <a href="/goal/history/<%= goal.id %>" class="btn bg-teal goal-btn">Goal history</a><br><br>
               </div>
             </div><!-- buttons div -->
+            <br>
+             <%if goal.reached >= goal.target %>
+                <h2 style="color:red;">You've done it</h2>
+              <%end%>
           </div><!-- /.box-body -->
         </div>
         <div class="col-xs-1">&nbsp;</div>

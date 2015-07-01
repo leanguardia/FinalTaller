@@ -29,21 +29,64 @@
             </div>
           </td>
         </tr>
-        <% if @goal.goal_type.id < 5%>
-            <tr>
-              <td>Progress so far</td>
-              <td><%= (sprintf "%.2f", @goal.reached) +" " + @goal.goal_type.unit_measured %></td>
-              <td><span class="badge percentage"><%= (sprintf "%.0f", @percentage) %>%</span><% if @percentage > 99 %> <div class="fb-share-button" data-href="http://binaryband.herokuapp.com/share/<%= @goal.id %>" data-layout="button"></div> <% end %></td>
-              <td>
-                <div class="progress progress-xs">
-                  <div class="progress-bar percentage" style="width: <%= (sprintf "%.0f", @percentage) %>%"></div>
-                </div>
-              </td>
-            </tr>
-        <% end %>
+         <tr>
+          <td colspan="3">Reached</td>
+          <td colspan="3">
+            <div>
+              <%= (sprintf "%.2f", @goal.reached) +" " + @goal.goal_type.unit_measured %>
+            </div>
+          </td>
+        </tr>
+        <%if @goal.reached >= @goal.target %>
+          <tr>
+            <td colspan="3">CONGRATULATIONS</td>
+            <td colspan="3">
+              <div>
+                <p>You've made it!</p>
+              </div>
+            </td>
+          </tr>
+        <%end%>
       </table>
     </div><!-- /.box-body -->
   </div>
+
+  <%if @goal.goal_type.id==8 %>
+
+  <%= form_tag goal_path, :method => 'get' do %>
+      
+        <%= time_select "from","",:prefix=>'from'  %>
+        <br/> <br/>
+        
+        <%= time_select "to", "" %>
+        <br/> <br/>
+
+        <%= submit_tag "Send", :name => nil, :class=> 'btn btn-default' %>
+    <%end %>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Moment</th>
+          <th>Sleep Quality</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @goal.get_band_data.each do |band_datum| %>
+          <tr>
+              <td><%= band_datum.date_sent %></td>
+              <td><%= band_datum.sleep_quality %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  <br><br>
+
+   <h2>Sleep Quality Chart</h2>
+        <%= line_chart @goal.get_band_data.group_by_minute(:date_sent, 'avg', 'sleep_quality'), library: {backgroundColor: '#f9f9f9', lineWidth: 5, legend: 'none'} %>
+  <% end %>
 
   <%= link_to 'Back', goals_path, {class: "btn btn-default"} %>
 </div>

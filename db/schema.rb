@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150608023234) do
+ActiveRecord::Schema.define(version: 20150701173436) do
 
   create_table "alarms", force: true do |t|
     t.integer  "user_id"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20150608023234) do
     t.float    "latitude"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "sleep_quality"
   end
 
   add_index "band_data", ["band_id"], name: "index_band_data_on_band_id"

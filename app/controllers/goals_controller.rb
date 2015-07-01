@@ -8,6 +8,9 @@ class GoalsController < ApplicationController
       @goals = User.find(current_user.id).goals
       @goals.each do |goal|
         Goal.calculate_measure(current_user.id, goal)
+        if goal.goal_type.id == 8
+          goal.update_sleep_quality
+        end
       end
       respond_with(@goals)
     else
@@ -16,7 +19,6 @@ class GoalsController < ApplicationController
   end
 
   def show
-    @percentage = (@goal.reached * 100)/ @goal.target
     respond_with(@goal)
   end
 

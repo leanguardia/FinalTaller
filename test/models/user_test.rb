@@ -78,4 +78,10 @@ class UserTest < ActiveSupport::TestCase
       User.all.first.convert_values_of_days(num)
     end
   end
+
+  test "should return a target_value for quality sleep" do
+   
+    assert User.authenticate("user@gmail.com", "123456")
+  end
+
 end
