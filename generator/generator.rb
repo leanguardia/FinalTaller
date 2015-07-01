@@ -7,12 +7,12 @@ puts 'Desired user id'
 user = gets.chomp
 puts 'Desired band id'
 band = gets.chomp
-# puts 'Desired workout id (0 for none)'
-# workout = 0
-# workout = gets.chomp
-# if workout == 0
-#   workout = nil
-# end
+ puts 'Desired workout id (0 for none)'
+ workout = 0
+ workout = gets.chomp
+ if workout == 0
+   workout = nil
+ end
 puts 'Start year'
 year = gets.chomp
 puts 'Start month'
@@ -24,8 +24,8 @@ start_latitude = -17.378993
 longitude = -66.162296
 interval = 0.000205
 
-data = {'band_datum[user_id]' => user, 'band_datum[band_id]' => band, 'band_datum[date_sent]' => date, 'band_datum[steps_taken]' => 666, 'band_datum[calories_burnt]' => 666, 'band_datum[heart_rate_pminute]' => 666, 'band_datum[latitude]' => start_latitude, 'band_datum[longitude]' => longitude}
-
+#data = {'band_datum[user_id]' => user, 'band_datum[band_id]' => band, 'band_datum[date_sent]' => date, 'band_datum[steps_taken]' => 666, 'band_datum[calories_burnt]' => 666, 'band_datum[heart_rate_pminute]' => 666, 'band_datum[latitude]' => start_latitude, 'band_datum[longitude]' => longitude}
+data = data = {'band_datum[user_id]' => user, 'band_datum[band_id]' => band,'band_datum[workout_id]' => workout, 'band_datum[date_sent]' => date, 'band_datum[steps_taken]' => 666, 'band_datum[calories_burnt]' => 666, 'band_datum[heart_rate_pminute]' => 666, 'band_datum[latitude]' => start_latitude, 'band_datum[longitude]' => longitude}
 
 #cambiar destino de los datos
 uri = URI.parse('http://127.0.0.1:3000/band_data.json')

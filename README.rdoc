@@ -9,6 +9,9 @@ El generador le pedira:
 * Workout id (opcional)
 * Año, mes, dia
 
+Si se quiere ver resultados de un workout se debe ingresar su id (workout_id)
+Este workout debe estar activo (solamente se creó, no se presionó en finish workout, el campo end está vacío)
+
 Si se quiere mandar datos a la applicacion en heroku modificar el archivo generator.rb,
 hay dos lineas donde se configura el url al que se hara el request commentar la linea con el
 url no deseado y correr el archivo generator.rb.
