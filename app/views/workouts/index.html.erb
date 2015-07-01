@@ -4,7 +4,7 @@
 
     <br><br>
 
-    <td><%= link_to 'New Workout', new_workout_path , :class=>"bton btn-blue"%></td>
+    <td><%= link_to 'New Workout', new_workout_path , :class=>"btn bg-blue"%></td>
 
 <br><br><br>
 <h2>Active Workouts</h2>
@@ -29,8 +29,8 @@
             <td><%= workout.workout_type.typename %></td>
             <td><%= workout.name %></td>
             <td><%= workout.start %></td>
-            <td><%= link_to 'Details', workout , :class=>"bton btn-yellow"%></td>
-            <td><a class="bton btn-red "href="workout/finish/<%=workout.id%>">Stop Exercise</a></td>
+            <td><%= link_to 'Details', workout , :class=>"btn bg-yellow"%></td>
+            <td><a class="btn bg-red "href="workout/finish/<%=workout.id%>">Stop Exercise</a></td>
           <% end %>
         </tr>
       <% end %>
@@ -75,7 +75,7 @@
                   <td>N/A</td>
               <%end%>
 
-              <td><%= link_to 'Details', workout , :class=>"bton btn-yellow"%></td>
+              <td><%= link_to 'Details', workout , :class=>"btn bg-yellow"%></td>
             </tr>
           <% end %>
         <% end %>
