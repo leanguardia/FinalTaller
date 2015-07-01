@@ -136,27 +136,27 @@ class User < ActiveRecord::Base
   def get_heart_rate(age)
     case age
       when 0..20
-        target_value = (100+170)/2
+        target_value = (100+170)
       when 21..30
-        target_value = (95+162)/2
+        target_value = (95+162)
       when 31..35
-        target_value = (93+157)/2
+        target_value = (93+157)
       when 36..40
-        target_value = (90+153)/2
+        target_value = (90+153)
       when 41..45
-        target_value = (88+149)/2
+        target_value = (88+149)
       when 46..50
-        target_value = (85+145)/2
+        target_value = (85+145)
       when 51..55
-        target_value = (83+140)/2
+        target_value = (83+140)
       when 56..60
-        target_value = (80+136)/2
+        target_value = (80+136)
       when 61..65
-        target_value = (78+132)/2
+        target_value = (78+132)
       else
-        target_value = (75+128)/2
+        target_value = (75+128)
     end
-    target_value
+    target_value/2
   end
 
 
