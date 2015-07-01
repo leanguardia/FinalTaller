@@ -182,6 +182,38 @@ class User < ActiveRecord::Base
     g5.save
   end
 
+  def get_max_normal_hr
+    case self.get_age
+      when 0..20
+        max = 200
+      when 21..30
+        max = 190
+      when 31..35
+        max = 185
+      when 36..40
+        max = 180
+      when 41..45
+        max = 175
+      when 46..50
+        max = 170
+      when 51..55
+        max = 165
+      when 56..60
+        max = 160
+      when 61..65
+        max = 155
+      else
+        max = 150
+    end
+    max
+  end
+
+  def get_overwhelmed_data
+    max_hr_permitted= self.get_max_normal_hr
+    @data= self.band_data.where("heart_rate_pminute > ?",max_hr_permitted)
+    @data
+  end
+
   def self.authenticate(login, pass)
     user = find_by_email(login)
     return user if user && user.password_hash == user.encrypt_password(pass)

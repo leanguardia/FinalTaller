@@ -39,12 +39,44 @@
   </a>
 </div>
 
+   <% if current_user %>
+      <% if current_user.get_overwhelmed_data.count>0 %>
+        <div class="container " >
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <div class="box box-danger box-solid">
+                <div class="box-header with-border">
+                    <center><h3 class="box-title">Keep Calm!  <strong>Max h.r. <%= current_user.get_max_normal_hr %></strong></h3></center>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  </div>
+                </div>
+
+                    <div class="box-body">
+                      <center>
+                        <% current_user.get_overwhelmed_data.each do |band_datum|%>
+                              <strong>Date: </strong>
+                              <%= band_datum.date_sent %>
+                              <br/>
+                              <strong>H.R.: </strong>
+                              <%= band_datum.heart_rate_pminute %>
+                              <br/><br/>
+                        <%end%>
+                      </center>
+                    </div>
+              </div>
+            </div>
+        </div>
+      <%end%>
+   <%end%>
+
 <br>
 <center><img class="separator" src="/Images/Icons/rate.png"></center>
 <br>
 
 <div class="container">
  <div class="jumbotron">
+
   <h1>Introducing the Binary-Band</h1>
   <br>
     <div class="row">
