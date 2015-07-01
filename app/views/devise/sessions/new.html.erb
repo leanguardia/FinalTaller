@@ -32,10 +32,10 @@
                   <div class="actions" >
                     <div align="right">
                       <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>  
-                        <%= link_to "Forgot your password?", new_password_path(resource_name), :class => 'btn btn-yellow' %>
+                        <%= link_to "Forgot your password?", new_password_path(resource_name), :class => 'btn bg-yellow' %>
                       <% end -%>
                        &nbsp;&nbsp;
-                      <%= f.submit "Log in", :class => 'btn btn-green' %>
+                      <%= f.submit "Log in", :class => 'btn bg-green' %>
                     </div>                
                   </div>  
               <% end %>
@@ -58,10 +58,10 @@
 
               <p>Botones: </p>
               <%= link_to "Normal", "/users/sign_in", :class => 'btn btn-normal' %> 
-              <%= link_to "Green", "/users/sign_in", :class => 'btn btn-green' %> 
-              <%= link_to "Red", "/users/sign_in", :class => 'btn btn-red' %> 
-              <%= link_to "Yellow", "/users/sign_in", :class => 'btn btn-yellow' %> 
-              <%= link_to "Blue", "/users/sign_in", :class => 'btn btn-blue' %>
+              <%= link_to "Green", "/users/sign_in", :class => 'btn bg-green' %>
+              <%= link_to "Red", "/users/sign_in", :class => 'btn bg-red' %>
+              <%= link_to "Yellow", "/users/sign_in", :class => 'btn bg-yellow' %>
+              <%= link_to "Blue", "/users/sign_in", :class => 'btn bg-blue' %>
 
         <br>
         <br>
