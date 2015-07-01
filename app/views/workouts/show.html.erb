@@ -51,13 +51,16 @@
       <div class="container">
         <br/>
         <h2>Steps chart</h2>
-        <%= line_chart @workout.band_datums.group_by_minute(:date_sent, 'avg', 'steps_taken') %>
+        <%= line_chart @workout.band_datums.group_by_minute(:date_sent, 'avg', 'steps_taken'), library: {backgroundColor: '#f9f9f9', lineWidth: 5, legend: 'none'} %>
         <br/>
         <br/>
         <h2>Calories burned</h2>
-        <%= line_chart @workout.band_datums.group_by_minute(:date_sent, 'avg', 'calories_burnt') %>
+        <%= line_chart @workout.band_datums.group_by_minute(:date_sent, 'avg', 'calories_burnt'), library: {backgroundColor: '#f9f9f9', lineWidth: 5, legend: 'none'} %>
         <br/>
         <br/>
+        <h2>Heart rate</h2>
+        <%= line_chart @workout.band_datums.group_by_minute(:date_sent, 'sum', 'heart_rate_pminute'), library: {backgroundColor: '#f9f9f9', lineWidth: 5, legend: 'none'} %>
+
       </div>
   <%end%>
 
@@ -82,21 +85,6 @@
 
     <br>
     <br>
-
-
-    <div class="box box-solid" style="background-color: #819FF7">
-    <div class="box-header ui-sortable-handle bg-blue" style="cursor: move;">
-      <h3 class="box-title" style="color: white">Heart Rate</h3>
-      <div class="box-tools pull-right">
-        <button class="btn bg-blue btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
-      </div>
-    </div>
-    <div class="box-body border-radius-none">
-      <div class="morris-hover-point" style="color: #efefef">
-        <%= line_chart @workout.band_datums.group_by_minute(:date_sent, 'sum', 'heart_rate_pminute'), library: {backgroundColor: '#819FF7', lineWidth: 5, legend: 'none', series: {0 => {color: 'white'}}} %>
-      </div>
-    </div>
-  </div>
 
 
   <%end%>
